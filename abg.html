@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Allied Beverage Group Internship — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .abg-hero { background: linear-gradient(135deg, #4a3728 0%, #6b4c35 100%); }
+    .abg-hero h1, .abg-hero .subtitle { color: #faf6f0; }
+    .abg-hero .cs-tag { border-color: var(--rose); color: var(--rose); }
+    .abg-hero .cs-meta-item label { color: #c4a882; opacity: 0.7; }
+    .abg-hero .cs-meta-item span { color: #faf6f0; }
+    .abg-hero::after { display: none; }
+    .abg-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
+
+    /* Sub-project tabs */
+    .subproject-nav {
+      display: flex; gap: 0;
+      border-bottom: 2px solid var(--linen);
+      margin-bottom: 48px;
+    }
+    .subproject-nav a {
+      padding: 14px 24px;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; color: var(--muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .subproject-nav a:hover { color: var(--espresso); }
+    .subproject-nav a.active { color: var(--espresso); border-bottom-color: var(--espresso); }
+
+    .subproject-section { margin-bottom: 80px; }
+    .subproject-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--muted); margin-bottom: 8px;
+    }
+
+    .finding-card {
+      background: var(--warm-white); border: 1px solid var(--linen);
+      border-radius: 6px; padding: 24px; margin-bottom: 16px;
+    }
+    .finding-card h4 { margin-bottom: 8px; font-size: 1.05rem; }
+    .finding-card p { font-size: 14px; color: var(--ink); margin: 0; }
+    .finding-highlight {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-style: italic;
+      color: var(--espresso); border-left: 3px solid var(--rose-dark);
+      padding-left: 20px; margin: 24px 0;
+    }
+
+    .photo-grid-3 {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0;
+    }
+    .photo-grid-3 img { width: 100%; border-radius: 6px; border: 1px solid var(--linen); aspect-ratio: 4/3; object-fit: cover; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero abg-hero">
+  <div class="abg-hero-inner">
+    <span class="cs-tag">CX Internship · Data Analytics · UX Research · Summer 2025</span>
+    <h1>Allied Beverage Group</h1>
+    <p class="subtitle">Three customer experience projects over one summer: a delivery exception analytics dashboard, a Salesforce CRM scorecard for 1,000+ accounts, and a brand design sprint for a $1M+ product launch.</p>
+    <div class="cs-meta" style="margin-top:32px;">
+      <div class="cs-meta-item"><label>My Role</label><span>Customer Experience Intern</span></div>
+      <div class="cs-meta-item"><label>Timeline</label><span>June – August 2025</span></div>
+      <div class="cs-meta-item"><label>Company</label><span>Allied Beverage Group, NJ</span></div>
+      <div class="cs-meta-item"><label>Projects</label><span>3 parallel workstreams</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cs-body">
+
+  <div class="subproject-nav">
+    <a href="#diver" class="active">01 · Diver Dashboard</a>
+    <a href="#salesforce">02 · Salesforce CX</a>
+    <a href="#artet">03 · Artet Brand Launch</a>
+  </div>
+
+  <!-- ── PROJECT 1: DIVER DASHBOARD ── -->
+  <div class="subproject-section" id="diver">
+    <p class="subproject-label">Project 01</p>
+    <h2>Diver Delivery Exception Dashboard</h2>
+    <p>Allied Beverage had a delivery exception problem. Hundreds of exceptions — missed deliveries, wrong quantities, wrong items — were being logged daily with no centralized way to spot patterns, assign accountability, or predict which accounts were likely to escalate.</p>
+
+    <div class="cs-divider"></div>
+
+    <p class="cs-section-label">The Design</p>
+    <h3>Heatmap tiles. Color-coded alerts. Projected impact.</h3>
+    <p>I designed a dashboard in Diver (Allied's analytics platform) using heatmap tiles organized by territory and account. Color-coded alerts flagged exceptions by severity and recurrence. The key innovation: a projected monthly savings calculation tied to exception resolution rate.</p>
+
+    <div class="finding-highlight">
+      Projected savings from improved exception resolution: <strong>$20,000+/month</strong>.
+    </div>
+
+    <p>The dashboard made a previously invisible problem visible. What had been a reactive process — handling complaints as they came in — became a proactive one: account managers could see which territories were trending toward exceptions before they escalated.</p>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <span class="num">$20K+</span>
+        <span class="label">Projected Monthly Savings</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">Heatmap</span>
+        <span class="label">Tile-Based Visual Model</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">Territory</span>
+        <span class="label">Level Accountability</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROJECT 2: SALESFORCE CX ── -->
+  <div class="subproject-section" id="salesforce">
+    <p class="subproject-label">Project 02</p>
+    <h2>Salesforce CX Scorecard Dashboard</h2>
+    <p>Allied Beverage serves 1,000+ accounts across New Jersey. No single view existed for leadership to assess customer health at a glance. Sales, fulfillment, billing, and logistics data lived in separate systems — no one had the full picture.</p>
+
+    <div class="cs-divider"></div>
+
+    <p class="cs-section-label">Research</p>
+    <h3>Talking to every department</h3>
+    <p>I spent the first two weeks conducting stakeholder interviews across Revenue, Fill Rate, On-Time Delivery, and Invoice Discrepancy teams. Each department had different definitions of "customer health." My job: find the shared signal.</p>
+    <p>The result: a four-metric scorecard per account — Revenue trend, Fill Rate, On-Time Delivery %, and Invoice Discrepancy rate — surfaced in Salesforce CRM so sales reps could see it during account calls.</p>
+
+    <img src="img/abg-salesforce.jpg" alt="Salesforce CX Dashboard live on screen" class="cs-image"/>
+    <p class="cs-image-caption">The Salesforce CX Dashboard live in the CRM — a customer scorecard surfacing four health metrics per account.</p>
+
+    <p class="cs-section-label">Impact</p>
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <span class="num">1,000+</span>
+        <span class="label">Accounts Tracked</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">4</span>
+        <span class="label">Depts Consolidated</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">CRM</span>
+        <span class="label">Native Integration</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROJECT 3: ARTET ── -->
+  <div class="subproject-section" id="artet">
+    <p class="subproject-label">Project 03</p>
+    <h2>Artet — Bar Cart Brand Launch</h2>
+    <p>Allied Beverage was launching Artet, a premium bar cart brand, into the NJ market. The projected launch value: $1M+. My role: UX research and customer insight to support the brand design sprint and launch strategy.</p>
+
+    <div class="cs-divider"></div>
+
+    <p class="cs-section-label">Research</p>
+    <h3>Customer Complaint Analysis — 68 Cases</h3>
+    <p>I analyzed 68 customer complaint cases to understand what resolution patterns drove revenue retention vs. revenue loss. The finding was counterintuitive:</p>
+
+    <div class="finding-highlight">
+      Fulfilled complaint requests averaged <strong>−2.94% revenue impact</strong>. Unfulfilled complaints: <strong>−25.23%</strong>. Resolution speed mattered. What customers asked for, mattered more.
+    </div>
+
+    <p>This research directly informed Artet's customer service playbook and improved complaint resolution efficiency by 18%. The insight: it's almost always cheaper to fulfill a complaint request than to lose the account.</p>
+
+    <div class="photo-grid-3">
+      <img src="img/artet-1.jpg" alt="Artet bar cart presentation"/>
+      <img src="img/artet-2.jpg" alt="Artet product display"/>
+      <img src="img/artet-3.jpg" alt="Artet brand launch event"/>
+    </div>
+    <p class="cs-image-caption">Artet brand launch presentation — Allied Beverage's premium bar cart entering the NJ market.</p>
+
+    <img src="img/artet-team.jpg" alt="Artet team photo" class="cs-image"/>
+    <p class="cs-image-caption">The Artet launch team.</p>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <span class="num">68</span>
+        <span class="label">Cases Analyzed</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">18%</span>
+        <span class="label">Resolution Efficiency Gain</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">$1M+</span>
+        <span class="label">Product Launch Value</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Reflection</p>
+    <h2>What This Internship Taught Me</h2>
+    <p>Three parallel projects in 10 weeks is a lot. What I learned: prioritize by stakeholder impact, not by what interests you most. The Diver Dashboard was technically interesting; the complaint analysis was the one leadership cited in my final review.</p>
+    <p>I also learned that dashboards are political objects, not just design objects. Every data point you surface belongs to someone's team and affects someone's performance review. Good dashboard design means understanding that context — and designing for the stakeholder who needs the truth, not the one who controls the data.</p>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
+    <a href="beacon.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← Beacon</a>
+    <a href="pawfect.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Next: Pawfect Pets →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll to anchor on nav click
+  document.querySelectorAll('.subproject-nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      document.querySelectorAll('.subproject-nav a').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  // Highlight active section on scroll
+  const sections = document.querySelectorAll('.subproject-section');
+  const navLinks = document.querySelectorAll('.subproject-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+  });
+</script>
+
+</body>
+</html>

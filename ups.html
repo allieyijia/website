@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UPS Capacity Analytics — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .ups-hero { background: #1a1a2e; }
+    .ups-hero h1, .ups-hero .subtitle { color: #e8ddd3; }
+    .ups-hero .cs-tag { border-color: #c4a882; color: #c4a882; }
+    .ups-hero .cs-meta-item label { color: #9b8070; }
+    .ups-hero .cs-meta-item span { color: #e8ddd3; }
+    .ups-hero::after { display: none; }
+    .ups-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
+    .dark-stripe { background: #f5f0e8; border-left: 4px solid #4a3728; padding: 24px 28px; margin: 24px 0; border-radius: 0 6px 6px 0; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero ups-hero">
+  <div class="ups-hero-inner">
+    <span class="cs-tag">UX Engineering · Enterprise · 2026</span>
+    <h1>UPS Capacity Analytics Platform</h1>
+    <p class="subtitle">Designing and building a production analytics platform that lets infrastructure engineers model capacity across 1,100+ UPS sites — so they can make confident decisions before costs spiral.</p>
+    <div class="cs-meta" style="margin-top:32px;">
+      <div class="cs-meta-item"><label>My Role</label><span>Frontend UI/UX Engineer</span></div>
+      <div class="cs-meta-item"><label>Timeline</label><span>Feb 2026 – Present</span></div>
+      <div class="cs-meta-item"><label>Team</label><span>5-person Agile team</span></div>
+      <div class="cs-meta-item"><label>Stack</label><span>Blazor / .NET / Figma</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cs-body">
+
+  <div class="cs-section">
+    <p class="cs-section-label">Context</p>
+    <h2>The Problem</h2>
+    <p>UPS infrastructure teams manage server clusters across more than 1,100 facilities worldwide. Capacity decisions — when to add resources, when to remove them, what happens if demand spikes — were being made manually, with spreadsheets and tribal knowledge. The stakes are high: under-provisioning means downtime; over-provisioning wastes millions.</p>
+    <p>I joined a 5-person Agile/Scrum team as the Frontend UI/UX engineer to design and build a web-based capacity analytics platform from scratch. My teammates: Mithil (PM), Lizeth (Associate PM), Junaid (Cloud/Systems), and Abhinav (Backend).</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Research</p>
+    <h2>Understanding the Users</h2>
+    <p>I built two personas to anchor design decisions throughout the project:</p>
+    <div class="dark-stripe">
+      <p><strong>Derek — Infrastructure Engineer.</strong> Day-to-day: monitoring cluster health, responding to alerts, executing capacity changes. He needs fast answers to specific questions: "Is there enough DASD headroom in Region 4 next quarter?"</p>
+    </div>
+    <div class="dark-stripe">
+      <p><strong>Priya — Platform Lead.</strong> Quarterly planning cycles, budget justification, executive reporting. She needs to model scenarios — "What if we move 20% of workloads to the new cluster?" — without touching a spreadsheet.</p>
+    </div>
+    <p>Both personas revealed the same core need: <em>actionable clarity from complex data</em>. The platform had to make analytical tasks that previously took hours feel like a 2-minute conversation with the data.</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Design Process</p>
+    <h2>From Wireframes to a Dark Enterprise UI</h2>
+    <p>I started with low-fidelity wireframes in Figma, testing navigation flow with the team. Early feedback clarified that the platform needed three distinct analytical modes — which became the three primary views in the final UI.</p>
+    <p>For the visual design, I chose a dark theme anchored in UPS's brand identity. Dark backgrounds reduce eye strain for engineers working long monitoring shifts, and high-contrast data visualizations read more clearly against dark surfaces.</p>
+    <img src="img/ups-home.png" alt="UPS Capacity Planner Home — fleet overview dashboard" class="cs-image"/>
+    <p class="cs-image-caption">The fleet overview dashboard — entry point to all capacity data across the cluster network.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature 1</p>
+    <h2>Addition Modeling</h2>
+    <p>The Addition Modeling view lets engineers specify what they want to add — CPU, Memory, or DASD — and instantly see the projected impact on cluster capacity. The interface includes configurable inputs and renders growth projections against current baseline.</p>
+    <div class="cs-image-grid">
+      <img src="img/ups-addition-empty.png" alt="Addition modeling — empty state"/>
+      <img src="img/ups-addition-results.png" alt="Addition modeling — with results and projection"/>
+    </div>
+    <p class="cs-image-caption">Left: the input state. Right: results rendered with growth projection overlay.</p>
+    <p>One key design decision: showing the "before" and "after" states side-by-side rather than replacing the input form. This lets engineers tweak parameters without losing context — a pattern I discovered was missing from their previous tooling.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature 2</p>
+    <h2>Removal Analytics</h2>
+    <p>The flip side of addition: engineers needed to model safe decommissions. What can be removed without putting the cluster below safe thresholds? This view surfaces at-risk resources and simulates the effect of removing specific components.</p>
+    <img src="img/ups-removal.png" alt="Capacity Remove Analytics view" class="cs-image"/>
+    <p class="cs-image-caption">Removal analytics — flagging resources that fall below safe thresholds after modeled decommission.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature 3</p>
+    <h2>What-If Analysis</h2>
+    <p>The most complex view: a multi-scenario simulation engine. Engineers can build hypothetical scenarios — "What if demand grows 30% AND we move 2 clusters offline?" — and see the projected outcome across CPU, Memory, and DASD simultaneously.</p>
+    <img src="img/ups-whatif.png" alt="What-If Analysis — multi-chart scenario view" class="cs-image"/>
+    <p class="cs-image-caption">What-If Analysis — the platform's most powerful view. Multiple charts update in tandem as scenario parameters change.</p>
+    <p>This view involved the most back-and-forth between design and backend engineering. Getting the chart updates to feel real-time (not laggy) required coordinating with Abhinav on data fetch timing — a great example of UX and engineering decisions being inseparable.</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Process</p>
+    <h2>5 Sprints in Jira</h2>
+    <p>The project ran on a formal Agile cadence: sprint planning, daily standups, backlog grooming, and retrospectives. I managed my own tickets in Jira and participated in all ceremonies as a full team member — not an intern or observer.</p>
+    <p>Each sprint ended with a demo to stakeholders. Having real UI to show (not just wireframes) changed the quality of feedback we received — stakeholders could react to actual interactions rather than imagined ones.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Reflection</p>
+    <h2>What I Learned</h2>
+    <p>Working in a production enterprise environment taught me things I couldn't have learned in a classroom. The biggest: <em>constraints are design inputs</em>. Every technical limitation — the data model, the API response time, the framework capabilities — shaped what was possible to design. Learning to work within those constraints, rather than around them, made me a better designer and a better collaborator.</p>
+    <p>I also learned that "good enough" wireframes shared early are worth ten perfect ones shared late. Some of my best design decisions came from a 10-minute conversation at a whiteboard, not from polished Figma files.</p>
+  </div>
+
+  <!-- NAV BETWEEN CASE STUDIES -->
+  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
+    <a href="ux.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← All Work</a>
+    <a href="beacon.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Next: Beacon →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+</body>
+</html>

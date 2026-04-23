@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savor / Cookin' Cubby — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .savor-hero { background: linear-gradient(135deg, #8b4513 0%, #c47a2b 100%); }
+    .savor-hero h1, .savor-hero .subtitle { color: #faf6f0; }
+    .savor-hero .cs-tag { border-color: #f4c97a; color: #f4c97a; }
+    .savor-hero .cs-meta-item label { color: rgba(244,201,122,0.6); }
+    .savor-hero .cs-meta-item span { color: #faf6f0; }
+    .savor-hero::after { display: none; }
+    .savor-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
+    .insight-box {
+      background: #fff8f0; border: 1px solid #e8c87a;
+      border-radius: 6px; padding: 28px; margin: 24px 0;
+    }
+    .insight-box .eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #c47a2b; margin-bottom: 12px;
+    }
+    .insight-box p { margin: 0; font-size: 15px; color: var(--espresso); }
+    .survey-stat { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--linen); }
+    .survey-stat .pct { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #c47a2b; min-width: 80px; }
+    .survey-stat .desc { font-size: 14px; color: var(--ink); }
+    .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin: 32px 0; }
+    .feature-row img { width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    @media(max-width:700px) { .feature-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero savor-hero">
+  <div class="savor-hero-inner">
+    <span class="cs-tag">Product Design · UX Research · Mobile App</span>
+    <h1>Savor / Cookin' Cubby</h1>
+    <p class="subtitle">A sustainable recipe app designed for college students — built around a key research insight: users don't care about food waste, they care about wasting money. Chef Cubby, an AI cooking assistant, brings it all together.</p>
+    <div class="cs-meta" style="margin-top:32px;">
+      <div class="cs-meta-item"><label>My Role</label><span>Design Lead</span></div>
+      <div class="cs-meta-item"><label>Target User</label><span>College students, $20–30/wk budget</span></div>
+      <div class="cs-meta-item"><label>Research</label><span>37 survey responses</span></div>
+      <div class="cs-meta-item"><label>Platform</label><span>Mobile App (iOS)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cs-body">
+
+  <div class="cs-section">
+    <p class="cs-section-label">The Problem</p>
+    <h2>College Students Waste Food — But Not for Reasons You'd Think</h2>
+    <p>Food waste apps tend to moralize. "Save the planet. Reduce waste." But that framing doesn't land for a 20-year-old living on $25/week. They're not indifferent to food waste — they just care about something more immediate: running out of money before the end of the month.</p>
+    <p>As design lead, I challenged the team to reframe our product around what users <em>actually</em> care about, not what we thought they should care about.</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Research</p>
+    <h2>37 Survey Responses. One Key Insight.</h2>
+    <p>I designed and fielded a 12-question survey targeting college students aged 20–24. 37 responses. Key findings:</p>
+
+    <div class="survey-stat">
+      <span class="pct">75.7%</span>
+      <span class="desc">of respondents said they would use a sustainable recipe app if it existed.</span>
+    </div>
+    <div class="survey-stat">
+      <span class="pct">81%</span>
+      <span class="desc">ranked "bookmark recipes" as their most-wanted feature.</span>
+    </div>
+    <div class="survey-stat">
+      <span class="pct">$20–30</span>
+      <span class="desc">was the dominant weekly food budget range — meaning cost-per-use matters for every meal.</span>
+    </div>
+
+    <div class="insight-box">
+      <p class="eyebrow">The Reframe</p>
+      <p>Users don't care about food waste in the abstract. They care about wasting <em>money</em>. Every design decision flowed from this: ingredient-first search (use what you have), barcode scanner (know what you're buying), grocery list integration (don't overbuy). Sustainability as a byproduct of frugality — not as a lecture.</p>
+    </div>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">App Design</p>
+    <h2>Core Features</h2>
+
+    <div class="feature-row">
+      <img src="img/savor-1.jpg" alt="Savor — home and recipe discovery"/>
+      <div>
+        <h3>Ingredient-First Search</h3>
+        <p>The core loop: enter what you have (or scan a barcode), get recipes that use those ingredients. No more buying specialty items for a single recipe, then watching them go bad.</p>
+        <p>Recipes are ranked by how many ingredients you already own — minimizing the shop and maximizing what's already in your fridge.</p>
+      </div>
+    </div>
+
+    <div class="feature-row" style="direction:rtl;">
+      <img src="img/savor-3.jpg" alt="Savor — Chef Cubby AI chatbot" style="direction:ltr;"/>
+      <div style="direction:ltr;">
+        <h3>Chef Cubby — AI Cooking Assistant</h3>
+        <p>Chef Cubby is the app's AI chatbot, designed around a friendly bear mascot. Ask Cubby anything: "What can I make with eggs, cheese, and leftover rice?" or "How do I make pasta from scratch?"</p>
+        <p>The conversational interface lowers the barrier to trying new recipes — especially for college students who don't have a culinary vocabulary yet.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <img src="img/savor-5.jpg" alt="Savor — community forum"/>
+      <div>
+        <h3>Community Forum</h3>
+        <p>Students sharing budget meal wins, recipe hacks, and cooking questions. The community feature makes the app sticky beyond the utility layer — it's where the brand lives and where retention happens.</p>
+      </div>
+    </div>
+
+    <div class="cs-image-grid">
+      <img src="img/savor-2.jpg" alt="Savor — grocery list integration"/>
+      <img src="img/savor-4.jpg" alt="Savor — bookmarked recipes"/>
+    </div>
+    <p class="cs-image-caption">Grocery list integration (left) and bookmarked recipes (right) — the two most-requested features from survey research.</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Visual Design</p>
+    <h2>Warm, Approachable, and Slightly Playful</h2>
+    <p>The yellow-orange palette was chosen to evoke warmth and appetite — the emotional register of a good meal, not a finance app. Rounded components and the Chef Cubby mascot give the app a personality that feels approachable for users who might feel intimidated by cooking.</p>
+    <p>Accessibility was a priority throughout: all color pairs meet AA contrast standards, and the type scale is generous enough for kitchen use (when your hands are messy, you don't want to squint at your phone).</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Reflection</p>
+    <h2>The Research Changed Everything</h2>
+    <p>Savor is the project where I most clearly felt the power of leading with research before design. The original concept was framed around sustainability. The research said: lead with money. Every feature we designed after that insight performed better in user testing because it resonated with what users actually cared about.</p>
+    <p>The lesson: good research doesn't just inform design — it rescues it from the designer's assumptions.</p>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
+    <a href="pawfect.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← Pawfect Pets</a>
+    <a href="ux.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">All Work →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Allie He — UX Designer & Engineer</title>
+  <meta name="description" content="UX Designer & Engineer specializing in data-driven products, dashboards, and AI-enabled tools. Based in NJ, open to NYC/NJ roles."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(120px, 18vw, 220px);
+      font-weight: 600;
+      color: rgba(196,168,130,0.08);
+      letter-spacing: -0.02em;
+      top: 50%;
+      right: -2%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--camel);
+      display: inline-block;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--espresso);
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--camel);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--ink);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--espresso);
+      color: var(--camel-light);
+      padding: 14px 32px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #5a4535; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid var(--camel);
+      color: var(--espresso);
+      padding: 13px 32px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { background: rgba(196,168,130,0.15); transform: translateY(-1px); }
+
+    /* Dotted route line decoration */
+    .route-line {
+      width: 100%;
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+    }
+    .route-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--camel);
+      flex-shrink: 0;
+    }
+    .route-dash {
+      flex: 1;
+      border-top: 2px dashed var(--linen);
+    }
+    .route-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 20px;
+      flex-shrink: 0;
+    }
+
+    /* Sticker */
+    .sticker {
+      position: absolute;
+      width: 100px;
+      transition: transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .sticker:hover { transform: rotate(var(--r, 8deg)) scale(1.12) !important; }
+
+    /* ── PROJECTS GRID ── */
+    .projects-section { padding: 0 48px 80px; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .section-header h2 { font-size: 2.2rem; }
+    .section-header a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .section-header a:hover { color: var(--espresso); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+    }
+    .project-featured { grid-column: span 7; }
+    .project-side { grid-column: span 5; }
+    .project-third { grid-column: span 4; }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      background: var(--espresso);
+      padding: 64px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-strip h2 {
+      color: var(--camel-light);
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+    .about-strip p {
+      color: rgba(255,253,248,0.75);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-strip .btn-camel {
+      display: inline-block;
+      border: 1.5px solid var(--camel);
+      color: var(--camel);
+      padding: 12px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .about-strip .btn-camel:hover { background: rgba(196,168,130,0.15); }
+    .about-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .skill-group label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--camel);
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .skill-group ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skill-group li {
+      color: rgba(255,253,248,0.8);
+      font-size: 13px;
+      padding: 3px 0;
+    }
+    .skill-group li::before { content: '→ '; color: var(--camel); opacity: 0.6; }
+
+    @media (max-width: 900px) {
+      .hero { padding: 60px 20px; }
+      .projects-section { padding: 0 20px 60px; }
+      .route-line { padding: 24px 20px; }
+      .project-featured, .project-side, .project-third { grid-column: span 12; }
+      .about-strip { grid-template-columns: 1fr; padding: 48px 20px; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">Journey</div>
+
+  <!-- Stickers -->
+  <img src="img/sticker-1.png" alt="" class="sticker" style="top:18%; right:26%; transform: rotate(-8deg); --r:-8deg; width:90px;">
+  <img src="img/sticker-4.png" alt="" class="sticker" style="bottom:22%; right:14%; transform: rotate(6deg); --r:6deg; width:80px;">
+  <img src="img/sticker-2.png" alt="" class="sticker" style="top:60%; right:36%; transform: rotate(-4deg); --r:-4deg; width:72px;">
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">UX Designer · Engineer · Researcher</p>
+    <h1>Designing <em>experiences</em> that make data feel human.</h1>
+    <p class="hero-desc">
+      Hi, I'm Allie — a senior at NJIT graduating May 2026. I specialize in data visualization, enterprise dashboards, and AI-enabled tools. Currently building capacity analytics infrastructure at UPS.
+    </p>
+    <div class="hero-cta">
+      <a href="ux.html" class="btn-primary">View My Work</a>
+      <a href="contact.html" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE DIVIDER -->
+<div class="route-line">
+  <div class="route-dot"></div>
+  <div class="route-dash"></div>
+  <span class="route-label">Selected Projects</span>
+  <div class="route-dash"></div>
+  <div class="route-dot"></div>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects-section">
+  <div class="section-header">
+    <h2>Recent Work</h2>
+    <a href="ux.html">See all →</a>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Featured: UPS -->
+    <div class="project-featured">
+      <a href="ups.html" class="postcard">
+        <img src="img/ups-home.png" alt="UPS Capacity Analytics Dashboard" class="postcard-img"/>
+        <div class="postcard-body">
+          <div class="postcard-stamp">📦</div>
+          <p class="postcard-type">UX Engineering · Enterprise</p>
+          <h3 class="postcard-title">UPS Capacity Analytics Platform</h3>
+          <p class="postcard-desc">End-to-end design and frontend development of an enterprise capacity analytics tool used across 1,100+ UPS sites. Full Agile/Scrum production environment.</p>
+          <div class="postcard-tags">
+            <span class="postcard-tag">Blazor/.NET</span>
+            <span class="postcard-tag">Data Viz</span>
+            <span class="postcard-tag">UX Design</span>
+            <span class="postcard-tag">Enterprise</span>
+          </div>
+          <p class="postcard-address">Stamped from: Parsippany, NJ · Feb 2026–Present</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Beacon -->
+    <div class="project-side">
+      <a href="beacon.html" class="postcard">
+        <img src="img/beacon-12.jpg" alt="Beacon app screens" class="postcard-img" style="object-fit:cover; object-position:center;"/>
+        <div class="postcard-body">
+          <div class="postcard-stamp">🗺</div>
+          <p class="postcard-type">Product Design · Design Jam</p>
+          <h3 class="postcard-title">Beacon</h3>
+          <p class="postcard-desc">2nd place at an international SIGCHI Design Jam. A physical proximity device + companion app helping you explore the world around your anchor points.</p>
+          <div class="postcard-tags">
+            <span class="postcard-tag">IoT</span>
+            <span class="postcard-tag">Mobile UX</span>
+            <span class="postcard-tag">Physical Product</span>
+          </div>
+          <p class="postcard-address">Stamped from: SIGCHI 2026 · 750+ participants</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- ABG -->
+    <div class="project-third">
+      <a href="abg.html" class="postcard">
+        <img src="img/abg-salesforce.jpg" alt="ABG Salesforce Dashboard" class="postcard-img"/>
+        <div class="postcard-body">
+          <div class="postcard-stamp">🍷</div>
+          <p class="postcard-type">UX Research · Data Viz</p>
+          <h3 class="postcard-title">Allied Beverage Group Internship</h3>
+          <p class="postcard-desc">Three projects: Diver Dashboard (delivery exceptions), Salesforce CX scorecard for 1,000+ accounts, and Artet brand launch supporting a $1M+ product.</p>
+          <div class="postcard-tags">
+            <span class="postcard-tag">Dashboards</span>
+            <span class="postcard-tag">Salesforce</span>
+            <span class="postcard-tag">Research</span>
+          </div>
+          <p class="postcard-address">Stamped from: NJ Wine Country · Summer 2025</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Pawfect -->
+    <div class="project-third">
+      <a href="pawfect.html" class="postcard">
+        <img src="img/pawfect-2.jpg" alt="Pawfect Pets app" class="postcard-img"/>
+        <div class="postcard-body">
+          <div class="postcard-stamp">🐾</div>
+          <p class="postcard-type">Mobile UX · Design Jam</p>
+          <h3 class="postcard-title">Pawfect Pets</h3>
+          <p class="postcard-desc">1st place design jam winner. A pet adoption app reimagining how people connect with shelter animals through social discovery and breed browsing.</p>
+          <div class="postcard-tags">
+            <span class="postcard-tag">Mobile</span>
+            <span class="postcard-tag">Social UX</span>
+            <span class="postcard-tag">1st Place</span>
+          </div>
+          <p class="postcard-address">Stamped from: NJIT Design Jam · 2025</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Savor -->
+    <div class="project-third">
+      <a href="savor.html" class="postcard">
+        <img src="img/savor-3.jpg" alt="Savor recipe app" class="postcard-img"/>
+        <div class="postcard-body">
+          <div class="postcard-stamp">🍳</div>
+          <p class="postcard-type">Product Design · UX Research</p>
+          <h3 class="postcard-title">Savor / Cookin' Cubby</h3>
+          <p class="postcard-desc">A sustainable recipe app for college students. Led design research with 37 survey responses; key finding reframed the product from "food waste" to "money waste."</p>
+          <div class="postcard-tags">
+            <span class="postcard-tag">User Research</span>
+            <span class="postcard-tag">AI Chatbot</span>
+            <span class="postcard-tag">Mobile</span>
+          </div>
+          <p class="postcard-address">Stamped from: NJIT Senior Studio · 2025</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div>
+    <h2>Designing at the intersection of data and delight.</h2>
+    <p>I'm a UX Engineer with a frontend development background — meaning I can take a design from Figma to production code, and I understand the technical constraints that shape good UX decisions.</p>
+    <p>My strongest work lives in data-heavy environments: enterprise dashboards, analytics platforms, CRM tools. I care about making complex information feel navigable, not overwhelming.</p>
+    <a href="about.html" class="btn-camel">More About Me →</a>
+  </div>
+  <div class="about-skills">
+    <div class="skill-group">
+      <label>Design</label>
+      <ul>
+        <li>Figma</li>
+        <li>User Research</li>
+        <li>Prototyping</li>
+        <li>Information Architecture</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <label>Engineering</label>
+      <ul>
+        <li>HTML / CSS / JS</li>
+        <li>Blazor / .NET</li>
+        <li>React basics</li>
+        <li>Node.js</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <label>Research</label>
+      <ul>
+        <li>Usability Testing</li>
+        <li>Survey Design</li>
+        <li>Data Analysis</li>
+        <li>Competitive Analysis</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <label>Tools</label>
+      <ul>
+        <li>Salesforce CRM</li>
+        <li>Microsoft Copilot</li>
+        <li>Adobe Creative Suite</li>
+        <li>Jira / Agile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+    <a href="https://pufffish.itch.io" target="_blank">Game Studio</a>
+  </div>
+</footer>
+
+</body>
+</html>

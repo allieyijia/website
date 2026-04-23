@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .listing-hero {
+      padding: 64px 48px 48px;
+      border-bottom: 1px solid var(--linen);
+    }
+    .listing-hero .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .listing-hero .eyebrow::before { content:''; width:32px; height:1px; background:var(--camel); display:inline-block; }
+    .listing-hero h1 { margin-bottom: 16px; }
+    .listing-hero p { color: var(--ink); max-width: 560px; }
+
+    /* Filter bar */
+    .filter-bar {
+      padding: 24px 48px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+      border-bottom: 1px solid var(--linen);
+      background: var(--parchment);
+      position: sticky; top: 61px; z-index: 400;
+    }
+    .filter-btn {
+      background: none; border: 1px solid var(--linen);
+      color: var(--ink); padding: 7px 16px;
+      font-family: 'Nunito', sans-serif; font-size: 12px;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--espresso); color: var(--camel-light);
+      border-color: var(--espresso);
+    }
+
+    /* Projects list */
+    .listing-body { padding: 48px; }
+    .listing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    /* Project card extended */
+    .project-card {
+      background: var(--warm-white); border: 1px solid var(--linen);
+      border-radius: 4px; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 2px 8px rgba(74,55,40,0.05), 2px 3px 0 var(--linen);
+      text-decoration: none; color: inherit; display: block;
+    }
+    .project-card:hover {
+      transform: translateY(-5px) rotate(0.3deg);
+      box-shadow: 0 16px 48px rgba(74,55,40,0.13), 4px 6px 0 var(--linen);
+    }
+    .project-card-img {
+      width: 100%; aspect-ratio: 16/10; object-fit: cover;
+      border-bottom: 1px solid var(--linen);
+    }
+    .project-card-body { padding: 28px; position: relative; }
+    .project-card-stamp {
+      position: absolute; top: 20px; right: 22px;
+      width: 46px; height: 54px; background: var(--sage);
+      border: 2px solid var(--warm-white);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; border-radius: 2px;
+    }
+    .project-card-type {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+    }
+    .project-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.55rem;
+      font-weight: 600; color: var(--espresso); margin-bottom: 10px;
+      line-height: 1.2; padding-right: 52px;
+    }
+    .project-card-desc {
+      font-size: 13px; color: var(--ink); line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .project-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-card-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--sage-deep);
+      background: rgba(181,205,176,0.4); border: 1px solid var(--sage);
+      padding: 2px 8px; border-radius: 2px;
+    }
+    .project-card-footer {
+      padding: 12px 28px; border-top: 1px dashed var(--linen);
+      font-size: 11px; color: var(--muted); font-style: italic;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .project-card-arrow { font-size: 16px; color: var(--camel); }
+
+    /* Hidden state */
+    .project-card[data-hidden] { display: none; }
+
+    @media(max-width:700px) {
+      .listing-hero { padding: 48px 20px 36px; }
+      .filter-bar { padding: 16px 20px; }
+      .listing-body { padding: 32px 20px; }
+      .listing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="listing-hero">
+  <p class="eyebrow">Portfolio · UX + Product Design</p>
+  <h1>Selected Work</h1>
+  <p>Five projects spanning enterprise engineering, product design, UX research, and design jams. Each one taught me something different about what it means to design for real people.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All Work</button>
+  <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+  <button class="filter-btn" data-filter="research">Research</button>
+  <button class="filter-btn" data-filter="mobile">Mobile</button>
+  <button class="filter-btn" data-filter="design-jam">Design Jam</button>
+  <button class="filter-btn" data-filter="data-viz">Data Viz</button>
+</div>
+
+<!-- PROJECTS GRID -->
+<div class="listing-body">
+  <div class="listing-grid">
+
+    <!-- UPS -->
+    <a href="ups.html" class="project-card" data-tags="enterprise data-viz">
+      <img src="img/ups-home.png" alt="UPS Capacity Analytics" class="project-card-img"/>
+      <div class="project-card-body">
+        <div class="project-card-stamp">📦</div>
+        <p class="project-card-type">UX Engineering · Enterprise · 2026</p>
+        <h2 class="project-card-title">UPS Capacity Analytics Platform</h2>
+        <p class="project-card-desc">End-to-end design and Blazor/.NET frontend development for an enterprise capacity analytics platform used across 1,100+ UPS sites. Full Agile/Scrum production environment, 5 sprints, 3 analytical modes: Addition Modeling, Removal Analytics, What-If Analysis.</p>
+        <div class="project-card-tags">
+          <span class="project-card-tag">Blazor/.NET</span>
+          <span class="project-card-tag">Data Visualization</span>
+          <span class="project-card-tag">Enterprise UX</span>
+          <span class="project-card-tag">Figma</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <span>Parsippany, NJ · Feb 2026–Present</span>
+        <span class="project-card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Beacon -->
+    <a href="beacon.html" class="project-card" data-tags="design-jam mobile">
+      <img src="img/beacon-13.jpg" alt="Beacon" class="project-card-img"/>
+      <div class="project-card-body">
+        <div class="project-card-stamp">🗺</div>
+        <p class="project-card-type">Product Design · IoT · 2nd Place SIGCHI</p>
+        <h2 class="project-card-title">Beacon</h2>
+        <p class="project-card-desc">A GameBoy-style physical proximity device and companion app helping you discover the world within your anchor radius. 2nd place at international SIGCHI Design Jam against 750+ participants.</p>
+        <div class="project-card-tags">
+          <span class="project-card-tag">Physical Product</span>
+          <span class="project-card-tag">IoT</span>
+          <span class="project-card-tag">Mobile UX</span>
+          <span class="project-card-tag">2nd Place</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <span>SIGCHI Design Jam 2026</span>
+        <span class="project-card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- ABG -->
+    <a href="abg.html" class="project-card" data-tags="enterprise research data-viz">
+      <img src="img/abg-salesforce.jpg" alt="ABG Internship" class="project-card-img"/>
+      <div class="project-card-body">
+        <div class="project-card-stamp">🍷</div>
+        <p class="project-card-type">CX Internship · Analytics · Summer 2025</p>
+        <h2 class="project-card-title">Allied Beverage Group</h2>
+        <p class="project-card-desc">Three parallel CX projects: Diver delivery exception dashboard (projected $20K+/mo savings), Salesforce customer scorecard for 1,000+ accounts, and complaint research for a $1M+ brand launch (18% resolution efficiency improvement).</p>
+        <div class="project-card-tags">
+          <span class="project-card-tag">Dashboards</span>
+          <span class="project-card-tag">Salesforce</span>
+          <span class="project-card-tag">UX Research</span>
+          <span class="project-card-tag">Data Analysis</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <span>Allied Beverage Group, NJ · Summer 2025</span>
+        <span class="project-card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Pawfect -->
+    <a href="pawfect.html" class="project-card" data-tags="design-jam mobile">
+      <img src="img/pawfect-2.jpg" alt="Pawfect Pets" class="project-card-img"/>
+      <div class="project-card-body">
+        <div class="project-card-stamp">🐾</div>
+        <p class="project-card-type">Mobile UX · Social Design · 1st Place</p>
+        <h2 class="project-card-title">Pawfect Pets</h2>
+        <p class="project-card-desc">1st place NJIT Design Jam winner. A pet adoption app built on social discovery — feed-based shelter posts, breed browsing with local match-finding, and preference-aware profiles to surface the right animals to the right people.</p>
+        <div class="project-card-tags">
+          <span class="project-card-tag">Mobile App</span>
+          <span class="project-card-tag">Social UX</span>
+          <span class="project-card-tag">1st Place</span>
+          <span class="project-card-tag">iOS Design</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <span>NJIT Design Jam 2025</span>
+        <span class="project-card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Savor -->
+    <a href="savor.html" class="project-card" data-tags="research mobile">
+      <img src="img/savor-3.jpg" alt="Savor / Cookin' Cubby" class="project-card-img"/>
+      <div class="project-card-body">
+        <div class="project-card-stamp">🍳</div>
+        <p class="project-card-type">Product Design · UX Research · Mobile</p>
+        <h2 class="project-card-title">Savor / Cookin' Cubby</h2>
+        <p class="project-card-desc">Sustainable recipe app for college students. Led design research (37 survey responses) that fundamentally reframed the product — from "food waste" to "money waste" — and shaped every feature decision. Includes AI chatbot Chef Cubby.</p>
+        <div class="project-card-tags">
+          <span class="project-card-tag">User Research</span>
+          <span class="project-card-tag">AI Integration</span>
+          <span class="project-card-tag">Mobile App</span>
+          <span class="project-card-tag">Design Lead</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <span>NJIT Senior Studio · 2025</span>
+        <span class="project-card-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        if (filter === 'all' || tags.includes(filter)) {
+          delete card.dataset.hidden;
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

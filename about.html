@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-layout {
+      max-width: 1000px; margin: 0 auto; padding: 64px 48px;
+      display: grid; grid-template-columns: 360px 1fr;
+      gap: 64px; align-items: start;
+    }
+
+    /* PASSPORT */
+    .passport {
+      background: #1e2d40;
+      border-radius: 6px; overflow: hidden;
+      box-shadow: 0 12px 48px rgba(30,45,64,0.3), 0 2px 8px rgba(0,0,0,0.2);
+      position: sticky; top: 100px;
+    }
+    .passport-cover {
+      background: linear-gradient(145deg, #1e2d40, #162236);
+      padding: 36px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .passport-seal {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 2px solid rgba(196,168,130,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin: 0 auto 12px;
+    }
+    .passport-country {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: rgba(196,168,130,0.7);
+      margin-bottom: 4px;
+    }
+    .passport-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 600; color: #e8ddd3;
+    }
+
+    .passport-photo-section {
+      padding: 24px 28px;
+      display: flex; gap: 16px; align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .passport-photo {
+      width: 96px; height: 120px; object-fit: cover;
+      border: 2px solid rgba(196,168,130,0.3);
+      border-radius: 2px; flex-shrink: 0;
+    }
+    .passport-photo-placeholder {
+      width: 96px; height: 120px;
+      border: 2px solid rgba(196,168,130,0.3);
+      border-radius: 2px; flex-shrink: 0;
+      background: rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    .passport-info { flex: 1; }
+    .passport-field { margin-bottom: 14px; }
+    .passport-field label {
+      display: block; font-size: 8px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(196,168,130,0.55); margin-bottom: 3px;
+    }
+    .passport-field span {
+      font-size: 13px; color: #e8ddd3; font-weight: 600;
+    }
+
+    .mrz {
+      background: rgba(0,0,0,0.2);
+      padding: 14px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 9px; letter-spacing: 0.08em;
+      color: rgba(196,168,130,0.4); line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Visa stamps */
+    .passport-stamps {
+      padding: 20px 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stamps-label {
+      font-size: 8px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(196,168,130,0.4);
+      margin-bottom: 12px;
+    }
+    .stamps-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .visa-stamp {
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 60px; height: 60px;
+      font-size: 18px; border: 2px solid;
+      text-align: center;
+    }
+    .visa-stamp .stamp-text { font-size: 7px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+    .stamp-ups { border-color: rgba(255,180,0,0.4); color: rgba(255,180,0,0.7); }
+    .stamp-abg { border-color: rgba(181,205,176,0.4); color: rgba(181,205,176,0.7); }
+    .stamp-japan { border-color: rgba(232,196,184,0.4); color: rgba(232,196,184,0.7); }
+    .stamp-sigchi { border-color: rgba(196,168,130,0.4); color: rgba(196,168,130,0.7); }
+    .stamp-avanade { border-color: rgba(150,200,255,0.4); color: rgba(150,200,255,0.7); }
+
+    /* ABOUT CONTENT */
+    .about-content {}
+    .about-content h1 { margin-bottom: 24px; }
+    .about-content > p {
+      color: var(--ink); font-size: 1.05rem;
+      line-height: 1.8; margin-bottom: 20px;
+    }
+
+    .about-section { margin-top: 48px; }
+    .about-section h3 { margin-bottom: 20px; }
+
+    .timeline { }
+    .timeline-item {
+      display: flex; gap: 20px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: ''; position: absolute;
+      left: 7px; top: 20px; bottom: 0;
+      width: 1px; background: var(--linen);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--parchment); border: 2px solid var(--camel);
+      flex-shrink: 0; margin-top: 4px; position: relative; z-index: 1;
+    }
+    .timeline-content {}
+    .timeline-date {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 600; margin-bottom: 4px;
+    }
+    .timeline-sub { font-size: 13px; color: var(--ink); }
+
+    .fun-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .fun-fact {
+      background: var(--warm-white); border: 1px solid var(--linen);
+      border-radius: 6px; padding: 18px; font-size: 14px; color: var(--ink);
+      line-height: 1.6;
+    }
+    .fun-fact .icon { font-size: 24px; margin-bottom: 8px; display: block; }
+
+    @media(max-width:800px) {
+      .about-layout { grid-template-columns: 1fr; gap: 40px; padding: 40px 20px; }
+      .passport { position: static; }
+      .fun-facts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="about-layout">
+
+  <!-- PASSPORT (LEFT) -->
+  <div class="passport">
+    <div class="passport-cover">
+      <div class="passport-seal">🧳</div>
+      <p class="passport-country">Designer's Passport</p>
+      <p class="passport-title">Allie He</p>
+    </div>
+
+    <div class="passport-photo-section">
+      <img src="img/allie-photo.jpg" alt="Allie He" class="passport-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+      <div class="passport-photo-placeholder" style="display:none;">✨</div>
+      <div class="passport-info">
+        <div class="passport-field"><label>Full Name</label><span>Allie He (Yijia He)</span></div>
+        <div class="passport-field"><label>Origin</label><span>Newark, NJ</span></div>
+        <div class="passport-field"><label>Degree</label><span>HCI, NJIT '26</span></div>
+        <div class="passport-field"><label>Status</label><span>Open to Work ✦</span></div>
+      </div>
+    </div>
+
+    <div class="passport-stamps">
+      <p class="stamps-label">Visa Stamps — Experiences</p>
+      <div class="stamps-grid">
+        <div class="visa-stamp stamp-ups">📦<span class="stamp-text">UPS</span></div>
+        <div class="visa-stamp stamp-abg">🍷<span class="stamp-text">ABG</span></div>
+        <div class="visa-stamp stamp-japan">🗾<span class="stamp-text">Tokyo</span></div>
+        <div class="visa-stamp stamp-sigchi">🏅<span class="stamp-text">SIGCHI</span></div>
+        <div class="visa-stamp stamp-avanade">💼<span class="stamp-text">Avanade</span></div>
+      </div>
+    </div>
+
+    <div class="mrz">
+      P&lt;NJI&lt;HE&lt;&lt;YIJIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br/>
+      HCI&lt;NJIT&lt;2026&lt;UX&lt;ENG&lt;DATA&lt;VIZ&lt;&lt;&lt;&lt;&lt;
+    </div>
+  </div>
+
+  <!-- CONTENT (RIGHT) -->
+  <div class="about-content">
+    <h1>Hi, I'm Allie.</h1>
+
+    <p>I'm a UX Engineer and designer graduating from NJIT in May 2026 with a degree in Human-Computer Interaction and a minor in Digital Business and Innovation. I specialize in data-heavy products: dashboards, analytics platforms, and AI-enabled tools that make complex information feel navigable.</p>
+
+    <p>What makes me a little different: I can take a design from Figma all the way into production code. My time at UPS taught me that the best UX decisions happen at the intersection of design intent and technical reality — and that you make better decisions when you understand both sides.</p>
+
+    <p>I care most about the moment when a confusing system becomes clear. When a dashboard goes from overwhelming to obvious. When a user stops fighting an interface and starts trusting it. That's what I design for.</p>
+
+    <div class="about-section">
+      <h3>Where I've Been</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Feb 2026 – Present</p>
+            <p class="timeline-title">UX Engineer · UPS</p>
+            <p class="timeline-sub">Frontend UI/UX on an enterprise capacity analytics platform. Blazor/.NET, 5-sprint Agile cycle, 1,100+ sites.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Aug–Dec 2025</p>
+            <p class="timeline-title">Study Abroad · Tokyo International University</p>
+            <p class="timeline-sub">Digital Business and Innovation. Lived in Japan for a semester. Still think about the food constantly.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Jun–Aug 2025</p>
+            <p class="timeline-title">Customer Experience Intern · Allied Beverage Group</p>
+            <p class="timeline-sub">Three CX projects: Diver Dashboard, Salesforce scorecard for 1,000+ accounts, brand launch research supporting $1M+ product.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Aug 2023 – Present</p>
+            <p class="timeline-title">UX/UI Mentee · Avanade NextGen Scholars</p>
+            <p class="timeline-sub">Mentored by Maggie Smith at Avanade. Placed finalist at international conference against 750+ participants.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">2022 – Present</p>
+            <p class="timeline-title">Executive Design Editor · NJIT Vector Newspaper</p>
+            <p class="timeline-sub">Managed design team, produced bi-weekly print issues, increased readership 21%. Adobe InDesign/Illustrator.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h3>A Few Fun Facts</h3>
+      <div class="fun-facts">
+        <div class="fun-fact">
+          <span class="icon">🎮</span>
+          I run a game studio called <strong>Pufffish</strong> — we make weird little games that take about 10 minutes to beat and leave you thinking.
+        </div>
+        <div class="fun-fact">
+          <span class="icon">🗾</span>
+          I studied abroad in Tokyo. I've been trying to recreate the ramen I had there. It's been a journey.
+        </div>
+        <div class="fun-fact">
+          <span class="icon">📰</span>
+          I'm the design editor of a print newspaper in a world that mostly doesn't read print newspapers. I think that's kind of cool.
+        </div>
+        <div class="fun-fact">
+          <span class="icon">🐾</span>
+          I designed a pet adoption app and won first place. I do not have a pet. This feels like irony.
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <a href="contact.html" class="btn-primary" style="display:inline-block;">Let's Work Together →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+    <a href="https://pufffish.itch.io" target="_blank">Game Studio</a>
+  </div>
+</footer>
+
+</body>
+</html>

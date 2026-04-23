@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawfect Pets — Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .pawfect-hero { background: linear-gradient(135deg, #3d5a3e 0%, #5a7a4a 100%); }
+    .pawfect-hero h1, .pawfect-hero .subtitle { color: #faf6f0; }
+    .pawfect-hero .cs-tag { border-color: #b5d4a8; color: #b5d4a8; }
+    .pawfect-hero .cs-meta-item label { color: rgba(181,212,168,0.6); }
+    .pawfect-hero .cs-meta-item span { color: #faf6f0; }
+    .pawfect-hero::after { display: none; }
+    .pawfect-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
+    .award-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(181,212,168,0.2); border: 1px solid #b5d4a8;
+      color: #b5d4a8; padding: 8px 18px; border-radius: 2px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .screen-grid-4 {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 32px 0;
+    }
+    .screen-grid-4 img {
+      width: 100%; border-radius: 12px; border: 1px solid var(--linen);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .screen-label { text-align: center; font-size: 11px; color: var(--muted); margin-top: 6px; }
+    .feature-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: center; margin: 32px 0;
+    }
+    .feature-block.flip { direction: rtl; }
+    .feature-block.flip > * { direction: ltr; }
+    .feature-block img { width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    @media(max-width:700px) {
+      .screen-grid-4 { grid-template-columns: repeat(2,1fr); }
+      .feature-block { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Allie He ✦</a>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="cs-hero pawfect-hero">
+  <div class="pawfect-hero-inner">
+    <div class="award-badge">🥇 1st Place · NJIT Design Jam 2025</div>
+    <span class="cs-tag">Mobile UX · Social Design · Design Jam</span>
+    <h1>Pawfect Pets</h1>
+    <p class="subtitle">A pet adoption app that reimagines how people discover their next companion — through social discovery, breed browsing, and location-aware shelter search. 1st place at NJIT Design Jam 2025.</p>
+    <div class="cs-meta" style="margin-top:32px;">
+      <div class="cs-meta-item"><label>My Role</label><span>Co-designer (with Jonessa Rodriguez)</span></div>
+      <div class="cs-meta-item"><label>Timeline</label><span>Design Jam, 2025</span></div>
+      <div class="cs-meta-item"><label>Platform</label><span>Mobile App (iOS)</span></div>
+      <div class="cs-meta-item"><label>Result</label><span>🥇 1st Place</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cs-body">
+
+  <div class="cs-section">
+    <p class="cs-section-label">The Problem</p>
+    <h2>Pet Adoption Is Broken</h2>
+    <p>The existing pet adoption experience is fragmented. Petfinder feels like a product catalog. Shelter websites are outdated. The emotional journey of finding a pet — the excitement, the "is this the one?" moment — is nowhere in the digital experience.</p>
+    <p>Meanwhile, adoption rates remain low. Animals sit in shelters for months. The mismatch isn't about supply and demand — it's about <em>connection</em>. People don't adopt from catalogs; they adopt from stories.</p>
+    <div class="cs-quote">
+      "People don't adopt from catalogs. They adopt from stories."
+    </div>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Our Approach</p>
+    <h2>Social Discovery Meets Purposeful Search</h2>
+    <p>Jonessa and I designed Pawfect Pets around two complementary modes: passive discovery (a social feed that surfaces animals and stories without requiring intent) and active search (a breed browser and shelter finder for people who know what they're looking for).</p>
+    <p>The palette — warm greens and earthen tones — was chosen to feel calm and trustworthy, not clinical. Adoption is an emotional decision. The UI should feel like a warm home, not an e-commerce checkout.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Core Screens</p>
+    <h2>4 Key Views</h2>
+    <div class="screen-grid-4">
+      <div>
+        <img src="img/pawfect-2.jpg" alt="Pawfect Pets Home — social feed"/>
+        <p class="screen-label">Home Feed</p>
+      </div>
+      <div>
+        <img src="img/pawfect-3.jpg" alt="Breedbook browse"/>
+        <p class="screen-label">Breedbook</p>
+      </div>
+      <div>
+        <img src="img/pawfect-5.jpg" alt="Shelter discovery"/>
+        <p class="screen-label">Shelters</p>
+      </div>
+      <div>
+        <img src="img/pawfect-6.jpg" alt="Saved pets"/>
+        <p class="screen-label">Saved</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature: Home Feed</p>
+    <h2>Adoption as Social Discovery</h2>
+    <div class="feature-block">
+      <img src="img/pawfect-2.jpg" alt="Pawfect Home feed — shelter posts and comments"/>
+      <div>
+        <p>The Home screen is a social feed — shelters post photos, updates, and animal stories. Users can comment, like, and share. It's TikTok for adoption: passive, emotional, and surprisingly effective at building the connection that leads to action.</p>
+        <p>Shelters become characters in the story, not just inventory sources. Following a shelter means you see their animals' journeys — from intake to adoption — which builds trust and investment over time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature: Breedbook</p>
+    <h2>Browse Breeds, Find Local Matches</h2>
+    <div class="feature-block flip">
+      <img src="img/pawfect-4.jpg" alt="Breedbook — browse by dog, cat, other"/>
+      <div>
+        <p>Breedbook solves a specific problem: "I know I want a golden retriever — where can I find one near me?" Users browse by species, then drill into breed profiles with temperament info, care guides, and — crucially — a map of nearby pets of that exact breed currently available for adoption.</p>
+        <p>It turns information browsing into an immediate action path. You learn about a breed, fall in love, and see exactly which shelter has one waiting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Feature: User Profiles</p>
+    <h2>Preferences That Actually Help</h2>
+    <p>User profiles include adoption preferences — not just demographic info. Area radius, preferred breeds, age range, sex, medical comfort, personality traits. This lets the app surface relevant animals proactively in the feed, rather than making users search every time.</p>
+    <div class="cs-image-grid">
+      <img src="img/pawfect-7.jpg" alt="User profile and preferences"/>
+      <img src="img/pawfect-8.jpg" alt="Saved pets and shelters"/>
+    </div>
+    <p class="cs-image-caption">User profile with adoption preferences (left) and saved pets/shelters view (right).</p>
+  </div>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Results</p>
+    <h2>1st Place</h2>
+    <div class="cs-stats">
+      <div class="cs-stat"><span class="num">🥇</span><span class="label">1st Place, NJIT Design Jam</span></div>
+      <div class="cs-stat"><span class="num">4</span><span class="label">Core Screens Designed</span></div>
+      <div class="cs-stat"><span class="num">48h</span><span class="label">Sprint Duration</span></div>
+    </div>
+    <p>Judges praised the social feed concept as a genuine innovation on existing adoption platforms, and highlighted the cohesion between the warm visual design and the emotional intent of the product.</p>
+  </div>
+
+  <div class="cs-section">
+    <p class="cs-section-label">Reflection</p>
+    <h2>What I Learned</h2>
+    <p>Co-designing with Jonessa taught me how to divide responsibilities without fragmenting the vision. We split screens, but every design decision went through both of us before it was final. The best outcomes came from those debates — moments where one of us had a reason that the other hadn't considered.</p>
+    <p>Pawfect Pets also reinforced something about emotional UX: the most important job of the interface isn't efficiency — it's making the user feel safe enough to take an emotional leap. Adopting a pet is a commitment. The design has to earn that trust.</p>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
+    <a href="abg.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← ABG Internship</a>
+    <a href="savor.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Next: Savor →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
+  </div>
+</footer>
+
+</body>
+</html>
