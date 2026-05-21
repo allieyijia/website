@@ -6,19 +6,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --parchment:  #faf6f0;
-  --parchment2: #f2ece2;
+  --parchment:  #fdf2f4;
+  --parchment2: #f8e8ed;
   --espresso:   #4a3728;
-  --camel:      #c4a882;
-  --camel-light:#ddc9aa;
+  --camel:      #c4a0a8;
+  --camel-light:#e0c8cc;
   --rose:       #e8c4b8;
   --rose-dark:  #d4a090;
   --sage:       #b5cdb0;
   --sage-deep:  #3d6b40;
-  --linen:      #e0d4c8;
-  --ink:        #6b5244;
-  --muted:      #9b7e6e;
-  --warm-white: #fffdf8;
+  --linen:      #ead0d6;
+  --ink:        #6b4a50;
+  --muted:      #a07880;
+  --warm-white: #fff8fa;
   --navy:       #1e2d40;
   --stamp-red:  #c0392b;
 }

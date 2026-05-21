@@ -7,13 +7,16 @@
   <meta name="description" content="UX Designer & Engineer specializing in data-driven products, dashboards, and AI-enabled tools. Based in NJ, open to NYC/NJ roles."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
     /* ── HERO POSTCARD ── */
     .hero {
       min-height: 92vh;
-      background: url('img/beach-bg.png') center/cover no-repeat;
+      background-image: url('/img/beach-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -24,10 +27,10 @@
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: rgba(250,246,240,0.5);
+      z-index: 0;
+      background: rgba(250,246,240,0.45);
       pointer-events: none;
     }
-
     /* Postcard frame */
     .hero-postcard-frame {
       position: relative;
@@ -50,18 +53,18 @@
     }
 
     @keyframes postcard-arrive {
-      from { opacity: 0; transform: translateY(56px) rotate(-2.5deg); }
-      to   { opacity: 1; transform: translateY(0)    rotate(0deg); }
+      from { opacity: 0; transform: translateY(56px) rotate(-4deg); }
+      to   { opacity: 1; transform: translateY(0)    rotate(-1.5deg); }
     }
 
     .hero-from {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 10px;
     }
     .hero-eyebrow {
-      font-size: 12px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 20px;
@@ -69,12 +72,11 @@
       gap: 12px;
     }
     .hero h1 {
-      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-      color: var(--espresso);
+      font-size: clamp(4rem, 9vw, 7.5rem);
+      color: #c96b8a;
       margin-bottom: 20px;
-      line-height: 1.08;
+      line-height: 1.0;
     }
-    .hero h1 em { font-style: italic; color: var(--camel); }
     .hero-desc {
       font-size: 1.05rem;
       color: var(--ink);
@@ -316,9 +318,9 @@
   <div class="hero-postcard-frame">
     <p class="hero-from">— Postcard from Allie He —</p>
     <p class="hero-eyebrow">UX Designer · Engineer · Researcher</p>
-    <h1>Designing <em>experiences</em> that make data feel human.</h1>
+    <h1>Allie He</h1>
     <p class="hero-desc">
-      Hi, I'm Allie — a senior at NJIT graduating May 2026. I specialize in data visualization, enterprise dashboards, and AI-enabled tools. Currently building capacity analytics infrastructure at UPS.
+      A designer who crafts meaningful and intentional interactions. I specialize in prototyping, innovative designs, and dashboard and data visualization.
     </p>
     <div class="hero-cta">
       <a href="ux.html" class="btn-primary">View My Work</a>
