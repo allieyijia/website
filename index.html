@@ -10,80 +10,90 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    /* ── HERO ── */
+    /* ── HERO POSTCARD ── */
     .hero {
-      min-height: 80vh;
+      min-height: 92vh;
+      background: url('img/beach-bg.png') center/cover no-repeat;
       display: flex;
       align-items: center;
+      justify-content: center;
       padding: 80px 48px;
       position: relative;
       overflow: hidden;
     }
-    .hero-bg-text {
-      position: absolute;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(120px, 18vw, 220px);
-      font-weight: 600;
-      color: rgba(196,168,130,0.08);
-      letter-spacing: -0.02em;
-      top: 50%;
-      right: -2%;
-      transform: translateY(-50%);
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(250,246,240,0.5);
       pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
     }
-    .hero-content { max-width: 680px; position: relative; z-index: 2; }
-    .hero-eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+
+    /* Postcard frame */
+    .hero-postcard-frame {
+      position: relative;
+      z-index: 2;
+      background: rgba(250,246,240,0.97);
+      border: 4px solid var(--espresso);
+      padding: 52px 68px 40px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 8px 8px 0 rgba(74,55,40,0.25);
+      animation: postcard-arrive 1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    /* Inner decorative frame line */
+    .hero-postcard-frame::before {
+      content: '';
+      position: absolute; inset: 10px;
+      border: 1px solid var(--camel);
+      pointer-events: none;
+    }
+
+    @keyframes postcard-arrive {
+      from { opacity: 0; transform: translateY(56px) rotate(-2.5deg); }
+      to   { opacity: 1; transform: translateY(0)    rotate(0deg); }
+    }
+
+    .hero-from {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
       gap: 12px;
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 32px; height: 1px;
-      background: var(--camel);
-      display: inline-block;
-    }
     .hero h1 {
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
       color: var(--espresso);
-      margin-bottom: 24px;
-      line-height: 1.05;
+      margin-bottom: 20px;
+      line-height: 1.08;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--camel);
-    }
+    .hero h1 em { font-style: italic; color: var(--camel); }
     .hero-desc {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--ink);
-      max-width: 520px;
-      margin-bottom: 40px;
+      margin: 0 auto 36px;
       line-height: 1.8;
     }
     .hero-cta {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      display: flex; gap: 20px;
+      flex-wrap: wrap; justify-content: center;
     }
     .btn-primary {
       background: var(--espresso);
       color: var(--camel-light);
       padding: 14px 32px;
       font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
       text-decoration: none;
-      border-radius: 2px;
+      border-radius: 0;
       transition: background 0.2s, transform 0.2s;
     }
     .btn-primary:hover { background: #5a4535; transform: translateY(-1px); }
@@ -92,145 +102,167 @@
       color: var(--espresso);
       padding: 13px 32px;
       font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
       text-decoration: none;
-      border-radius: 2px;
+      border-radius: 0;
       transition: background 0.2s, transform 0.2s;
     }
     .btn-outline:hover { background: rgba(196,168,130,0.15); transform: translateY(-1px); }
 
-    /* Dotted route line decoration */
-    .route-line {
-      width: 100%;
-      padding: 32px 48px;
-      display: flex;
+    /* Bottom "stamp bar" on postcard */
+    .hero-stamp-bar {
+      margin-top: 32px; padding-top: 18px;
+      border-top: 1px dashed var(--camel);
+      display: flex; justify-content: space-between;
       align-items: center;
-      gap: 0;
-      overflow: hidden;
+      font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
     }
-    .route-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--camel);
+    .hero-mini-stamp {
+      width: 44px; height: 54px;
+      border: 2px solid var(--espresso);
+      background: var(--sage);
+      display: flex; align-items: center;
+      justify-content: center; font-size: 18px;
       flex-shrink: 0;
-    }
-    .route-dash {
-      flex: 1;
-      border-top: 2px dashed var(--linen);
-    }
-    .route-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 20px;
-      flex-shrink: 0;
+      box-shadow: 1px 2px 6px rgba(0,0,0,0.2);
     }
 
-    /* Sticker */
-    .sticker {
+    /* ── FLOATING STAMPS ── */
+    .float-stamp {
       position: absolute;
-      width: 100px;
-      transition: transform 0.3s ease;
-      cursor: default;
-      user-select: none;
+      z-index: 3;
+      background: var(--warm-white);
+      border: 3px solid currentColor;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 3px; padding: 8px 6px;
+      text-align: center;
+      box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
+      pointer-events: none; user-select: none;
     }
-    .sticker:hover { transform: rotate(var(--r, 8deg)) scale(1.12) !important; }
+    .float-stamp-inner { font-size: 22px; line-height: 1; }
+    .float-stamp-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 7px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .stamp-s1 { width: 60px; height: 72px; top: 10%; left: 5%; color: var(--camel); animation: flt1 4.2s ease-in-out infinite; }
+    .stamp-s2 { width: 54px; height: 64px; top: 12%; right: 7%; color: var(--sage-deep); animation: flt2 5.1s ease-in-out infinite; }
+    .stamp-s3 { width: 58px; height: 68px; bottom: 14%; left: 8%; color: var(--rose-dark); animation: flt3 4.7s ease-in-out infinite; }
+    .stamp-s4 { width: 52px; height: 62px; bottom: 17%; right: 6%; color: var(--camel); animation: flt4 3.9s ease-in-out infinite; }
+    .stamp-s5 { width: 50px; height: 60px; top: 46%; left: 2%; color: var(--espresso); animation: flt5 6.0s ease-in-out infinite; }
+    .stamp-s6 { width: 56px; height: 66px; top: 38%; right: 3%; color: var(--sage-deep); animation: flt2 5.5s ease-in-out infinite; }
+
+    @keyframes flt1 { 0%,100%{ transform: rotate(-12deg) translateY(0); }    50%{ transform: rotate(-10deg) translateY(-14px); } }
+    @keyframes flt2 { 0%,100%{ transform: rotate(11deg)  translateY(0); }    50%{ transform: rotate(13deg)  translateY(-12px); } }
+    @keyframes flt3 { 0%,100%{ transform: rotate(7deg)   translateY(0); }    50%{ transform: rotate(5deg)   translateY(-16px); } }
+    @keyframes flt4 { 0%,100%{ transform: rotate(-8deg)  translateY(0); }    50%{ transform: rotate(-10deg) translateY(-10px); } }
+    @keyframes flt5 { 0%,100%{ transform: rotate(16deg)  translateY(0); }    50%{ transform: rotate(14deg)  translateY(-18px); } }
+
+    /* Dotted route line */
+    .route-line {
+      width: 100%; padding: 32px 48px;
+      display: flex; align-items: center;
+      gap: 0; overflow: hidden;
+    }
+    .route-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--camel); flex-shrink: 0; }
+    .route-dash { flex: 1; border-top: 2px dashed var(--linen); }
+    .route-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); padding: 0 20px; flex-shrink: 0;
+    }
 
     /* ── PROJECTS GRID ── */
     .projects-section { padding: 0 48px 80px; }
     .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 48px;
+      display: flex; align-items: baseline;
+      gap: 16px; margin-bottom: 48px;
     }
     .section-header h2 { font-size: 2.2rem; }
     .section-header a {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
       transition: color 0.2s;
     }
     .section-header a:hover { color: var(--espresso); }
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 28px;
+      gap: 36px 28px;
     }
     .project-featured { grid-column: span 7; }
-    .project-side { grid-column: span 5; }
-    .project-third { grid-column: span 4; }
+    .project-side     { grid-column: span 5; }
+    .project-third    { grid-column: span 4; }
+
+    /* ── PROJECT CARDS — POSTCARD STYLE ── */
+    .projects-grid .postcard {
+      border-radius: 0;
+      border: 3px solid var(--linen);
+      padding: 14px 14px 0;
+      overflow: visible;
+      box-shadow: 3px 5px 0 var(--camel-light), 0 6px 20px rgba(74,55,40,0.12);
+      transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+      will-change: transform;
+    }
+    .projects-grid .postcard-img { border-bottom: none; }
+    .projects-grid .postcard-body { padding: 20px 16px 22px; }
+    .projects-grid .postcard-stamp {
+      border-radius: 0;
+      top: -16px; right: 18px;
+      border: 3px solid var(--warm-white);
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Alternating default tilts */
+    .projects-grid > div:nth-child(1) .postcard { transform: rotate(-1.8deg); }
+    .projects-grid > div:nth-child(2) .postcard { transform: rotate(2.2deg); }
+    .projects-grid > div:nth-child(3) .postcard { transform: rotate(-2.4deg); }
+    .projects-grid > div:nth-child(4) .postcard { transform: rotate(1.6deg); }
+    .projects-grid > div:nth-child(5) .postcard { transform: rotate(-1.3deg); }
+
+    /* Hover: tilt back to straight */
+    .projects-grid .postcard:hover {
+      transform: rotate(0deg) translateY(-6px) !important;
+      box-shadow: 0 24px 52px rgba(74,55,40,0.22), 4px 6px 0 var(--camel-light);
+    }
 
     /* ── ABOUT STRIP ── */
     .about-strip {
-      background: var(--espresso);
-      padding: 64px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
+      background: var(--espresso); padding: 64px 48px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
     }
-    .about-strip h2 {
-      color: var(--camel-light);
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-    }
-    .about-strip p {
-      color: rgba(255,253,248,0.75);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
+    .about-strip h2 { color: var(--camel-light); font-size: 2.4rem; margin-bottom: 20px; }
+    .about-strip p  { color: rgba(255,253,248,0.75); line-height: 1.8; margin-bottom: 16px; }
     .about-strip .btn-camel {
       display: inline-block;
-      border: 1.5px solid var(--camel);
-      color: var(--camel);
-      padding: 12px 28px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s;
-      margin-top: 8px;
+      border: 1.5px solid var(--camel); color: var(--camel);
+      padding: 12px 28px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background 0.2s; margin-top: 8px;
     }
     .about-strip .btn-camel:hover { background: rgba(196,168,130,0.15); }
-    .about-skills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+    .about-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .skill-group label {
-      display: block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--camel);
-      opacity: 0.7;
-      margin-bottom: 8px;
+      display: block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--camel); opacity: 0.7; margin-bottom: 8px;
     }
-    .skill-group ul {
-      list-style: none;
-      padding: 0;
-    }
-    .skill-group li {
-      color: rgba(255,253,248,0.8);
-      font-size: 13px;
-      padding: 3px 0;
-    }
+    .skill-group ul { list-style: none; padding: 0; }
+    .skill-group li { color: rgba(255,253,248,0.8); font-size: 13px; padding: 3px 0; }
     .skill-group li::before { content: '→ '; color: var(--camel); opacity: 0.6; }
 
     @media (max-width: 900px) {
-      .hero { padding: 60px 20px; }
+      .hero { padding: 40px 20px; }
+      .hero-postcard-frame { padding: 36px 28px 28px; }
+      .stamp-s5, .stamp-s6 { display: none; }
       .projects-section { padding: 0 20px 60px; }
       .route-line { padding: 24px 20px; }
       .project-featured, .project-side, .project-third { grid-column: span 12; }
@@ -253,14 +285,36 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-text">Journey</div>
 
-  <!-- Stickers -->
-  <img src="img/sticker-1.png" alt="" class="sticker" style="top:18%; right:26%; transform: rotate(-8deg); --r:-8deg; width:90px;">
-  <img src="img/sticker-4.png" alt="" class="sticker" style="bottom:22%; right:14%; transform: rotate(6deg); --r:6deg; width:80px;">
-  <img src="img/sticker-2.png" alt="" class="sticker" style="top:60%; right:36%; transform: rotate(-4deg); --r:-4deg; width:72px;">
+  <!-- Floating stamps -->
+  <div class="float-stamp stamp-s1">
+    <span class="float-stamp-inner">✈</span>
+    <span class="float-stamp-label">Air Mail</span>
+  </div>
+  <div class="float-stamp stamp-s2">
+    <span class="float-stamp-inner">🌴</span>
+    <span class="float-stamp-label">Travel</span>
+  </div>
+  <div class="float-stamp stamp-s3">
+    <span class="float-stamp-inner">🐚</span>
+    <span class="float-stamp-label">Shore</span>
+  </div>
+  <div class="float-stamp stamp-s4">
+    <span class="float-stamp-inner">⛵</span>
+    <span class="float-stamp-label">Voyage</span>
+  </div>
+  <div class="float-stamp stamp-s5">
+    <span class="float-stamp-inner">🌊</span>
+    <span class="float-stamp-label">Ocean</span>
+  </div>
+  <div class="float-stamp stamp-s6">
+    <span class="float-stamp-inner">☀</span>
+    <span class="float-stamp-label">Sunny</span>
+  </div>
 
-  <div class="hero-content">
+  <!-- Postcard frame -->
+  <div class="hero-postcard-frame">
+    <p class="hero-from">— Postcard from Allie He —</p>
     <p class="hero-eyebrow">UX Designer · Engineer · Researcher</p>
     <h1>Designing <em>experiences</em> that make data feel human.</h1>
     <p class="hero-desc">
@@ -271,6 +325,7 @@
       <a href="contact.html" class="btn-outline">Get In Touch</a>
     </div>
   </div>
+
 </section>
 
 <!-- ROUTE DIVIDER -->
