@@ -21,7 +21,7 @@
       --ink:        #6b5244;
       --muted:      #9b7e6e;
       --warm-white: #fffdf8;
-      --stamp-red:  #c0392b;
+      --stamp-red:  #c96b8a;
     }
 
     html { scroll-behavior: smooth; }
@@ -102,9 +102,9 @@
       flex: 1; height: 6px; border-radius: 1px;
       background: repeating-linear-gradient(
         90deg,
-        #c0392b 0px, #c0392b 10px,
+        #c96b8a 0px, #c96b8a 10px,
         transparent 10px, transparent 14px,
-        #1a3a6b 14px, #1a3a6b 24px,
+        #7a4a3a 14px, #7a4a3a 24px,
         transparent 24px, transparent 28px
       );
     }
@@ -146,9 +146,9 @@
       position: absolute; left: 0; right: 0; height: 5px; z-index: 2;
       background: repeating-linear-gradient(
         90deg,
-        #c0392b 0, #c0392b 8px,
+        #c96b8a 0, #c96b8a 8px,
         transparent 8px, transparent 12px,
-        #1a3a6b 12px, #1a3a6b 20px,
+        #7a4a3a 12px, #7a4a3a 20px,
         transparent 20px, transparent 24px
       );
     }
@@ -301,9 +301,9 @@
       position: absolute; top: 0; left: 0; right: 0; height: 5px;
       background: repeating-linear-gradient(
         90deg,
-        #c0392b 0, #c0392b 10px,
+        #c96b8a 0, #c96b8a 10px,
         transparent 10px, transparent 14px,
-        #1a3a6b 14px, #1a3a6b 24px,
+        #7a4a3a 14px, #7a4a3a 24px,
         transparent 24px, transparent 28px
       );
     }
@@ -330,6 +330,14 @@
       font-size: 0.85rem; color: var(--ink); margin-top: 8px;
       max-width: 600px; line-height: 1.7;
     }
+    .modal-link {
+      display: inline-block; margin-top: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--rose-dark);
+      text-decoration: none; border-bottom: 1px solid var(--rose-dark);
+      transition: opacity 0.2s;
+    }
+    .modal-link:hover { opacity: 0.7; }
     .modal-close {
       flex-shrink: 0; width: 36px; height: 36px;
       border-radius: 50%; border: 1px solid var(--linen);
@@ -380,7 +388,7 @@
     }
     .lightbox.open { opacity: 1; pointer-events: all; }
     .lightbox img {
-      max-width: 90vw; max-height: 90vh;
+      max-width: 90vw; max-height: 85vh;
       object-fit: contain; border-radius: 2px;
       box-shadow: 0 4px 60px rgba(0,0,0,0.6);
     }
@@ -390,6 +398,15 @@
       cursor: pointer; transition: color 0.2s; line-height: 1;
     }
     .lightbox-close:hover { color: #fff; }
+    .lightbox-open-btn {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85); padding: 8px 20px;
+      font-family: 'Nunito', sans-serif; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .lightbox-open-btn:hover { background: rgba(255,255,255,0.22); color: #fff; }
 
     /* ── FOOTER ── */
     .footer {
@@ -444,7 +461,7 @@
 
   <div class="postcard" onclick="openModal('vector')">
     <div class="pc-img">
-      <img src="img/vector_crab.png" alt="The Vector newspaper" />
+      <img src="img/vector%20crab.png" alt="The Vector newspaper" />
     </div>
     <div class="pc-divider"></div>
     <div class="pc-body">
@@ -487,7 +504,7 @@
 
   <div class="postcard" onclick="openModal('kittea')">
     <div class="pc-img">
-      <img src="img/kittea3.png" alt="KitTea packaging" />
+      <img src="img/kittea-mock.png" alt="KitTea packaging" />
     </div>
     <div class="pc-divider"></div>
     <div class="pc-body">
@@ -530,7 +547,7 @@
 
   <div class="postcard" onclick="openModal('yearbook')">
     <div class="pc-img">
-      <img src="img/ybfront.jpg" alt="Spotswood HS Yearbook" />
+      <img src="img/final-cover-4.png" alt="Spotswood HS Yearbook" />
     </div>
     <div class="pc-divider"></div>
     <div class="pc-body">
@@ -573,7 +590,7 @@
 
   <div class="postcard" onclick="openModal('illustration')">
     <div class="pc-img">
-      <img src="img/I_Am_a_Cat_Bookcover_Design_small_.jpg" alt="Digital art and illustration" />
+      <img src="img/roulin%20progress.png" alt="Digital art and illustration" />
     </div>
     <div class="pc-divider"></div>
     <div class="pc-body">
@@ -616,7 +633,7 @@
 
   <div class="postcard" onclick="openModal('print')">
     <div class="pc-img">
-      <img src="img/BlueF.png" alt="Print and Brand work" />
+      <img src="img/airbenders%20logo%20drawoing.png" alt="Print and Brand work" />
     </div>
     <div class="pc-divider"></div>
     <div class="pc-body">
@@ -656,6 +673,7 @@
         <p class="modal-kicker" id="modal-kicker"></p>
         <h2 class="modal-title" id="modal-title"></h2>
         <p class="modal-desc" id="modal-desc"></p>
+        <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener" style="display:none"></a>
       </div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
@@ -666,9 +684,10 @@
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close">✕</span>
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
   <img id="lightbox-img" src="" alt="" />
+  <a id="lightbox-open-btn" class="lightbox-open-btn" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">Open full size ↗</a>
 </div>
 
 <!-- ══════════════════════════════════════════════════════ -->
@@ -688,27 +707,23 @@
     vector: {
       kicker: 'Editorial · Branding · Social · 2023–2025',
       title: 'The Vector <em>Newspaper</em>',
-      desc: 'As Design & Executive Editor at NJIT\'s Vector Newspaper, I led all visual output — bi-weekly print layouts in InDesign, logo & brand identity, event flyers, social media graphics, merch, and web UI at njitvector.com. Grew readership by 21%.',
+      link: 'https://njitvector.com',
+      linkLabel: 'Visit njitvector.com ↗',
+      desc: 'As Design & Executive Editor at NJIT\'s Vector Newspaper, I led all visual output — bi-weekly print layouts in InDesign, logo & brand identity, event flyers, social media graphics, merch, and web UI at njitvector.com. Grew readership by 21% after digital transformation.',
       images: [
-        { src: 'img/vector1.png',              caption: 'Logo redesign — old vs. new' },
-        { src: 'img/vector_crab.png',          caption: 'Crab mascot — Vector branding' },
-        { src: 'img/4.png',                    caption: 'Vector crab illustration' },
-        { src: 'img/3.png',                    caption: 'Crab + newspaper collage' },
-        { src: 'img/writing_contest_big_cc_poster.png', caption: 'Writing Contest poster — Fall 2024' },
-        { src: 'img/post1.png',                caption: 'Social cover — Halal Food Trucks, Vol. CI' },
-        { src: 'img/post2.png',                caption: 'Social cover — article graphic' },
-        { src: 'img/post3.png',                caption: 'Social cover — article graphic' },
-        { src: 'img/first_year_stats1.png',    caption: 'Data infographic — NJIT Class of 2028' },
-        { src: 'img/vector2.png',              caption: 'Brand asset' },
-        { src: 'img/vector3.png',              caption: 'Editorial graphic' },
-        { src: 'img/vector4.png',              caption: 'Editorial graphic' },
-        { src: 'img/vector5.png',              caption: 'Editorial graphic' },
-        { src: 'img/vector6.png',              caption: 'Editorial graphic' },
-        { src: 'img/veector_variation.png',    caption: 'Logo variation' },
-        { src: 'img/Vector_1.png',             caption: 'Design asset' },
-        { src: 'img/Vector_2.png',             caption: 'Design asset' },
-        { src: 'img/Vector_4.png',             caption: 'Design asset' },
-        { src: 'img/vector_3.png',             caption: 'Design asset' },
+        { src: 'img/Vector%201.png',                      caption: 'Fall 2024 Issue 8' },
+        { src: 'img/Vector%202.png',                      caption: 'Fall 2024 Issue 8' },
+        { src: 'img/Vector%204.png',                      caption: 'Entertainment Page' },
+        { src: 'img/post1.png',                           caption: 'Social Media Post' },
+        { src: 'img/post2.png',                   caption: 'Social Media Post' },
+        { src: 'img/vector1.png',                         caption: 'Vector logo' },
+        { src: 'img/vector2.png',                         caption: 'Vector branding' },
+        { src: 'img/vector3.png',                         caption: 'Logo variation' },
+        { src: 'img/vector4.png',                         caption: 'Logo variation' },
+        { src: 'img/vector5.png',                         caption: 'Logo variation' },
+        { src: 'img/vector6.png',                         caption: 'Logo variation' },
+        { src: 'img/veector%20variation.png',             caption: 'Logo variation' },
+        { src: 'img/writing%20contest%20big%20cc%20poster.png', caption: 'Writing Contest poster — Fall 2024' },
       ]
     },
     kittea: {
@@ -760,8 +775,8 @@
         { src: 'img/BlueF.png',                   caption: 'Barat Foundation — Animodules flyer (blue)' },
         { src: 'img/COrangeF.png',                caption: 'Barat Foundation — Animodules flyer (orange)' },
         { src: 'img/BlueB.png',                   caption: 'Barat Foundation — flyer back side' },
-        { src: 'img/airbenders_logo_drawoing.png', caption: 'Airbenders music group — logo · Illustrator' },
-        { src: 'img/only_logo.png',               caption: 'NJIT Fintech Club — logo · Illustrator' },
+        { src: 'img/airbenders%20logo%20drawoing.png', caption: 'Airbenders music group — logo · Illustrator' },
+        { src: 'img/only%20logo.png',               caption: 'NJIT Fintech Club — logo · Illustrator' },
       ]
     },
   };
@@ -771,6 +786,15 @@
     document.getElementById('modal-kicker').textContent = d.kicker;
     document.getElementById('modal-title').innerHTML = d.title;
     document.getElementById('modal-desc').textContent = d.desc;
+
+    const linkEl = document.getElementById('modal-link');
+    if (d.link) {
+      linkEl.href = d.link;
+      linkEl.textContent = d.linkLabel || d.link;
+      linkEl.style.display = 'inline-block';
+    } else {
+      linkEl.style.display = 'none';
+    }
 
     const grid = document.getElementById('modal-grid');
     grid.innerHTML = d.images.map(img => `
@@ -795,11 +819,18 @@
 
   function openLightbox(src) {
     document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-open-btn').href = src;
     document.getElementById('lightbox').classList.add('open');
   }
 
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
+  }
+
+  function closeLightboxBg(e) {
+    if (e.target === document.getElementById('lightbox') || e.target === document.getElementById('lightbox-img')) {
+      closeLightbox();
+    }
   }
 
   document.addEventListener('keydown', e => {
