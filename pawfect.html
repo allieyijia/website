@@ -9,38 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .pawfect-hero { background: linear-gradient(135deg, #3d5a3e 0%, #5a7a4a 100%); }
-    .pawfect-hero h1, .pawfect-hero .subtitle { color: #faf6f0; }
-    .pawfect-hero .cs-tag { border-color: #b5d4a8; color: #b5d4a8; }
-    .pawfect-hero .cs-meta-item label { color: rgba(181,212,168,0.6); }
-    .pawfect-hero .cs-meta-item span { color: #faf6f0; }
-    .pawfect-hero::after { display: none; }
-    .pawfect-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
+    .pawfect-hero { background: linear-gradient(135deg, #1d3a2a 0%, #2a5038 60%, #3a6b4a 100%); }
+    .pawfect-hero-inner { max-width: 820px; margin: 0 auto; padding: 80px 48px 64px; }
+    .pawfect-hero h1, .pawfect-hero .subtitle { color: #f0f8f2; }
+    .pawfect-hero .cs-tag { border-color: rgba(100,180,120,0.5); color: #80c898; }
+    .pawfect-hero .cs-meta-item label { color: rgba(255,255,255,0.4); }
+    .pawfect-hero .cs-meta-item span { color: #f0f8f2; }
+
     .award-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(181,212,168,0.2); border: 1px solid #b5d4a8;
-      color: #b5d4a8; padding: 8px 18px; border-radius: 2px;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #f5f0e0; border: 1px solid #d4c090;
+      color: #8a6a10; border-radius: 4px;
+      padding: 8px 16px; font-size: 13px; font-weight: 700;
+      margin-bottom: 24px;
     }
-    .screen-grid-4 {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 32px 0;
+    .screen-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;
     }
-    .screen-grid-4 img {
-      width: 100%; border-radius: 12px; border: 1px solid var(--linen);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-    .screen-label { text-align: center; font-size: 11px; color: var(--muted); margin-top: 6px; }
-    .feature-block {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-      align-items: center; margin: 32px 0;
-    }
-    .feature-block.flip { direction: rtl; }
-    .feature-block.flip > * { direction: ltr; }
-    .feature-block img { width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-    @media(max-width:700px) {
-      .screen-grid-4 { grid-template-columns: repeat(2,1fr); }
-      .feature-block { grid-template-columns: 1fr; }
+    .screen-row img {
+      width: 100%; border-radius: 6px;
+      border: 1px solid var(--linen);
     }
   </style>
 </head>
@@ -59,15 +47,14 @@
 <!-- HERO -->
 <div class="cs-hero pawfect-hero">
   <div class="pawfect-hero-inner">
-    <div class="award-badge">🥇 1st Place · NJIT Design Jam 2025</div>
-    <span class="cs-tag">Mobile UX · Social Design · Design Jam</span>
+    <span class="cs-tag">Design Jam · Mobile App · 1st Place · UX Research</span>
     <h1>Pawfect Pets</h1>
-    <p class="subtitle">A pet adoption app that reimagines how people discover their next companion — through social discovery, breed browsing, and location-aware shelter search. 1st place at NJIT Design Jam 2025.</p>
-    <div class="cs-meta" style="margin-top:32px;">
-      <div class="cs-meta-item"><label>My Role</label><span>Co-designer (with Jonessa Rodriguez)</span></div>
-      <div class="cs-meta-item"><label>Timeline</label><span>Design Jam, 2025</span></div>
-      <div class="cs-meta-item"><label>Platform</label><span>Mobile App (iOS)</span></div>
-      <div class="cs-meta-item"><label>Result</label><span>🥇 1st Place</span></div>
+    <p class="subtitle">A social mobile platform connecting aspiring pet owners with local shelters — making the adoption process transparent, breed-informed, and community-driven. 1st place at NJIT Design Jam.</p>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><label>My Role</label><span>UX Designer (co-lead)</span></div>
+      <div class="cs-meta-item"><label>Team</label><span>Allie He &amp; Jonessa</span></div>
+      <div class="cs-meta-item"><label>Context</label><span>NJIT Design Jam</span></div>
+      <div class="cs-meta-item"><label>Result</label><span>🏆 1st Place</span></div>
     </div>
   </div>
 </div>
@@ -75,106 +62,131 @@
 <!-- BODY -->
 <div class="cs-body">
 
-  <div class="cs-section">
-    <p class="cs-section-label">The Problem</p>
-    <h2>Pet Adoption Is Broken</h2>
-    <p>The existing pet adoption experience is fragmented. Petfinder feels like a product catalog. Shelter websites are outdated. The emotional journey of finding a pet — the excitement, the "is this the one?" moment — is nowhere in the digital experience.</p>
-    <p>Meanwhile, adoption rates remain low. Animals sit in shelters for months. The mismatch isn't about supply and demand — it's about <em>connection</em>. People don't adopt from catalogs; they adopt from stories.</p>
-    <div class="cs-quote">
-      "People don't adopt from catalogs. They adopt from stories."
+  <div class="award-badge">🏆 1st Place — NJIT Design Jam · Best in Show</div>
+
+  <div class="process-steps">
+    <div class="process-step active">Empathize</div>
+    <div class="process-step active">Define</div>
+    <div class="process-step active">Ideate</div>
+    <div class="process-step active">Prototype</div>
+    <div class="process-step active">Test</div>
+  </div>
+
+  <!-- EMPATHIZE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">01</div>
+      <div class="phase-name">Empathize</div>
     </div>
-  </div>
-
-  <div class="cs-divider"></div>
-
-  <div class="cs-section">
-    <p class="cs-section-label">Our Approach</p>
-    <h2>Social Discovery Meets Purposeful Search</h2>
-    <p>Jonessa and I designed Pawfect Pets around two complementary modes: passive discovery (a social feed that surfaces animals and stories without requiring intent) and active search (a breed browser and shelter finder for people who know what they're looking for).</p>
-    <p>The palette — warm greens and earthen tones — was chosen to feel calm and trustworthy, not clinical. Adoption is an emotional decision. The UI should feel like a warm home, not an e-commerce checkout.</p>
-  </div>
-
-  <div class="cs-section">
-    <p class="cs-section-label">Core Screens</p>
-    <h2>4 Key Views</h2>
-    <div class="screen-grid-4">
-      <div>
-        <img src="img/pawfect-2.jpg" alt="Pawfect Pets Home — social feed"/>
-        <p class="screen-label">Home Feed</p>
-      </div>
-      <div>
-        <img src="img/pawfect-3.jpg" alt="Breedbook browse"/>
-        <p class="screen-label">Breedbook</p>
-      </div>
-      <div>
-        <img src="img/pawfect-5.jpg" alt="Shelter discovery"/>
-        <p class="screen-label">Shelters</p>
-      </div>
-      <div>
-        <img src="img/pawfect-6.jpg" alt="Saved pets"/>
-        <p class="screen-label">Saved</p>
-      </div>
+    <h2>The adoption process is broken for first-time adopters</h2>
+    <p>Pet adoption should be one of the most joyful decisions a person makes. In practice, it's often overwhelming, opaque, and fragmented. Aspiring pet owners don't know which shelter has the right animal, which breed fits their lifestyle, or whether the animal they fell in love with online is still available. Shelters, meanwhile, struggle to tell their story digitally and connect with the right adopters.</p>
+    <p>We began with rapid research: a mix of secondary research on shelter adoption patterns and quick interviews with people who had recently adopted a pet or tried to and given up. The gap was immediate and consistent: people didn't trust the information online, didn't know where to start with breeds, and felt disconnected from shelters as organizations (not just databases of animals).</p>
+    <div class="finding-highlight">
+      The biggest barrier to adoption wasn't wanting a pet. It was not knowing enough — about the breed, the shelter, the process — to feel confident making the commitment.
     </div>
+    <p>A secondary problem emerged: many people who wanted to adopt ended up buying from breeders, not because they preferred it, but because the breeder experience felt more legible and confident-making. Fixing adoption meant matching that clarity and trustworthiness.</p>
   </div>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Feature: Home Feed</p>
-    <h2>Adoption as Social Discovery</h2>
-    <div class="feature-block">
-      <img src="img/pawfect-2.jpg" alt="Pawfect Home feed — shelter posts and comments"/>
-      <div>
-        <p>The Home screen is a social feed — shelters post photos, updates, and animal stories. Users can comment, like, and share. It's TikTok for adoption: passive, emotional, and surprisingly effective at building the connection that leads to action.</p>
-        <p>Shelters become characters in the story, not just inventory sources. Following a shelter means you see their animals' journeys — from intake to adoption — which builds trust and investment over time.</p>
+  <!-- DEFINE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">02</div>
+      <div class="phase-name">Define</div>
+    </div>
+    <h2>Three needs, one platform</h2>
+    <p>Research synthesis surfaced three core user needs that any successful solution had to address:</p>
+    <div class="insight-row">
+      <div class="insight-card">
+        <h4>Breed education</h4>
+        <p>First-time adopters need to understand breed temperament, energy level, health concerns, and lifestyle fit before they even look at individual animals.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Shelter trust and discovery</h4>
+        <p>Adopters need to see shelters as organizations with identity and mission — not just as databases. Location, contact, available animals, and social presence all matter.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Community and social proof</h4>
+        <p>People trust other adopters. A community feed where existing owners share their experience creates the social proof that makes the decision feel safer.</p>
       </div>
     </div>
+    <p>We also identified a fourth component: a saved/wishlist feature — because adoption is rarely an impulse decision. People want to track animals and breeds they're considering over time.</p>
   </div>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Feature: Breedbook</p>
-    <h2>Browse Breeds, Find Local Matches</h2>
-    <div class="feature-block flip">
-      <img src="img/pawfect-4.jpg" alt="Breedbook — browse by dog, cat, other"/>
-      <div>
-        <p>Breedbook solves a specific problem: "I know I want a golden retriever — where can I find one near me?" Users browse by species, then drill into breed profiles with temperament info, care guides, and — crucially — a map of nearby pets of that exact breed currently available for adoption.</p>
-        <p>It turns information browsing into an immediate action path. You learn about a breed, fall in love, and see exactly which shelter has one waiting.</p>
-      </div>
+  <!-- IDEATE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">03</div>
+      <div class="phase-name">Ideate</div>
     </div>
+    <h2>Social app meets adoption platform</h2>
+    <p>The structural insight was to model Pawfect Pets on a pattern users already trusted: a social media app. Navigation tabs (Home, Breedbook, Shelter, Saved) match familiar patterns, lowering the learning curve. But within that shell, each section was purpose-built for adoption decision-making.</p>
+    <p>The Breedbook — our invention — was the key differentiator. A searchable, filterable encyclopedia of dog, cat, and small pet breeds, each with: temperament tags, weight/height/lifespan specs, energy level, common health concerns, and compatibility notes. This was the "do your research" phase of adoption, made visual and navigable.</p>
+    <p>Early wireframes explored different navigation models: a tab-based bottom nav (chosen), a card-based feed-first layout, and a map-first approach for shelter discovery. We chose tab-based because it let each module develop depth without overwhelming the home screen.</p>
+
+    <img src="img/pawfect-wireframes.jpg" alt="Pawfect Pets wireframes and hi-fi screens" class="cs-image"/>
+    <p class="cs-image-caption">From wireframe to high-fidelity: the progression from low-fi layout explorations to final screens across all four app sections.</p>
   </div>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Feature: User Profiles</p>
-    <h2>Preferences That Actually Help</h2>
-    <p>User profiles include adoption preferences — not just demographic info. Area radius, preferred breeds, age range, sex, medical comfort, personality traits. This lets the app surface relevant animals proactively in the feed, rather than making users search every time.</p>
-    <div class="cs-image-grid">
-      <img src="img/pawfect-7.jpg" alt="User profile and preferences"/>
-      <img src="img/pawfect-8.jpg" alt="Saved pets and shelters"/>
+  <!-- PROTOTYPE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">04</div>
+      <div class="phase-name">Prototype</div>
     </div>
-    <p class="cs-image-caption">User profile with adoption preferences (left) and saved pets/shelters view (right).</p>
-  </div>
+    <h2>Four screens, fully designed</h2>
+    <p>We produced a high-fidelity Figma prototype covering all four core sections of the app. The visual design: warm greens and earth tones — trustworthy and inviting without being clinical or cold. Typography leaned clean and legible. Pet photography was prominent: if you're choosing an animal companion, the animal should be the hero.</p>
 
-  <div class="cs-divider"></div>
+    <img src="img/pawfect-screens.jpg" alt="Pawfect Pets final screens" class="cs-image"/>
+    <p class="cs-image-caption">Final hi-fi screens: Breedbook (left) showing searchable breed categories, and Shelter profile (right) with social-style layout.</p>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Results</p>
-    <h2>1st Place</h2>
+    <div class="screen-row">
+      <img src="img/pawfect-final1.jpg" alt="Pawfect Pets app screens — Breedbook and shelter"/>
+      <img src="img/pawfect-final2.jpg" alt="Pawfect Pets app screens — community feed"/>
+    </div>
+    <p class="cs-image-caption">High-fidelity Figma prototype: from individual breed profiles to the community social feed where adopters share their stories.</p>
+
+    <h3>Key design decisions</h3>
+    <p>The shelter profile took significant iteration. Early versions looked like a directory listing. Final version looks like a social profile — profile photo, bio, follow button, and a dual tab showing available pets and community posts. This reframing transformed shelters from databases into organizations with personality, which was exactly the trust problem research had identified.</p>
+    <p>The Breedbook breed detail page surfaced everything a prospective owner needs: health concerns (which often determine long-term costs), personality tags, and a rescue-availability indicator showing whether this breed is commonly available in local shelters. This last detail emerged from an interview — one user had spent months looking for a Husky to adopt before realizing there were several in the shelter she'd walked past every day.</p>
+
     <div class="cs-stats">
-      <div class="cs-stat"><span class="num">🥇</span><span class="label">1st Place, NJIT Design Jam</span></div>
-      <div class="cs-stat"><span class="num">4</span><span class="label">Core Screens Designed</span></div>
-      <div class="cs-stat"><span class="num">48h</span><span class="label">Sprint Duration</span></div>
+      <div class="cs-stat">
+        <span class="num">4</span>
+        <span class="label">Core App Sections</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">Breed</span>
+        <span class="label">Education First</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">Social</span>
+        <span class="label">Community Feed</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">Local</span>
+        <span class="label">Shelter Discovery</span>
+      </div>
     </div>
-    <p>Judges praised the social feed concept as a genuine innovation on existing adoption platforms, and highlighted the cohesion between the warm visual design and the emotional intent of the product.</p>
   </div>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Reflection</p>
-    <h2>What I Learned</h2>
-    <p>Co-designing with Jonessa taught me how to divide responsibilities without fragmenting the vision. We split screens, but every design decision went through both of us before it was final. The best outcomes came from those debates — moments where one of us had a reason that the other hadn't considered.</p>
-    <p>Pawfect Pets also reinforced something about emotional UX: the most important job of the interface isn't efficiency — it's making the user feel safe enough to take an emotional leap. Adopting a pet is a commitment. The design has to earn that trust.</p>
+  <!-- OUTCOME -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">05</div>
+      <div class="phase-name">Outcome</div>
+    </div>
+    <h2>1st place — and what it meant</h2>
+    <p>Pawfect Pets won 1st place at the NJIT Design Jam. Judge feedback highlighted the research foundation and the decision to build something that addressed adoption behavior change — not just a prettier version of an existing shelter website.</p>
+    <p>The Breedbook, in particular, was cited as a genuinely novel concept: no major adoption platform currently offers a full breed education resource embedded in the adoption flow. The judges felt it addressed a real gap in how first-time adopters make decisions.</p>
+
+    <h3>What I'd push further</h3>
+    <p>If this were a real product, the next phase would be usability testing with first-time adopters — specifically testing whether the Breedbook-first information architecture actually changes decision-making behavior, or whether people skip it and go straight to browsing animals. My hypothesis is that engagement with breed content predicts adoption follow-through, but we'd need data to know for sure.</p>
+    <p>I'd also explore a shelter-side product: tools for shelters to manage their profiles, update availability, and respond to community posts. The adopter experience is only as good as the data shelters can maintain — and right now, that's the weakest link in the system.</p>
   </div>
 
-  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
-    <a href="abg.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← ABG Internship</a>
-    <a href="savor.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Next: Savor →</a>
+  <div class="page-nav">
+    <a href="beacon.html">← Beacon</a>
+    <a href="savor.html">Next: Savor →</a>
   </div>
 
 </div>

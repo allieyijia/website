@@ -7,607 +7,256 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .ups-hero { background: linear-gradient(135deg, #1a0f07 0%, #3b2314 60%, #5a3520 100%); }
+    .ups-hero-inner { max-width: 820px; margin: 0 auto; padding: 80px 48px 64px; }
+    .ups-hero h1, .ups-hero .subtitle { color: #faf6f0; }
+    .ups-hero .cs-tag { border-color: rgba(255,166,0,0.5); color: #ffaa00; }
+    .ups-hero .cs-meta-item label { color: rgba(255,255,255,0.4); }
+    .ups-hero .cs-meta-item span { color: #faf6f0; }
+    .ups-accent { color: #ffaa00; }
 
-    :root {
-      --parchment: #faf6f0;
-      --espresso:  #4a3728;
-      --camel:     #c4a882;
-      --rose:      #e8c4b8;
-      --sage:      #b5cdb0;
-      --sage-deep: #2e5430;
-      --linen:     #e8ddd3;
-      --ink:       #6b5244;
-      --muted:     #9b7e6e;
-      --warm-white:#fffdf8;
-      --sage-light:#dce8d8;
-      --ups-brown: #3d1f0d;
-      --ups-gold:  #f0a500;
+    .screen-showcase {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0;
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--parchment);
-      color: var(--espresso);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.5;
-    }
-
-    /* ── NAV ── */
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 48px;
-      background: var(--parchment);
-      border-bottom: 0.5px solid var(--linen);
-      position: sticky; top: 0; z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 600;
-      color: var(--espresso); text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--ink); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--espresso); }
-
-    /* ── POSTCARD HERO ── */
-    .case-hero {
-      background: var(--ups-brown);
-      position: relative; overflow: hidden;
-      padding: 64px 80px 56px;
-    }
-    .case-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent, transparent 40px,
-        rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px
-      );
-    }
-    .case-hero-postmark {
-      position: absolute; top: 32px; right: 80px;
-      width: 100px; height: 100px;
-      border: 2.5px solid rgba(240,165,0,0.25);
-      border-radius: 50%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-    }
-    .case-hero-postmark .pm-top {
-      font-family: 'Nunito', sans-serif;
-      font-size: 8px; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(240,165,0,0.5);
-    }
-    .case-hero-postmark .pm-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; font-weight: 600;
-      color: rgba(240,165,0,0.6); line-height: 1;
-    }
-    .case-hero-postmark .pm-bottom {
-      font-size: 7px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(240,165,0,0.4);
-    }
-    .case-hero-stamp {
-      position: absolute; top: 28px; right: 208px;
-      width: 60px; height: 75px;
-      border: 2px solid rgba(240,165,0,0.3);
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(240,165,0,0.07);
-    }
-    .case-hero-stamp::before {
-      content: '🥇';
-      font-size: 26px;
-    }
-    .case-hero-inner { position: relative; max-width: 680px; }
-    .case-tag {
-      display: inline-block;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--ups-gold);
-      margin-bottom: 16px; opacity: 0.85;
-    }
-    .case-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 54px);
-      font-weight: 600; line-height: 1.1;
-      color: #fff; margin-bottom: 16px;
-    }
-    .case-hero h1 em { font-style: italic; color: var(--ups-gold); }
-    .case-hero .subtitle {
-      font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72);
-      max-width: 560px; margin-bottom: 36px;
-    }
-    .case-meta {
-      display: flex; gap: 0; flex-wrap: wrap;
-      border-top: 0.5px solid rgba(255,255,255,0.12);
-      padding-top: 28px; margin-top: 28px;
-    }
-    .case-meta-item {
-      padding: 0 32px 0 0;
-      margin-right: 32px;
-      border-right: 0.5px solid rgba(255,255,255,0.12);
-    }
-    .case-meta-item:last-child { border-right: none; }
-    .case-meta-item label {
-      display: block; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 4px;
-    }
-    .case-meta-item span {
-      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85);
-    }
-    .award-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(240,165,0,0.15);
-      border: 1px solid rgba(240,165,0,0.35);
-      border-radius: 4px;
-      padding: 8px 16px;
-      font-size: 12px; font-weight: 700;
-      color: var(--ups-gold); letter-spacing: 0.05em;
-      margin-top: 20px;
-    }
-
-    /* ── BODY ── */
-    .case-body {
-      max-width: 800px; margin: 0 auto;
-      padding: 72px 48px 80px;
-    }
-
-    .cs-section { margin-bottom: 56px; }
-
-    .section-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 8px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .section-label::after {
-      content: ''; flex: 1; height: 0.5px;
-      background: var(--linen); display: block;
-    }
-
-    .cs-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px; font-weight: 600; line-height: 1.2;
-      color: var(--espresso); margin-bottom: 18px;
-    }
-    .cs-section h2 em { font-style: italic; color: var(--sage-deep); }
-
-    .cs-section p {
-      font-size: 15.5px; line-height: 1.75;
-      color: var(--ink); margin-bottom: 16px;
-    }
-    .cs-section p:last-child { margin-bottom: 0; }
-
-    .cs-section em { font-style: italic; color: var(--espresso); font-weight: 600; }
-
-    /* persona cards */
-    .persona-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-      margin: 24px 0;
-    }
-    .persona-card {
-      background: var(--warm-white);
-      border: 1px solid var(--linen);
-      border-left: 3px solid var(--camel);
-      border-radius: 6px;
-      padding: 20px 22px;
-    }
-    .persona-card strong {
-      display: block; font-size: 14px; font-weight: 700;
-      color: var(--espresso); margin-bottom: 6px;
-    }
-    .persona-card span {
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); font-weight: 700; display: block; margin-bottom: 10px;
-    }
-    .persona-card p { font-size: 14px; line-height: 1.65; color: var(--ink); margin: 0; }
-
-    /* sprint timeline */
-    .sprint-row {
-      display: flex; gap: 0; margin: 28px 0; position: relative;
-    }
-    .sprint-row::before {
-      content: ''; position: absolute;
-      top: 22px; left: 0; right: 0; height: 1px;
-      background: var(--linen);
-    }
-    .sprint-item {
-      flex: 1; text-align: center; position: relative; padding-top: 40px;
-    }
-    .sprint-dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--camel); border: 2px solid var(--parchment);
-      position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
-    }
-    .sprint-num {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
-    }
-    .sprint-label {
-      font-size: 12px; font-weight: 600; color: var(--espresso); line-height: 1.4;
-    }
-
-    /* solution grid */
-    .solution-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-      margin: 24px 0;
-    }
-    .solution-card {
-      background: var(--warm-white);
-      border: 1px solid var(--linen);
-      border-radius: 6px; padding: 20px 22px;
-    }
-    .solution-card .sol-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--camel); margin-bottom: 8px;
-    }
-    .solution-card strong {
-      display: block; font-size: 14px; font-weight: 700;
-      color: var(--espresso); margin-bottom: 6px;
-    }
-    .solution-card p { font-size: 13.5px; line-height: 1.65; color: var(--ink); margin: 0; }
-
-    /* images */
-    .cs-image {
-      width: 100%; border-radius: 8px;
-      border: 1px solid var(--linen);
-      margin: 20px 0 8px;
-      box-shadow: 0 4px 24px rgba(74,55,40,0.08);
-    }
-    .cs-image-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-      margin: 20px 0 8px;
-    }
-    .cs-image-grid img {
+    .screen-showcase img {
       width: 100%; border-radius: 6px;
       border: 1px solid var(--linen);
-      box-shadow: 0 2px 12px rgba(74,55,40,0.07);
     }
-    .cs-caption {
-      font-size: 12px; color: var(--muted); font-style: italic;
-      text-align: center; margin-bottom: 16px; line-height: 1.5;
-    }
+    .screen-showcase.single img { grid-column: 1 / -1; }
 
-    /* pullquote */
-    .pullquote {
-      border-left: 3px solid var(--sage);
-      padding: 16px 24px;
-      margin: 28px 0;
-      background: var(--sage-light);
-      border-radius: 0 6px 6px 0;
-    }
-    .pullquote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 19px; font-style: italic; line-height: 1.6;
-      color: var(--sage-deep); margin: 0;
-    }
-
-    /* outcomes */
-    .outcome-list { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
-    .outcome-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 15px; line-height: 1.6; color: var(--ink);
-    }
-    .outcome-check {
-      width: 20px; height: 20px; flex-shrink: 0;
-      background: var(--sage-light); color: var(--sage-deep);
-      border-radius: 50%; display: flex; align-items: center;
-      justify-content: center; font-size: 10px; font-weight: 800;
-      margin-top: 2px;
-    }
-
-    /* impact pills */
-    .impact-row {
-      display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0;
-    }
-    .impact-pill {
-      background: var(--warm-white); border: 1px solid var(--linen);
-      border-radius: 4px; padding: 14px 20px; flex: 1; min-width: 140px;
-    }
-    .impact-pill .pill-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px; font-weight: 600; color: var(--espresso);
-      line-height: 1;
-    }
-    .impact-pill .pill-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-top: 4px;
-    }
-
-    /* divider */
-    .cs-divider {
-      height: 0.5px; background: var(--linen);
-      margin: 0 0 56px;
-    }
-
-    /* next/prev nav */
-    .case-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 32px 48px;
-      border-top: 0.5px solid var(--linen);
+    .persona-card {
+      border: 1px solid var(--linen);
+      border-radius: 6px; padding: 24px;
+      margin-bottom: 14px;
       background: var(--warm-white);
     }
-    .case-nav-back, .case-nav-link {
-      font-size: 13px; font-weight: 600; color: var(--ink);
-      text-decoration: none; letter-spacing: 0.04em;
-      display: flex; flex-direction: column; gap: 2px;
-      transition: color 0.2s;
+    .persona-card .persona-role {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--rose-dark); margin-bottom: 8px;
     }
-    .case-nav-back:hover, .case-nav-link:hover { color: var(--espresso); }
-    .case-nav-dir { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .case-nav-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; }
-
-    /* footer */
-    .footer {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 48px;
-      border-top: 0.5px solid var(--linen);
-      background: var(--parchment);
-    }
-    .footer-left { font-size: 13px; color: var(--muted); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-link {
-      font-size: 13px; font-weight: 600; color: var(--ink);
-      text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
-    }
-    .footer-link:hover { color: var(--espresso); }
-
-    @media (max-width: 720px) {
-      .nav { padding: 16px 24px; }
-      .case-hero { padding: 48px 24px 40px; }
-      .case-body { padding: 48px 24px 64px; }
-      .persona-grid, .solution-grid, .cs-image-grid { grid-template-columns: 1fr; }
-      .case-meta { gap: 16px; }
-      .case-meta-item { border-right: none; padding: 0; margin: 0; }
-      .sprint-row { flex-direction: column; gap: 20px; }
-      .sprint-row::before { display: none; }
-      .sprint-item { padding-top: 0; text-align: left; padding-left: 24px; }
-      .sprint-dot { left: 0; top: 2px; transform: none; }
-      .case-nav { padding: 24px; }
-      .footer { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
-      .case-hero-postmark, .case-hero-stamp { display: none; }
+    .persona-card h4 { font-size: 1.1rem; color: var(--espresso); margin-bottom: 8px; }
+    .persona-card p { font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+    .persona-card .persona-goal {
+      font-style: italic; color: var(--muted); font-size: 14px; border-left: 2px solid var(--linen);
+      padding-left: 12px; margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">Allie He ✦</a>
-  <ul class="nav-links">
-    <li><a href="ux.html">Work</a></li>
-    <li><a href="graphics.html">Graphics</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="ux.html" class="active">Work</a>
+    <a href="graphics.html">Graphics</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<header class="case-hero">
-  <div class="case-hero-stamp"></div>
-  <div class="case-hero-postmark">
-    <span class="pm-top">Newark</span>
-    <span class="pm-date">2026</span>
-    <span class="pm-bottom">NJIT · UPS</span>
-  </div>
-  <div class="case-hero-inner">
-    <span class="case-tag">UX Engineering · Enterprise Dashboard · Capstone 2026</span>
-    <h1>UPS <em>Capacity</em> Analytics Platform</h1>
-    <p class="subtitle">Designing and building a production-grade analytics platform so UPS infrastructure engineers can model cluster capacity across their OpenShift environment — replacing hours of manual arithmetic with a two-minute decision.</p>
-    <div class="case-meta">
-      <div class="case-meta-item"><label>My Role</label><span>Frontend UI/UX Engineer</span></div>
-      <div class="case-meta-item"><label>Timeline</label><span>Feb – May 2026</span></div>
-      <div class="case-meta-item"><label>Team</label><span>5-person Agile</span></div>
-      <div class="case-meta-item"><label>Stack</label><span>Blazor · .NET 10 · Figma</span></div>
-    </div>
-    <div class="award-badge">🥇 1st Place — NJIT Capstone Showcase 2026</div>
-  </div>
-</header>
-
-<!-- BODY -->
-<main class="case-body">
-
-  <!-- CONTEXT -->
-  <div class="cs-section">
-    <p class="section-label">Context</p>
-    <h2>The <em>Problem</em></h2>
-    <p>UPS recently migrated their infrastructure to Red Hat OpenShift — a platform that runs containerized workloads across clusters of CPU, memory, and DASD storage. But OpenShift didn't give engineers the planning tools to go with it. Every time a team wanted to add a new workload, change cluster configurations, or prepare for growth, they had to do the analysis manually: spreadsheets, tribal knowledge, redundant individual calculations.</p>
-    <p>The problem wasn't showing cluster data. UPS already had data. The problem was <em>using it</em> — turning raw utilization metrics into confident decisions about whether a proposed change would fit, where the bottlenecks were, and how the clusters would perform in two years.</p>
-    <p>I joined a 5-person Agile/Scrum team as the sole Frontend UX Engineer to design and build a web-based capacity analytics platform from scratch. My teammates: Mithil (PM), Lizeth (Associate PM), Junaid (Cloud/Systems), and Abhinav (Backend).</p>
-  </div>
-
-  <div class="cs-divider"></div>
-
-  <!-- RESEARCH -->
-  <div class="cs-section">
-    <p class="section-label">Research</p>
-    <h2>Understanding the <em>Users</em></h2>
-    <p>I authored Chapter 3 of the final paper — stakeholder mapping, requirements gathering, and project scope — and developed two personas to anchor design decisions across all five sprints.</p>
-    <div class="persona-grid">
-      <div class="persona-card">
-        <strong>Derek</strong>
-        <span>Infrastructure Engineer</span>
-        <p>Day-to-day cluster monitoring, responding to alerts, executing capacity changes. He needs fast answers: "Does this workload fit? What's my DASD headroom?" He has no tolerance for charts that make simple questions complicated.</p>
-      </div>
-      <div class="persona-card">
-        <strong>Priya</strong>
-        <span>Platform Lead</span>
-        <p>Quarterly planning cycles, budget justification, executive reporting. She needs to model scenarios — "What if we move 20% of workloads to the new cluster?" — without touching a spreadsheet or waiting on a manual analysis.</p>
-      </div>
-    </div>
-    <p>Both personas pointed to the same core insight: <em>analytical depth had to feel effortless.</em> Tasks that took hours needed to feel like a two-minute conversation with the data.</p>
-  </div>
-
-  <div class="cs-divider"></div>
-
-  <!-- DESIGN PROCESS -->
-  <div class="cs-section">
-    <p class="section-label">Design Process</p>
-    <h2>Wireframes → Figma → <em>Blazor</em></h2>
-    <p>I started in low-fidelity: sketched flows, mapped information hierarchy, and identified the four core modules the platform needed. Early team reviews shaped which views needed their own page vs. which could share layout. From there I moved into hi-fi Figma prototypes, establishing the visual language before writing a line of frontend code.</p>
-    <p>For the visual design, I chose a dark UPS-branded theme. Engineers working long monitoring shifts benefit from reduced eye strain, and high-contrast data visualizations (ApexCharts in gold and amber against dark backgrounds) read far more clearly than light-mode alternatives. Every color decision tied back to the UPS brand colorway.</p>
-    <p>Then I built it. Self-teaching Blazor/.NET 10 was part of the scope — there was no template to work from. I built reusable Razor components for summary cards, data tables, scenario inputs, and charts, and integrated Microsoft Entra ID for role-based authentication across all routes. The jump from "designing the interface" to "being the person who also ships it" changed how I design: every decision became more concrete, more grounded in what's actually buildable.</p>
-  </div>
-
-  <!-- SPRINT TIMELINE -->
-  <div class="cs-section">
-    <p class="section-label">Process</p>
-    <h2>5 Sprints in <em>Jira</em></h2>
-    <div class="sprint-row">
-      <div class="sprint-item">
-        <div class="sprint-dot"></div>
-        <div class="sprint-num">Sprint 1</div>
-        <div class="sprint-label">Scope, stakeholder requirements, architecture</div>
-      </div>
-      <div class="sprint-item">
-        <div class="sprint-dot"></div>
-        <div class="sprint-num">Sprint 2</div>
-        <div class="sprint-label">Wireframes, API contracts, design system</div>
-      </div>
-      <div class="sprint-item">
-        <div class="sprint-dot"></div>
-        <div class="sprint-num">Sprint 3</div>
-        <div class="sprint-label">Fleet Overview + Addition Modeling build</div>
-      </div>
-      <div class="sprint-item">
-        <div class="sprint-dot"></div>
-        <div class="sprint-num">Sprint 4</div>
-        <div class="sprint-label">Removal Analytics + What-If build</div>
-      </div>
-      <div class="sprint-item">
-        <div class="sprint-dot"></div>
-        <div class="sprint-num">Sprint 5</div>
-        <div class="sprint-label">API integration, testing, UI polish</div>
-      </div>
-    </div>
-    <p>We held weekly standups and bi-weekly sponsor demos throughout. Every sprint ended with a review that shaped the next one. Working directly with UPS engineers — not just writing user stories about them — made the feedback loop unusually tight for a student capstone.</p>
-  </div>
-
-  <div class="cs-divider"></div>
-
-  <!-- FEATURE 1: FLEET OVERVIEW -->
-  <div class="cs-section">
-    <p class="section-label">Feature 1</p>
-    <h2>Fleet Overview & <em>Growth Projection</em></h2>
-    <p>The home page gives engineers a real-time snapshot of every cluster in the environment: health status (Healthy / Warning / Critical based on utilization thresholds), current CPU, RAM, and DASD utilization, and node counts. Selecting a cluster reveals a detailed view with a 3-year projection line chart — interpolated to the exact crossing point, not rounded to the nearest year — so engineers know precisely when a resource will be exhausted.</p>
-    <img src="img/UPSCapacityPlannerHome.png" alt="UPS Capacity Planner — Fleet Overview dashboard" class="cs-image"/>
-    <p class="cs-caption">Fleet Overview: real-time cluster health grid (left) and detailed 3-year utilization projection (right). The "Add Capacity" and "Remove Workload" buttons drop users directly into the relevant planning module with the selected cluster pre-loaded.</p>
-  </div>
-
-  <!-- FEATURE 2: ADDITION MODELING -->
-  <div class="cs-section">
-    <p class="section-label">Feature 2</p>
-    <h2>Addition <em>Modeling</em></h2>
-    <p>Engineers can specify workloads and nodes to add — CPU cores, memory GB, DASD, replica counts — and see the projected impact before touching production. Remaining headroom updates dynamically as inputs change, with color-coded status (Healthy / Watch / Critical). The Growth Projection section lets users customize the annual rate and duration, then generate a scenario-specific timeline.</p>
-    <div class="cs-image-grid">
-      <img src="img/AdditionModeling.png" alt="Addition Modeling — input state"/>
-      <img src="img/AdditionModeling1.png" alt="Addition Modeling — results with Before/After table and growth timeline"/>
-    </div>
-    <p class="cs-caption">Left: the input configuration. Right: results — Before vs. After utilization table, Growth Projection Timeline with bottleneck detection, and overall fit status badges.</p>
-    <p>One design decision I'm proud of: the results panel appears alongside the inputs rather than replacing them. Engineers can tweak parameters and re-run without losing context — a pattern that came directly from watching how the persona of "Derek" would actually use this tool under time pressure.</p>
-  </div>
-
-  <!-- FEATURE 3: REMOVAL ANALYTICS -->
-  <div class="cs-section">
-    <p class="section-label">Feature 3</p>
-    <h2>Removal <em>Analytics</em></h2>
-    <p>The flip side of addition: engineers check workloads off a list to simulate decommissions, and the platform instantly recalculates reclaimed CPU, memory, and storage, updates utilization deltas, and identifies the remaining bottleneck. CPU overcommit ratio is tracked separately from memory and storage — because in OpenShift, CPU throttles while memory kills, and the UI surfaces that distinction clearly.</p>
-    <img src="img/CapacityRemoveAnalytics.png" alt="Capacity Remove Analytics — workload checklist with live reclaim preview" class="cs-image"/>
-    <p class="cs-caption">Removal Analytics: engineers check workloads to remove; reclaimed resources, utilization Before vs. After, and bottleneck status update in real time. The Selection Summary at bottom gives a plain-language read of the scenario.</p>
-  </div>
-
-  <!-- FEATURE 4: WHAT-IF ANALYSIS -->
-  <div class="cs-section">
-    <p class="section-label">Feature 4</p>
-    <h2>What-If <em>Analysis</em></h2>
-    <p>The most complex view and the one that required the most design iteration: a two-step, multi-cluster scenario modeling system. Engineers configure additions and removals across multiple clusters simultaneously (with an "Apply to All" option for identical changes), then run analysis to get grouped utilization charts, baseline vs. scenario delta tables, projected exhaustion timelines, and a multi-cluster comparison view. The two-step workflow — Configure → Analyze — was a deliberate choice to separate planning inputs from result interpretation so neither muddied the other.</p>
-    <img src="img/CapacityWhatIfAnalysis.png" alt="What-If Analysis — multi-cluster scenario results with grouped utilization charts and delta tables" class="cs-image"/>
-    <p class="cs-caption">What-If Analysis results: grouped utilization by stage (Baseline → Post-Removal → Applied Scenario), side-by-side Requested vs. Remaining, delta comparison table, and projected utilization over time. This is the platform's most powerful view — and the one UPS sponsors engaged with most during demos.</p>
-  </div>
-
-  <div class="cs-divider"></div>
-
-  <!-- OUTCOMES -->
-  <div class="cs-section">
-    <p class="section-label">Outcomes</p>
-    <h2>What We <em>Built</em></h2>
-    <div class="impact-row">
-      <div class="impact-pill">
-        <div class="pill-val">🥇 1st</div>
-        <div class="pill-label">Place, Capstone Showcase</div>
-      </div>
-      <div class="impact-pill">
-        <div class="pill-val">37</div>
-        <div class="pill-label">Unit tests, 100% coverage</div>
-      </div>
-      <div class="impact-pill">
-        <div class="pill-val">4</div>
-        <div class="pill-label">Core dashboard modules</div>
-      </div>
-      <div class="impact-pill">
-        <div class="pill-val">hrs→min</div>
-        <div class="pill-label">Capacity analysis time</div>
-      </div>
-    </div>
-    <div class="outcome-list">
-      <div class="outcome-item"><div class="outcome-check">✓</div>Production-grade Blazor/.NET 10 web application with Microsoft Entra ID authentication and role-based access control — every objective validated.</div>
-      <div class="outcome-item"><div class="outcome-check">✓</div>All four dashboard modules shipped with full feature coverage: Fleet Overview, Addition Modeling, Removal Analytics, What-If Analysis.</div>
-      <div class="outcome-item"><div class="outcome-check">✓</div>Collaborated with a sister Data Collection team to align API contracts and ensure live OpenShift cluster data flowed correctly into the analytics engine.</div>
-      <div class="outcome-item"><div class="outcome-check">✓</div>Presented to judges, UPS sponsors, and visitors at the NJIT Capstone Showcase — and won 1st place in our category.</div>
+<div class="cs-hero ups-hero">
+  <div class="ups-hero-inner">
+    <span class="cs-tag">UX Engineer · Enterprise Dashboard · Blazor/.NET · Spring 2026</span>
+    <h1>UPS Cluster Capacity Analytics Platform</h1>
+    <p class="subtitle">Designed and built a dark-mode Blazor dashboard that helps UPS infrastructure engineers model CPU, memory, and storage capacity across 1,100+ production sites — replacing guesswork with data-driven foresight.</p>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><label>My Role</label><span>UX Engineer (Frontend)</span></div>
+      <div class="cs-meta-item"><label>Team</label><span>5-person Agile/Scrum</span></div>
+      <div class="cs-meta-item"><label>Timeline</label><span>Feb – May 2026 · 5 Sprints</span></div>
+      <div class="cs-meta-item"><label>Stack</label><span>Blazor · .NET · Figma</span></div>
     </div>
   </div>
-
-  <div class="cs-divider"></div>
-
-  <!-- REFLECTION -->
-  <div class="cs-section">
-    <p class="section-label">Reflection</p>
-    <h2>What I <em>Learned</em></h2>
-    <p>The biggest lesson from this project: <em>constraints are design inputs.</em> The data model, the API response structure, the Blazor component lifecycle — every technical reality shaped what was possible to design. Learning to work within those constraints, rather than around them, made me a sharper designer and a much better collaborator with backend engineers.</p>
-    <p>I also learned what it actually takes to build software that professionals can depend on. Working with real UPS sponsors, a real codebase, real authentication, and real infrastructure concepts was a different experience than any coursework. The feedback session with actual infrastructure engineers near the end of the semester revealed layout choices that made more sense to developers than to end users — and that feedback made the final product meaningfully better. I'd bring users in earlier next time.</p>
-
-    <div class="pullquote">
-      <p>"The hardest UX problems aren't about making things pretty — they're about making the right trade-off between what users need and what the system can do."</p>
-    </div>
-  </div>
-
-</main>
-
-<!-- PREV / NEXT NAV -->
-<div class="case-nav">
-  <a href="ux.html" class="case-nav-back">
-    <span class="case-nav-dir">← All projects</span>
-  </a>
-  <a href="beacon.html" class="case-nav-link" style="text-align:right">
-    <span class="case-nav-dir">Next project →</span>
-    <span class="case-nav-title">Beacon</span>
-  </a>
 </div>
 
-<!-- FOOTER -->
+<!-- BODY -->
+<div class="cs-body">
+
+  <div class="process-steps">
+    <div class="process-step active">Empathize</div>
+    <div class="process-step active">Define</div>
+    <div class="process-step active">Ideate</div>
+    <div class="process-step active">Prototype</div>
+    <div class="process-step active">Test</div>
+  </div>
+
+  <!-- EMPATHIZE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">01</div>
+      <div class="phase-name">Empathize</div>
+    </div>
+    <h2>The problem no one had time to see</h2>
+    <p>UPS operates one of the world's largest private logistics networks. Behind the scenes, that means thousands of computing clusters — OpenShift environments running CPU-intensive routing, tracking, and delivery optimization workloads across 1,100+ sites globally.</p>
+    <p>The infrastructure team was managing capacity manually: exporting spreadsheets, running ad-hoc calculations, and making procurement decisions based on intuition and historical averages. There was no centralized view of cluster health. No way to model "what if we add three more nodes?" No early warning before a cluster hit critical utilization.</p>
+    <p>When we first sat down with the team, the most honest thing they said was: <em>"We often don't know we have a problem until it's already a problem."</em> Our capstone project would be to change that.</p>
+
+    <div class="finding-highlight">
+      "We often don't know we have a problem until it's already a problem." — UPS Infrastructure stakeholder
+    </div>
+
+    <h3>Understanding the users</h3>
+    <p>We conducted stakeholder interviews and developed two primary personas based on the infrastructure team's actual roles and pain points:</p>
+
+    <div class="persona-card">
+      <div class="persona-role">Primary Persona</div>
+      <h4>Derek — Infrastructure Engineer</h4>
+      <p><strong>Goal:</strong> Understand current cluster load at a glance and model the impact of adding or removing nodes before making a change request.</p>
+      <p><strong>Frustration:</strong> Spending 2–3 hours per week pulling data from multiple systems just to answer basic capacity questions for his manager.</p>
+      <div class="persona-goal">"I need to know if adding this workload will break us before I submit the ticket, not after the outage."</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-role">Secondary Persona</div>
+      <h4>Priya — Platform Lead</h4>
+      <p><strong>Goal:</strong> Review cluster health across all sites in one view, identify which clusters are approaching critical thresholds, and make budget decisions backed by growth projections.</p>
+      <p><strong>Frustration:</strong> Reports from individual engineers arrive in different formats, making cross-site comparison nearly impossible.</p>
+      <div class="persona-goal">"When I have to defend a $2M hardware request, I need numbers — not estimates."</div>
+    </div>
+  </div>
+
+  <!-- DEFINE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">02</div>
+      <div class="phase-name">Define</div>
+    </div>
+    <h2>Scoping four core capabilities</h2>
+    <p>After research synthesis, our team aligned on a 5-sprint Agile roadmap tracked in Jira. My role: frontend UI/UX engineer, responsible for Blazor component architecture, the Figma design system, and translating specs into working code.</p>
+    <p>We defined four core capability modules the platform needed to deliver:</p>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <h4>Fleet Overview</h4>
+        <p>Real-time summary of all clusters — health status, node count, CPU/RAM/DASD utilization — in a single scannable view.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Addition Modeling</h4>
+        <p>Simulate adding nodes or workloads and instantly see the projected utilization impact before making any infrastructure change.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Removal Analytics</h4>
+        <p>Model what happens when workloads are decommissioned — identify reclaimed capacity and confirm remaining headroom.</p>
+      </div>
+      <div class="insight-card">
+        <h4>What-If Analysis</h4>
+        <p>Combine additions and removals in a scenario modeler to compare baseline vs. proposed state across all three resource dimensions.</p>
+      </div>
+    </div>
+
+    <p>We also established a 3-year growth projection model — because infrastructure teams don't just need to know where they are; they need to know when they'll run out of headroom.</p>
+  </div>
+
+  <!-- IDEATE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">03</div>
+      <div class="phase-name">Ideate</div>
+    </div>
+    <h2>From sketch to system: designing for trust</h2>
+    <p>The first design question was: what does a dashboard for high-stakes infrastructure decisions feel like? These aren't marketing metrics — they're the numbers that determine whether a 7-node production cluster survives an upgrade cycle or goes down at 2am.</p>
+    <p>We started with low-fidelity sketches, exploring different information hierarchies. Early ideas included a map-based view (sites plotted geographically) and a timeline-first view (showing trend data as the lead element). Both were too visually noisy for the core use case.</p>
+    <p>The insight that shaped the final design: <strong>engineers need to answer "is this okay?" in under 5 seconds</strong>. That meant status-forward design — color-coded health indicators (Healthy / Warning / Critical) as the first thing you see, with details available on demand.</p>
+
+    <p>The visual language: UPS brand colors (dark brown + amber) on a light background — a professional, enterprise-grade aesthetic that felt trustworthy rather than flashy. I built the Figma design system first, then implemented it directly in Blazor.</p>
+
+    <img src="img/ups-capabilities.png" alt="UPS platform capability overview" class="cs-image"/>
+    <p class="cs-image-caption">Capability overview from the project documentation — the four modules we designed and built.</p>
+  </div>
+
+  <!-- PROTOTYPE -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">04</div>
+      <div class="phase-name">Prototype</div>
+    </div>
+    <h2>Building in Blazor: design becoming real</h2>
+    <p>Over five Agile sprints, I moved from wireframes to a fully functional Blazor/.NET web application. Each sprint began with design review with the team and ended with a working demo to our UPS stakeholders. Here's what we shipped:</p>
+
+    <h3>Fleet Overview — the command center</h3>
+    <p>The home screen surfaces all clusters with real-time utilization bars for CPU, RAM, and DASD (storage). A summary row at the top shows the count of Healthy / Warning / Critical clusters at a glance. Clicking any cluster opens a sidebar panel with current saturation percentages and a 3-year growth projection chart.</p>
+
+    <img src="img/ups-home.png" alt="UPS Fleet Overview dashboard" class="cs-image"/>
+    <p class="cs-image-caption">Fleet Overview — all clusters, health status, and resource utilization in one view.</p>
+
+    <img src="img/ups-live-metrics.png" alt="UPS live metrics view" class="cs-image"/>
+    <p class="cs-image-caption">Live DB Metrics view showing real-time cluster resource saturation with 3-year growth forecast.</p>
+
+    <h3>Addition Modeling — simulate before you commit</h3>
+    <p>The most complex module to design: a form-based input system where engineers can specify existing nodes, add hypothetical new nodes and workloads, set an annual growth rate, and click "Calculate Impact" to see the projected utilization before and after the change. The result panel shows a delta comparison, fit status, and a growth projection timeline.</p>
+
+    <div class="screen-showcase">
+      <img src="img/ups-addition-modeling.png" alt="Addition Modeling input form"/>
+      <img src="img/ups-addition-calc.png" alt="Addition Modeling results"/>
+    </div>
+    <p class="cs-image-caption">Addition Modeling: configure a scenario (left) and see the projected impact instantly (right).</p>
+
+    <img src="img/ups-addition-results.png" alt="Addition Modeling results detail" class="cs-image"/>
+    <p class="cs-image-caption">The results panel shows before/after utilization, growth projection timeline, and fit status per resource.</p>
+
+    <h3>What-If Analysis — scenario modeling at scale</h3>
+    <p>The What-If module lets engineers select one or more clusters, configure both removals and additions in the same scenario, and compare baseline vs. proposed utilization across all resource dimensions. The grouped bar chart shows the delta visually; the table below gives precise numbers with color-coded deltas.</p>
+
+    <img src="img/ups-whatif-config.png" alt="What-If configuration screen" class="cs-image"/>
+    <p class="cs-image-caption">What-If Analysis: choose clusters and configure removal and addition scenarios simultaneously.</p>
+
+    <img src="img/ups-whatif.png" alt="What-If analysis results" class="cs-image"/>
+    <p class="cs-image-caption">Analysis results — baseline vs. scenario comparison across CPU, Memory, and DASD with growth projections.</p>
+  </div>
+
+  <!-- TEST -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">05</div>
+      <div class="phase-name">Test & Impact</div>
+    </div>
+    <h2>Presenting to UPS, earning the handoff</h2>
+    <p>At the end of our five-sprint engagement, we presented the completed platform to a panel of UPS technology leaders and NJIT faculty at a formal capstone showcase. The team demoed all four modules with live data flowing through the Blazor frontend.</p>
+
+    <img src="img/ups-team.png" alt="UPS capstone team at showcase" class="cs-image"/>
+    <p class="cs-image-caption">The capstone showcase at NJIT — our team presenting to UPS stakeholders and faculty judges.</p>
+
+    <div class="cs-stats">
+      <div class="cs-stat">
+        <span class="num">1,100+</span>
+        <span class="label">Sites in scope</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">5</span>
+        <span class="label">Agile sprints delivered</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">4</span>
+        <span class="label">Core modules shipped</span>
+      </div>
+      <div class="cs-stat">
+        <span class="num">3yr</span>
+        <span class="label">Growth projection model</span>
+      </div>
+    </div>
+
+    <p>The platform was handed off to the UPS IT implementation team at the close of the project, with documentation covering the Blazor component architecture, API integration patterns, and the data model for cluster metrics. The feedback from UPS was that the tool addressed real operational pain — the ability to run scenarios before submitting hardware requests alone was cited as a significant time-saver for the infrastructure team.</p>
+
+    <h3>What I learned</h3>
+    <p>This project taught me that enterprise tool design is as much about trust as it is about clarity. Every design decision — from the color of a utilization bar to the precision of a delta percentage — signals to the user whether they can rely on this tool to make a real decision. I became a much more deliberate designer working in this context.</p>
+    <p>I also learned to advocate for design in Agile ceremonies. When a sprint demo revealed that engineers were ignoring the growth projection chart (too small, too subtle), we reprioritized it in the next sprint. Iteration in response to real feedback — not hypothetical user stories — is where the design actually gets good.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="ux.html">← All Work</a>
+    <a href="abg.html">Next: Allied Beverage Group →</a>
+  </div>
+
+</div>
+
 <footer class="footer">
-  <div class="footer-left">© 2026 Allie He · made with care & curiosity ✦</div>
+  <div class="footer-left">Allie He · made with care &amp; curiosity ✦</div>
   <div class="footer-links">
-    <a href="https://linkedin.com/in/allie-he-yijia" class="footer-link" target="_blank">LinkedIn</a>
-    <a href="mailto:alliehe2015@gmail.com" class="footer-link">Email</a>
-    <a href="contact.html" class="footer-link">Resume</a>
+    <a href="https://www.linkedin.com/in/allie-he-yijia/" target="_blank">LinkedIn</a>
+    <a href="mailto:alliehe2015@gmail.com">Email</a>
+    <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
 

@@ -3,34 +3,65 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Savor / Cookin' Cubby — Allie He</title>
+  <title>Savor — Allie He</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .savor-hero { background: linear-gradient(135deg, #8b4513 0%, #c47a2b 100%); }
-    .savor-hero h1, .savor-hero .subtitle { color: #faf6f0; }
-    .savor-hero .cs-tag { border-color: #f4c97a; color: #f4c97a; }
-    .savor-hero .cs-meta-item label { color: rgba(244,201,122,0.6); }
-    .savor-hero .cs-meta-item span { color: #faf6f0; }
-    .savor-hero::after { display: none; }
-    .savor-hero-inner { max-width: 820px; margin: 0 auto; padding: 72px 48px 56px; }
-    .insight-box {
-      background: #fff8f0; border: 1px solid #e8c87a;
-      border-radius: 6px; padding: 28px; margin: 24px 0;
+    .savor-hero {
+      background: linear-gradient(135deg, #6b2c10 0%, #c04a1a 50%, #e06020 100%);
     }
-    .insight-box .eyebrow {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #c47a2b; margin-bottom: 12px;
+    .savor-hero-inner { max-width: 820px; margin: 0 auto; padding: 80px 48px 64px; }
+    .savor-hero h1, .savor-hero .subtitle { color: #fff7f0; }
+    .savor-hero .cs-tag { border-color: rgba(255,200,140,0.5); color: #ffcc88; }
+    .savor-hero .cs-meta-item label { color: rgba(255,255,255,0.4); }
+    .savor-hero .cs-meta-item span { color: #fff7f0; }
+
+    .related-project-card {
+      border: 1px solid var(--linen);
+      border-radius: 6px; overflow: hidden;
+      margin-bottom: 20px;
     }
-    .insight-box p { margin: 0; font-size: 15px; color: var(--espresso); }
-    .survey-stat { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--linen); }
-    .survey-stat .pct { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #c47a2b; min-width: 80px; }
-    .survey-stat .desc { font-size: 14px; color: var(--ink); }
-    .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin: 32px 0; }
-    .feature-row img { width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-    @media(max-width:700px) { .feature-row { grid-template-columns: 1fr; } }
+    .related-project-card .rpc-header {
+      background: var(--espresso); color: var(--warm-white);
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .related-project-card .rpc-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600; color: var(--warm-white);
+      margin: 0;
+    }
+    .related-project-card .rpc-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--latte);
+    }
+    .related-project-card .rpc-body { padding: 24px; }
+    .related-project-card .rpc-body p { font-size: 14px; margin-bottom: 14px; }
+
+    .screen-trio {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 20px 0;
+    }
+    .screen-trio img {
+      width: 100%; border-radius: 6px;
+      border: 1px solid var(--linen);
+    }
+    .screen-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0;
+    }
+    .screen-pair img {
+      width: 100%; border-radius: 6px;
+      border: 1px solid var(--linen);
+    }
+
+    .stat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(192,74,26,0.08); border: 1px solid rgba(192,74,26,0.2);
+      color: #7a2a0a; border-radius: 4px;
+      padding: 6px 14px; font-size: 13px; font-weight: 700;
+      margin: 0 8px 8px 0;
+    }
   </style>
 </head>
 <body>
@@ -48,14 +79,14 @@
 <!-- HERO -->
 <div class="cs-hero savor-hero">
   <div class="savor-hero-inner">
-    <span class="cs-tag">Product Design · UX Research · Mobile App</span>
-    <h1>Savor / Cookin' Cubby</h1>
-    <p class="subtitle">A sustainable recipe app designed for college students — built around a key research insight: users don't care about food waste, they care about wasting money. Chef Cubby, an AI cooking assistant, brings it all together.</p>
-    <div class="cs-meta" style="margin-top:32px;">
+    <span class="cs-tag">Mobile App · Sustainable Recipe · UX Research · Design Lead</span>
+    <h1>Savor</h1>
+    <p class="subtitle">A sustainable recipe app that helps people cook what they already have — reducing food waste by reframing the problem around money, not guilt. This page covers Savor, its predecessor Cookin' Cubby, and a related MyFitnessPal redesign study.</p>
+    <div class="cs-meta">
       <div class="cs-meta-item"><label>My Role</label><span>Design Lead</span></div>
-      <div class="cs-meta-item"><label>Target User</label><span>College students, $20–30/wk budget</span></div>
-      <div class="cs-meta-item"><label>Research</label><span>37 survey responses</span></div>
-      <div class="cs-meta-item"><label>Platform</label><span>Mobile App (iOS)</span></div>
+      <div class="cs-meta-item"><label>Projects</label><span>Savor · Cookin' Cubby · MFP Redesign</span></div>
+      <div class="cs-meta-item"><label>Methods</label><span>Survey · Interviews · Wireframing · Hi-fi Prototype</span></div>
+      <div class="cs-meta-item"><label>Tools</label><span>Figma · Google Forms</span></div>
     </div>
   </div>
 </div>
@@ -63,97 +94,341 @@
 <!-- BODY -->
 <div class="cs-body">
 
-  <div class="cs-section">
-    <p class="cs-section-label">The Problem</p>
-    <h2>College Students Waste Food — But Not for Reasons You'd Think</h2>
-    <p>Food waste apps tend to moralize. "Save the planet. Reduce waste." But that framing doesn't land for a 20-year-old living on $25/week. They're not indifferent to food waste — they just care about something more immediate: running out of money before the end of the month.</p>
-    <p>As design lead, I challenged the team to reframe our product around what users <em>actually</em> care about, not what we thought they should care about.</p>
+  <div class="subproject-nav">
+    <a href="#savor" class="active">01 · Savor</a>
+    <a href="#cookin">02 · Cookin' Cubby</a>
+    <a href="#mfp">03 · MyFitnessPal Redesign</a>
   </div>
 
-  <div class="cs-divider"></div>
+  <!-- ═══════════════════════════════ SAVOR ═══════════════════════════════ -->
+  <div class="subproject-section" id="savor">
+    <p class="subproject-label">Project 01</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--espresso);margin-bottom:16px;">Savor — Ingredient-First Recipe Discovery</h2>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Research</p>
-    <h2>37 Survey Responses. One Key Insight.</h2>
-    <p>I designed and fielded a 12-question survey targeting college students aged 20–24. 37 responses. Key findings:</p>
-
-    <div class="survey-stat">
-      <span class="pct">75.7%</span>
-      <span class="desc">of respondents said they would use a sustainable recipe app if it existed.</span>
-    </div>
-    <div class="survey-stat">
-      <span class="pct">81%</span>
-      <span class="desc">ranked "bookmark recipes" as their most-wanted feature.</span>
-    </div>
-    <div class="survey-stat">
-      <span class="pct">$20–30</span>
-      <span class="desc">was the dominant weekly food budget range — meaning cost-per-use matters for every meal.</span>
+    <div class="process-steps" style="margin-bottom:40px;">
+      <div class="process-step active">Empathize</div>
+      <div class="process-step active">Define</div>
+      <div class="process-step active">Ideate</div>
+      <div class="process-step active">Prototype</div>
+      <div class="process-step active">Test</div>
     </div>
 
-    <div class="insight-box">
-      <p class="eyebrow">The Reframe</p>
-      <p>Users don't care about food waste in the abstract. They care about wasting <em>money</em>. Every design decision flowed from this: ingredient-first search (use what you have), barcode scanner (know what you're buying), grocery list integration (don't overbuy). Sustainability as a byproduct of frugality — not as a lecture.</p>
-    </div>
-  </div>
+    <!-- EMPATHIZE -->
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Empathize</div>
+      </div>
+      <h2>The real reason people don't use what's in their fridge</h2>
+      <p>Food waste is enormous. The average American household throws away nearly $1,500 worth of food per year. Most sustainability-focused apps approach this as an environmental problem — framing it around carbon footprints, landfill data, and the moral weight of waste. We had a hunch that framing wasn't working.</p>
+      <p>We ran a survey of 37 participants across different cooking habits and household types to understand how people actually thought about unused ingredients — and what, if anything, would motivate them to cook with them instead of letting them spoil.</p>
 
-  <div class="cs-divider"></div>
+      <img src="img/savor-survey-1.jpg" alt="Survey results — cooking frequency and recipe lookup habits" class="cs-image"/>
+      <p class="cs-image-caption">Survey results (37 respondents): cooking frequency, recipe confusion, and how often people look up recipes.</p>
 
-  <div class="cs-section">
-    <p class="cs-section-label">App Design</p>
-    <h2>Core Features</h2>
+      <img src="img/savor-survey-2.jpg" alt="Survey results — recipe sources and dietary restrictions" class="cs-image"/>
+      <p class="cs-image-caption">Where people look for recipes (Google Search at 83.8%, people in real life at 51.4%) and the variety of dietary needs we'd need to accommodate.</p>
 
-    <div class="feature-row">
-      <img src="img/savor-1.jpg" alt="Savor — home and recipe discovery"/>
-      <div>
-        <h3>Ingredient-First Search</h3>
-        <p>The core loop: enter what you have (or scan a barcode), get recipes that use those ingredients. No more buying specialty items for a single recipe, then watching them go bad.</p>
-        <p>Recipes are ranked by how many ingredients you already own — minimizing the shop and maximizing what's already in your fridge.</p>
+      <p>Key findings from the survey and follow-up interviews:</p>
+      <div class="insight-row">
+        <div class="insight-card">
+          <h4>78% don't know what to cook</h4>
+          <p>The majority of respondents (ratings 2–3 out of 5) regularly found themselves not knowing what to eat or cook — even with a full fridge.</p>
+        </div>
+        <div class="insight-card">
+          <h4>83.8% use Google for recipes</h4>
+          <p>Most people use Google Search first. A purpose-built tool would only win if it was faster, more personalized, and more trustworthy than a search results page.</p>
+        </div>
+        <div class="insight-card">
+          <h4>It's about the money</h4>
+          <p>In interviews, users who expressed interest in reducing waste consistently cited throwing away money — not environmental impact — as their actual motivation.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Top fridge staples</h4>
+          <p>Most purchased: Eggs (20), Rice (14), Chicken (13), Milk (8), Bread (7) — the ingredient-first interface needed to serve these common starting points.</p>
+        </div>
+      </div>
+
+      <div class="finding-highlight">
+        The insight that changed everything: people don't care about food waste. They care about <strong>wasting money</strong>. Design for the wallet, not the planet.
       </div>
     </div>
 
-    <div class="feature-row" style="direction:rtl;">
-      <img src="img/savor-3.jpg" alt="Savor — Chef Cubby AI chatbot" style="direction:ltr;"/>
-      <div style="direction:ltr;">
-        <h3>Chef Cubby — AI Cooking Assistant</h3>
-        <p>Chef Cubby is the app's AI chatbot, designed around a friendly bear mascot. Ask Cubby anything: "What can I make with eggs, cheese, and leftover rice?" or "How do I make pasta from scratch?"</p>
-        <p>The conversational interface lowers the barrier to trying new recipes — especially for college students who don't have a culinary vocabulary yet.</p>
+    <!-- DEFINE -->
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Define</div>
+      </div>
+      <h2>Reframing sustainability as financial self-interest</h2>
+      <p>This reframe shaped every design decision in Savor. Instead of a "reduce your waste" message, we leaded with cost per serving and ingredient match — making the financial benefit of cooking what you have visible at every step.</p>
+      <p>We also needed to accommodate real dietary complexity. Our survey revealed 38% of respondents had some dietary restriction: Halal, gluten-free, allergies, low-cholesterol, dairy-free. The filtering system had to be robust enough to be genuinely useful, not performative.</p>
+      <p>The core features we defined:</p>
+      <div class="insight-row">
+        <div class="insight-card">
+          <h4>Ingredient-input search</h4>
+          <p>Enter what you have → get recipes that use those exact ingredients, ranked by match quality and cost per serving.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Dietary filter system</h4>
+          <p>Multi-select restrictions (Halal, vegan, gluten-free, nut-free, etc.) that persist across searches and can be set once in profile.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Price range slider</h4>
+          <p>Per-person cost filter — because "cheap" means different things to a college student and a parent of four.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Community + Discovery</h4>
+          <p>Browse by category, discover trending recipes, and share personal recipes with the community — making the app useful even when you know what you want to cook.</p>
+        </div>
       </div>
     </div>
 
-    <div class="feature-row">
-      <img src="img/savor-5.jpg" alt="Savor — community forum"/>
-      <div>
-        <h3>Community Forum</h3>
-        <p>Students sharing budget meal wins, recipe hacks, and cooking questions. The community feature makes the app sticky beyond the utility layer — it's where the brand lives and where retention happens.</p>
+    <!-- IDEATE + PROTOTYPE -->
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">03 – 04</div>
+        <div class="phase-name">Ideate & Prototype</div>
+      </div>
+      <h2>From icons to interface: building the Savor system</h2>
+      <p>The design process started with branding — because Savor needed a personality distinct from the clinical, calorie-counter aesthetic of most food apps. We developed a warm, friendly visual language: amber and off-white, an illustrated food mascot character, and hand-drawn icon assets that felt approachable and slightly playful.</p>
+
+      <img src="img/savor-branding.jpg" alt="Savor brand assets — logo, icons, mascot" class="cs-image"/>
+      <p class="cs-image-caption">Brand system: the Savor logo, app icon variants, the mascot character, and hand-drawn food and UI icon set.</p>
+
+      <p>From there, wireframes established the navigation structure and core interaction patterns before moving to high-fidelity. The challenge in wireframing the home screen: how do you surface the ingredient-input feature prominently without burying discovery and community content?</p>
+
+      <img src="img/savor-wireframes.jpg" alt="Savor wireframes and early screen layouts" class="cs-image"/>
+      <p class="cs-image-caption">Early wireframes exploring the home screen layout, filter panel, and recipe card structure.</p>
+
+      <h3>High-fidelity screens</h3>
+      <p>The login and onboarding screens established the brand tone immediately — warm, animated, and with an intake survey that captured dietary restrictions upfront so they never had to be set again.</p>
+
+      <div class="screen-pair">
+        <img src="img/savor-login.jpg" alt="Savor login screen"/>
+        <img src="img/savor-home.jpg" alt="Savor home screen with ingredient search"/>
+      </div>
+      <p class="cs-image-caption">Login screen (left) and the core home screen (right) — ingredient input, dietary restrictions, cuisines, and price range all surfaced on arrival.</p>
+
+      <img src="img/savor-results.jpg" alt="Savor recipe results screen" class="cs-image"/>
+      <p class="cs-image-caption">Recipe results page — cost per serving and cooking time shown upfront, with tag-based filtering visible on the results themselves.</p>
+
+      <img src="img/savor-discover.jpg" alt="Savor discover screen" class="cs-image"/>
+      <p class="cs-image-caption">The Discover screen — organized by meal type and category, with trending recipes below. Makes the app useful for spontaneous browsing, not just ingredient-driven search.</p>
+
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <span class="num">37</span>
+          <span class="label">Survey respondents</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">5</span>
+          <span class="label">Core app sections</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">Cost</span>
+          <span class="label">Per serving as primary metric</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">38%</span>
+          <span class="label">Users with dietary restrictions</span>
+        </div>
       </div>
     </div>
 
-    <div class="cs-image-grid">
-      <img src="img/savor-2.jpg" alt="Savor — grocery list integration"/>
-      <img src="img/savor-4.jpg" alt="Savor — bookmarked recipes"/>
+    <!-- REFLECTION -->
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">05</div>
+        <div class="phase-name">Reflection</div>
+      </div>
+      <h2>The reframe that made it work</h2>
+      <p>The most important design decision in Savor had nothing to do with the interface — it was the decision to lead with financial value instead of sustainability messaging. That insight came directly from the interviews, not from assumptions. Without the research, we would have built a perfectly competent app that no one actually opened twice.</p>
+      <p>The design challenge that remains: recipe recommendation relevance. Ingredient-based matching is harder than it looks — two people with the same four ingredients might want wildly different things based on their energy level, cooking skill, and what they had for lunch. The next iteration would invest in a more nuanced preference model, informed by usage patterns and explicit user feedback on recipe quality.</p>
     </div>
-    <p class="cs-image-caption">Grocery list integration (left) and bookmarked recipes (right) — the two most-requested features from survey research.</p>
   </div>
 
-  <div class="cs-divider"></div>
+  <hr class="cs-divider"/>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Visual Design</p>
-    <h2>Warm, Approachable, and Slightly Playful</h2>
-    <p>The yellow-orange palette was chosen to evoke warmth and appetite — the emotional register of a good meal, not a finance app. Rounded components and the Chef Cubby mascot give the app a personality that feels approachable for users who might feel intimidated by cooking.</p>
-    <p>Accessibility was a priority throughout: all color pairs meet AA contrast standards, and the type scale is generous enough for kitchen use (when your hands are messy, you don't want to squint at your phone).</p>
+  <!-- ═══════════════════════════════ COOKIN' CUBBY ═══════════════════════════════ -->
+  <div class="subproject-section" id="cookin">
+    <p class="subproject-label">Project 02 — Predecessor Study</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--espresso);margin-bottom:16px;">Cookin' Cubby — The Earlier Iteration</h2>
+
+    <div class="process-steps" style="margin-bottom:40px;">
+      <div class="process-step active">Research</div>
+      <div class="process-step active">Feature Definition</div>
+      <div class="process-step active">Design System</div>
+      <div class="process-step active">Learnings</div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Context</div>
+      </div>
+      <h2>Before Savor, there was Cookin' Cubby</h2>
+      <p>Cookin' Cubby was an earlier project exploring the same problem space — helping people cook smarter with what they have. It's worth including here not just as a "v1," but because the research conducted for Cookin' Cubby directly shaped the decisions that made Savor stronger. This is what an iterative design process actually looks like: the first version reveals what the second version needs to be.</p>
+      <p>Cookin' Cubby approached the problem from a slightly different angle: a recipe community platform with ingredient-based search, bookmarking, a community forum, and recipe upload capability. More features, broader scope — and in retrospect, less focused than it needed to be.</p>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Research & Feature Definition</div>
+      </div>
+      <h2>Survey data that drove feature priorities</h2>
+      <p>The same 37-person survey that informed Savor was originally conducted for Cookin' Cubby. From the survey data, the team identified the features users most wanted in a recipe app:</p>
+
+      <img src="img/savor-survey-3.jpg" alt="Survey analysis — feature priorities" class="cs-image"/>
+      <p class="cs-image-caption">Survey analysis: ingredient-based recipe suggestions, price filters, bookmarking, and community features ranked highest among desired capabilities.</p>
+
+      <img src="img/savor-survey-4.jpg" alt="Survey analysis — design requirements" class="cs-image"/>
+      <p class="cs-image-caption">Feature requirement synthesis: inclusion/exclusion filters, recipe discovery, community interaction, and simple/accessible UI all surfaced as priorities.</p>
+
+      <p>The top requested features from this research:</p>
+      <div class="insight-row">
+        <div class="insight-card">
+          <h4>Ingredient input + filter system</h4>
+          <p>Allow users to input what they have and receive tailored suggestions, with inclusion/exclusion filtering for dietary restrictions.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Discovery + bookmarking</h4>
+          <p>Curated suggestions based on popular ingredients and the ability to save favorite recipes for later — two of the highest-requested features.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Community forum + recipe upload</h4>
+          <p>A space for users to share recipes, discuss tips, and post reviews — building a collaborative, trust-based environment.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Accessible, clean UI + dark mode</h4>
+          <p>Simple navigation, clear labeling, and comfort options like dark mode — accessibility wasn't an afterthought, it was a top-five request.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">03</div>
+        <div class="phase-name">Learnings → Savor</div>
+      </div>
+      <h2>What Cookin' Cubby taught us to do differently</h2>
+      <p>Cookin' Cubby tried to do too much at once. The community forum, recipe upload, and social features added complexity without adding enough value for the primary use case — figuring out what to cook tonight. The scope made every individual feature feel underdeveloped.</p>
+      <div class="finding-highlight">
+        The shift from Cookin' Cubby to Savor was a lesson in prioritization: a narrower problem, solved better, is more valuable than a comprehensive solution executed without depth.
+      </div>
+      <p>Savor stripped back to the core: ingredient-first search with excellent filtering and real cost data. The community and discovery features stayed, but they were secondary — not co-equal to the core job-to-be-done.</p>
+      <p>The branding also shifted significantly. Cookin' Cubby was playful but undefined. Savor's amber-and-cream palette with the hand-drawn mascot character gave the app a consistent, ownable personality — one that could carry across marketing, onboarding, and empty states without feeling forced.</p>
+    </div>
   </div>
 
-  <div class="cs-section">
-    <p class="cs-section-label">Reflection</p>
-    <h2>The Research Changed Everything</h2>
-    <p>Savor is the project where I most clearly felt the power of leading with research before design. The original concept was framed around sustainability. The research said: lead with money. Every feature we designed after that insight performed better in user testing because it resonated with what users actually cared about.</p>
-    <p>The lesson: good research doesn't just inform design — it rescues it from the designer's assumptions.</p>
+  <hr class="cs-divider"/>
+
+  <!-- ═══════════════════════════════ MFP REDESIGN ═══════════════════════════════ -->
+  <div class="subproject-section" id="mfp">
+    <p class="subproject-label">Project 03 — UX Redesign Study</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--espresso);margin-bottom:16px;">MyFitnessPal — Redesign Study</h2>
+
+    <div class="process-steps" style="margin-bottom:40px;">
+      <div class="process-step active">Audit</div>
+      <div class="process-step active">Problem Definition</div>
+      <div class="process-step active">Design System</div>
+      <div class="process-step active">Redesign</div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">01</div>
+        <div class="phase-name">Audit & Problem Definition</div>
+      </div>
+      <h2>A beloved app with real UX debt</h2>
+      <p>MyFitnessPal is one of the most widely used food and fitness tracking apps in the world — but its interface carries years of accumulated design debt. The redesign study began with a comprehensive UX audit: cataloging usability issues, inconsistent patterns, and structural problems in the existing app before proposing solutions.</p>
+      <p>The core issues identified:</p>
+      <div class="insight-row">
+        <div class="insight-card">
+          <h4>Navigation overload</h4>
+          <p>The bottom nav (Logs, Goals, Dashboard, Community, Profile) and the top tabs (Recipe/Meal/Foods; Friends/News/Find Plan/Forum) created two competing navigation systems with unclear hierarchy.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Ad placement breaks flow</h4>
+          <p>Large banner ads appear immediately after logging food, interrupting the most frequent user action. The "Go Premium" nudges were pervasive and aggressive.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Onboarding skips personalization</h4>
+          <p>The existing onboarding doesn't establish enough context about user goals before surfacing the daily calorie dashboard — resulting in a generic first experience.</p>
+        </div>
+        <div class="insight-card">
+          <h4>Community feels tacked-on</h4>
+          <p>The community feed and friend activity sections use inconsistent card patterns and don't clearly connect social activity to personal progress.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-label">
+        <div class="phase-num">02</div>
+        <div class="phase-name">Design System & Redesign</div>
+      </div>
+      <h2>Respecting the brand while solving real problems</h2>
+      <p>The design system study established that MyFitnessPal's existing brand — blue/yellow/black, Helvetica Neue, clean and confident — was still strong. The redesign didn't need to change the brand; it needed to apply it more consistently and clear the interface of friction.</p>
+
+      <img src="img/mfp-design-system.jpg" alt="MyFitnessPal design system — color palette and typography" class="cs-image"/>
+      <p class="cs-image-caption">Design system study: the existing MFP color palette and type scale were sound — the redesign preserved them while addressing structural issues.</p>
+
+      <h3>Key redesign decisions</h3>
+      <p>The most significant intervention was the onboarding flow. Rather than jumping straight to calorie tracking, the redesigned onboarding asks one meaningful question up front: "When it comes to improving your health, which is most important?" The answer (weight, general health, health metrics, or becoming more active) shapes the dashboard that appears on first login — so the experience feels built for you, not just a blank calorie counter.</p>
+
+      <div class="screen-pair">
+        <img src="img/mfp-login.jpg" alt="MyFitnessPal redesigned login screen"/>
+        <img src="img/mfp-onboarding.jpg" alt="MyFitnessPal redesigned onboarding — goal selection"/>
+      </div>
+      <p class="cs-image-caption">Redesigned login (left) — cleaner, less noisy. Redesigned onboarding goal selection (right) — one question that makes the rest of the experience feel personal.</p>
+
+      <img src="img/mfp-screens.jpg" alt="MyFitnessPal redesigned core screens" class="cs-image"/>
+      <p class="cs-image-caption">Redesigned daily summary and community screens — decluttered navigation, removed ad banner, and a community feed with consistent card treatment.</p>
+
+      <div class="finding-highlight">
+        The best redesigns don't replace what works. They remove what doesn't — and then get out of the way.
+      </div>
+
+      <h3>What this study contributed</h3>
+      <p>The MFP redesign was a structured exercise in designing within constraints: you can't change the business model (so the Premium upsell stays, it just moves), you can't break existing mental models (so the nav labels stay, just reorganized), and you can't start from scratch (so every decision has to justify itself against the existing design). This is closer to most real-world design work than starting from a blank canvas — and it made me a sharper critic of my own design choices.</p>
+
+      <div class="cs-stats">
+        <div class="cs-stat">
+          <span class="num">Full</span>
+          <span class="label">Mobile UX Audit</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">System</span>
+          <span class="label">Design System Study</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">Onboard</span>
+          <span class="label">Personalized Flow</span>
+        </div>
+        <div class="cs-stat">
+          <span class="num">Nav</span>
+          <span class="label">Hierarchy Restructure</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div style="display:flex; justify-content:space-between; padding-top:48px; border-top: 1px solid var(--linen); margin-top:48px;">
-    <a href="pawfect.html" style="color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">← Pawfect Pets</a>
-    <a href="ux.html" style="color:var(--espresso); text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">All Work →</a>
+  <!-- OVERALL REFLECTION -->
+  <div class="phase-block">
+    <div class="phase-label">
+      <div class="phase-num">✦</div>
+      <div class="phase-name">Across All Three</div>
+    </div>
+    <h2>What this body of work taught me about food and design</h2>
+    <p>Food is intensely personal. Cultural background, budget, health history, family size, cooking skill, and time available all shape what a "helpful" recipe app actually looks like for any given person. Designing in this space means resisting the temptation to generalize — and building systems that can flex to individual difference without falling apart.</p>
+    <p>The thread connecting all three projects: the importance of identifying the real motivation before designing the solution. "Reduce food waste" isn't why people open a recipe app. "I don't know what to make with what I have and I hate wasting money" is. "Get healthy" isn't why people open a fitness tracker. "Hit my calorie goal today so I feel in control" is. The specificity of the motivation determines the specificity of the design — and specificity is what makes something feel like it was made for you.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="pawfect.html">← Pawfect Pets</a>
+    <a href="ux.html">Back to All Work →</a>
   </div>
 
 </div>
@@ -166,6 +441,22 @@
     <a href="files/allie-he-resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.subproject-nav a').forEach(link => {
+    link.addEventListener('click', function() {
+      document.querySelectorAll('.subproject-nav a').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  const sections = document.querySelectorAll('.subproject-section');
+  const navLinks = document.querySelectorAll('.subproject-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+  });
+</script>
 
 </body>
 </html>
