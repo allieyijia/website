@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABG — Artet Brand Launch | Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .case-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .case-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .case-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,20,15,0.82) 0%, rgba(30,20,15,0.3) 60%, transparent 100%);
+    }
+    .case-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 56px;
+      width: 100%;
+    }
+    .case-tag {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+    .case-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .case-hero-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+    .case-meta-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .case-meta-item label {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3px;
+    }
+    .case-meta-item span {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #fff; }
+    .case-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 70px 40px;
+    }
+    .case-section {
+      margin-bottom: 72px;
+    }
+    .case-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--brown-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--brown-light);
+    }
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--brown-dark);
+      margin: 32px 0 12px;
+      font-style: italic;
+    }
+    .case-section p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.97rem;
+      color: var(--brown);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .case-section ul {
+      margin: 12px 0 20px 0;
+      padding-left: 20px;
+    }
+    .case-section ul li {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+    .case-img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 28px 0;
+      display: block;
+    }
+    .case-img-caption {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      color: var(--brown);
+      opacity: 0.65;
+      text-align: center;
+      margin-top: -18px;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .img-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .img-two-col img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 280px;
+    }
+    .img-three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .img-three-col img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 220px;
+    }
+    .slide-img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 28px 0;
+      display: block;
+      border: 1px solid var(--brown-light);
+    }
+    .outcome-box {
+      background: var(--sage-light, #e8ede6);
+      border-left: 3px solid var(--sage, #7a9478);
+      border-radius: 0 8px 8px 0;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .outcome-box p {
+      margin-bottom: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      line-height: 1.7;
+    }
+    .outcome-box p:last-child { margin-bottom: 0; }
+    .challenge-box {
+      background: var(--beige);
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 28px 0;
+    }
+    .challenge-box p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.97rem;
+      color: var(--brown);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .stakeholder-item {
+      background: var(--beige);
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: var(--brown);
+      line-height: 1.5;
+    }
+    .stakeholder-item strong {
+      display: block;
+      color: var(--brown-dark);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 600px) {
+      .img-two-col, .img-three-col { grid-template-columns: 1fr; }
+      .stakeholder-grid { grid-template-columns: 1fr; }
+      .case-meta-row { gap: 20px; }
+      .case-hero { min-height: 380px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">allie he ✦</a>
+    <div class="nav-links">
+      <a href="ux.html">work</a>
+      <a href="graphics.html">graphics</a>
+      <a href="about.html">about</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <img src="img/artet-slide-01.png" alt="Artet cannabis aperitif hero" class="case-hero-img" />
+    <div class="case-hero-overlay"></div>
+    <div class="case-hero-inner">
+      <a href="ux.html" class="back-link">← back to work</a>
+      <div class="case-tag">Allied Beverage Group · Summer 2025</div>
+      <h1>Artet Brand Launch</h1>
+      <p class="case-hero-sub">An 8-week capstone project bringing a THC-infused cannabis aperitif to New Jersey — from market research and consumer personas to pricing strategy, trade education, and a live presentation to 50 stakeholders.</p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><label>Role</label><span>Target Consumer, Marketing & Customer Education</span></div>
+        <div class="case-meta-item"><label>Team</label><span>8 interns, cross-functional</span></div>
+        <div class="case-meta-item"><label>Timeline</label><span>July – August 2025</span></div>
+        <div class="case-meta-item"><label>Type</label><span>Brand Launch Strategy</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="case-body">
+
+    <section class="case-section">
+      <h2>Overview</h2>
+      <p>For the duration of the internship, all eight ABG interns collaborated on a single capstone project: a full brand launch strategy for Artet, a THC-infused cannabis aperitif entering the New Jersey market through ABG's distribution network. The project ran alongside individual work streams, building throughout the summer and culminating in a live presentation to roughly 50 attendees — including ABG's CEO and CFO, department heads, the founder of Artet, bartenders, and all intern managers. The team also served pre-made Artet cocktails to every attendee during the presentation.</p>
+      <p>Artet had already launched in markets including Los Angeles, Chicago, Minneapolis, Nashville, and New York. This was its New Jersey entry — and the challenge was figuring out exactly how to bring it in.</p>
+
+      <img src="img/artet-slide-10.png" alt="Artet brand essence slide" class="slide-img" />
+      <p class="case-img-caption">Brand essence: "Infused Beverages Made For Cocktail Moments" — positioning Artet as a refined social product, not a wellness supplement</p>
+    </section>
+
+    <section class="case-section">
+      <h2>The Challenge</h2>
+      <div class="challenge-box">
+        <p>Launching a THC-infused spirit isn't like launching a new wine. It sits at the intersection of beverage distribution, cannabis regulation, consumer education, and brand positioning — in a market where most customers and accounts had never encountered the product category before. The team had to think across pricing, warehousing, sales strategy, marketing, and customer education simultaneously.</p>
+      </div>
+      <p><strong>Focus areas:</strong> target consumer research, marketing strategy, and customer education.</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Process</h2>
+      <p>Stakeholder meetings spanned the full launch ecosystem — meeting with everyone from the brand founder to the warehouse floor:</p>
+
+      <div class="stakeholder-grid">
+        <div class="stakeholder-item"><strong>Brand Founder & Artet Team</strong>Brand origin, NJ market vision, product positioning</div>
+        <div class="stakeholder-item"><strong>Brand Specialist & Sales Heads</strong>Distribution landscape and account strategy</div>
+        <div class="stakeholder-item"><strong>Pricing & Product Management</strong>Competitive analysis and margin strategy</div>
+        <div class="stakeholder-item"><strong>Bartenders</strong>On-premise use, how to train accounts to serve it</div>
+      </div>
+
+      <p>Research covered the full launch lifecycle: pricing, warehouse and distribution logistics, on- and off-premise sales strategy, digital marketing, and consumer and trade education.</p>
+
+      <img src="img/abg-warehouse.jpg" alt="ABG warehouse floor visit" class="case-img" />
+      <p class="case-img-caption">Day in the field — visiting ABG's warehouse to understand the full distribution pipeline from shelf to delivery</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Target Consumer Research</h2>
+      <p>One of the core questions the team needed to answer: who is actually buying this? Artet occupies a unique space — a non-alcoholic, cannabis-infused aperitif positioned as a sophisticated social alternative, not a wellness shot or recreational product. That required careful consumer segmentation.</p>
+
+      <img src="img/artet-slide-03.png" alt="Artet target consumer lifestyle imagery" class="slide-img" />
+      <p class="case-img-caption">Target consumer lifestyle imagery used in the presentation — social, experience-driven consumers for whom Artet fits a refined, modern moment</p>
+
+      <img src="img/artet-slide-20.png" alt="Consumer persona slide" class="slide-img" />
+      <p class="case-img-caption">Consumer persona developed to anchor the NJ launch strategy — a 27-year-old Jersey City resident who hosts gatherings and wants something that looks and tastes good</p>
+
+      <p>Research identified the primary target as social, experience-driven consumers aged 25–45 who are curious about cannabis but want it in a refined, familiar format. Secondary targets included the sober-curious segment and craft spirits enthusiasts looking for something new. This consumer framing shaped recommendations across the entire presentation — from which on-premise accounts to prioritize, to how bartenders should talk about the product, to what digital content would resonate.</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Marketing & Customer Education</h2>
+      <p>A key insight from the research: Artet's biggest barrier wasn't awareness — it was understanding. Customers and accounts didn't know what it was, how it worked, or how to serve it. Education had to come before promotion.</p>
+
+      <img src="img/artet-slide-35.png" alt="Artet POS materials and shelf strategy" class="slide-img" />
+      <p class="case-img-caption">POS material strategy: bottle neckers, shelf talkers, shelf strips, and case cards to educate accounts and consumers at the point of decision</p>
+
+      <p>Contributions to this section included:</p>
+      <ul>
+        <li>Defining the consumer education narrative — what Artet is, how THC-infused spirits differ from alcohol, and what to expect from the experience</li>
+        <li>Recommending digital marketing strategies aligned to the target consumer profile</li>
+        <li>Identifying key on-premise targets (Jersey City, Hoboken, Morristown, Madison) and off-premise accounts (Total Wine, Bottle King, Joe Canal's) for the NJ launch</li>
+        <li>Framing the sales rep training angle — giving ABG's reps the language to introduce Artet confidently to account buyers</li>
+      </ul>
+    </section>
+
+    <section class="case-section">
+      <h2>The Presentation</h2>
+      <p>On July 31st, the intern team presented the full brand launch strategy to an audience of approximately 50 people — ABG's CEO and CFO, upper management, department heads, the founder of Artet, bartenders, and all intern managers. The team also served pre-made Artet cocktails to every attendee, making it one of the more memorable final deliverables of the summer.</p>
+
+      <img src="img/artet-room-hero.jpg" alt="Artet brand launch presentation room setup" class="case-img" />
+      <p class="case-img-caption">Presentation setup — product display cart, branded merch table, and live slide deck in the ABG conference room</p>
+
+      <div class="img-two-col">
+        <img src="img/artet-merch-closeup.jpg" alt="Artet branded merch display" />
+        <img src="img/artet-team-photo.png" alt="Intern team after the Artet presentation" />
+      </div>
+      <p class="case-img-caption">Left: branded merch display including hats, tees, totes, and travel posters. Right: the full intern team after the presentation.</p>
+
+      <img src="img/artet-presentation-setup.png" alt="Artet final presentation with full audience" class="case-img" />
+      <p class="case-img-caption">Final presentation day — the full display set up ahead of the 50-person audience including ABG's CEO, CFO, and Artet's founder</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Outcomes</h2>
+      <div class="outcome-box">
+        <p>✦ Full brand launch strategy delivered to ABG and Artet leadership</p>
+        <p>✦ Presented live to ~50 stakeholders including CEO, CFO, and brand founder — with Artet cocktails served to the full audience</p>
+        <p>✦ Project spanned the complete launch lifecycle, from first stakeholder meeting to final presentation on the last day of the internship</p>
+        <p>✦ Developed cross-functional collaboration and business strategy skills working across 8 interns and multiple department heads simultaneously</p>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>Reflection</h2>
+      <p>Most internship projects live in one lane. This one required understanding how pricing decisions affect sales strategy, how consumer research shapes bartender training, and how a single brand's story has to hold up across a warehouse floor and a cocktail menu at the same time. It was the most complete picture of how a product actually gets to market — and it made every other project that summer feel more connected.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Allie He · <a href="mailto:alliehe2015@gmail.com">alliehe2015@gmail.com</a></p>
+  </footer>
+</body>
+</html>
