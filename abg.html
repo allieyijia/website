@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABG — CX Dashboards | Allie He</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .case-hero {
+      background: var(--beige);
+      padding: 100px 0 60px;
+      border-bottom: 1px solid var(--brown-light);
+    }
+    .case-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .case-tag {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+    .case-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 500;
+      color: var(--brown-dark);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .case-hero-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      color: var(--brown);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+    .case-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .case-meta-item label {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    .case-meta-item span {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: var(--brown-dark);
+      font-weight: 500;
+    }
+    .case-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 70px 40px;
+    }
+    .case-section {
+      margin-bottom: 72px;
+    }
+    .case-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--brown-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--brown-light);
+    }
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--brown-dark);
+      margin: 32px 0 12px;
+      font-style: italic;
+    }
+    .case-section p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.97rem;
+      color: var(--brown);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .case-section ul {
+      margin: 12px 0 20px 0;
+      padding-left: 20px;
+    }
+    .case-section ul li {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+    .case-img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 28px 0;
+      display: block;
+      border: 1px solid var(--brown-light);
+    }
+    .case-img-caption {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      color: var(--brown);
+      opacity: 0.65;
+      text-align: center;
+      margin-top: -18px;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .img-half-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 28px 0;
+    }
+    .img-half-row img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--brown-light);
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 28px 0;
+    }
+    .stat-card {
+      background: var(--beige);
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .stat-card .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--brown-dark);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .stat-card .stat-label {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      color: var(--brown);
+      opacity: 0.75;
+      line-height: 1.4;
+    }
+    .outcome-box {
+      background: var(--sage-light, #e8ede6);
+      border-left: 3px solid var(--sage, #7a9478);
+      border-radius: 0 8px 8px 0;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .outcome-box p {
+      margin-bottom: 8px;
+    }
+    .outcome-box p:last-child {
+      margin-bottom: 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brown);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 1; }
+    .dashboard-label {
+      display: inline-block;
+      background: var(--brown-dark);
+      color: var(--beige);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .img-half-row { grid-template-columns: 1fr; }
+      .case-meta-row { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">allie he ✦</a>
+    <div class="nav-links">
+      <a href="ux.html">work</a>
+      <a href="graphics.html">graphics</a>
+      <a href="about.html">about</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </nav>
+
+  <section class="case-hero">
+    <div class="case-hero-inner">
+      <a href="ux.html" class="back-link">← back to work</a>
+      <div class="case-tag">Allied Beverage Group · Summer 2025</div>
+      <h1>CX Dashboards</h1>
+      <p class="case-hero-sub">Designing three enterprise dashboards to break down data silos across Customer Service, Operations, Sales, and Credit — turning a reactive organization into a proactive one.</p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><label>Role</label><span>Customer Experience Intern</span></div>
+        <div class="case-meta-item"><label>Timeline</label><span>June – July 2025 (8 weeks)</span></div>
+        <div class="case-meta-item"><label>Tools</label><span>Diver BI, Salesforce, Excel</span></div>
+        <div class="case-meta-item"><label>Type</label><span>Enterprise Dashboard Design</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="case-body">
+
+    <section class="case-section">
+      <h2>Overview</h2>
+      <p>Allied Beverage Group is one of New Jersey's largest beverage distributors, serving over 1,000 accounts across on- and off-premise channels. When the internship began, the core problem was clear: data lived in silos. Customer Service, Operations, Sales, and Credit each had their own systems — but no shared view of what was happening with any given account. The result was a reactive culture, slow resolutions, and friction that compounded across departments.</p>
+      <p>Over 8 weeks, three dashboard concepts were designed and developed in close collaboration with the Customer Service Manager, CX Specialist, Salesforce admins, Diver BI specialist, and IT Manager — two of which were implemented before the end of the internship.</p>
+
+      <div class="stat-row">
+        <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">dashboards designed & handed off</span></div>
+        <div class="stat-card"><span class="stat-num">$20K+</span><span class="stat-label">projected monthly savings</span></div>
+        <div class="stat-card"><span class="stat-num">1,000+</span><span class="stat-label">accounts covered in Salesforce</span></div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>The Problem</h2>
+      <ul>
+        <li>Data siloed across Credit, Operations, Sales, and Customer Service</li>
+        <li>No centralized account view — reps had to pull from multiple systems to answer a single customer call</li>
+        <li>Delivery exceptions tracked manually, with no visibility into patterns or trends</li>
+        <li>Reactive approach: issues surfaced only after they had already escalated</li>
+      </ul>
+      <p><strong>Goal:</strong> Build a proactive, unified data layer — so every department could get ahead of issues instead of chasing them.</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Process</h2>
+      <p>Started with stakeholder interviews across CS, Operations, and IT to map what each department actually needed to see and what data existed to support it. Confirmed data requirements with stakeholders, sketched layouts, and iterated through multiple rounds of review and sign-off before handoff. Both dashboard projects went from rough sketch to approved specification within 8 weeks.</p>
+    </section>
+
+    <section class="case-section">
+      <h2>The Dashboards</h2>
+
+      <div class="dashboard-label">Dashboard 01</div>
+      <h3>Salesforce Account Profile & CX Scorecard</h3>
+      <p>When a customer called with an issue, reps had to navigate multiple disconnected systems — revenue history lived somewhere, delivery data somewhere else, invoice discrepancies in another tool entirely. The solution: a unified Salesforce customer scorecard, accessible by account number, chain, claim code, or date range. Any CS rep or manager can pull up a complete account view in one click.</p>
+
+      <p><strong>What it shows:</strong></p>
+      <ul>
+        <li>Account info: tradename, address, license number, terms, delivery days/times, active reps</li>
+        <li>Revenue: total, exclusive vs. non-exclusive, broken down by period</li>
+        <li>Fill rate: warehouse-issued vs. customer-driven, with percentage comparison</li>
+        <li>Successful delivery: total invoices, dirty invoices, on-time delivery rate</li>
+        <li>Invoice discrepancies: linked directly to Diver exception data</li>
+        <li>Order source and rep assignment history</li>
+      </ul>
+
+      <img src="img/salesforce-wireframe-05.png" alt="Salesforce account profile wireframe sketch" class="case-img" />
+      <p class="case-img-caption">Early wireframe sketch mapping the Salesforce account profile sections and data hierarchy</p>
+
+      <p>Data requirements were mapped across departments, availability confirmed with IT, layout and interaction logic designed, then presented to Salesforce admins and stakeholders before coordinating handoff to the Salesforce IT specialist for build. The Salesforce account scorecard went live <strong>July 22nd</strong>.</p>
+
+      <div class="dashboard-label">Dashboard 02</div>
+      <h3>Customer Service Salesforce Dashboard</h3>
+      <p>CS management had no quick way to see complaint trends, case volumes, resolution patterns, or account-level issues across the full customer base at a glance. This dashboard gives CS managers the ability to spot recurring issues, prioritize high-volume accounts, and track resolution performance — all without pulling a single manual report.</p>
+
+      <p><strong>What it shows:</strong></p>
+      <ul>
+        <li>Type and reason report — 3.8K total records across categories</li>
+        <li>Customer complaints/CX case volume by month — over a year of trend data</li>
+        <li>Customer experience type and reason breakdown</li>
+        <li>CS queue by type, year to date</li>
+        <li>Accounts with the most open cases, by type and reason</li>
+        <li>CTS time-to-resolution tracking</li>
+      </ul>
+
+      <img src="img/salesforce-dashboard-monitor.jpg" alt="Salesforce Customer Experience Dashboard on monitor" class="case-img" />
+      <p class="case-img-caption">The Customer Experience Dashboard live in Salesforce — filterable by account, chain, claim code, and date</p>
+
+      <img src="img/salesforce-dashboard-closeup.png" alt="Salesforce dashboard close-up" class="case-img" />
+      <p class="case-img-caption">Dashboard close-up showing complaint trends, case volume by month, and accounts with most open cases</p>
+
+      <div class="dashboard-label">Dashboard 03</div>
+      <h3>Diver Delivery Exception Heatmap</h3>
+      <p>There was no centralized way to view, investigate, or share delivery exception data. With over 9,400 exception instances in a single month across 15+ reason codes, patterns were completely invisible at the management level.</p>
+      <p>The solution: a DivePort heatmap dashboard showing delivery exception trends across three time windows — this week, last 2 weeks, and rolling 30 days.</p>
+
+      <p><strong>What each tile shows:</strong></p>
+      <ul>
+        <li>Reason code category (e.g. 02 Shorts, 03 Mispick, 82 Refusal)</li>
+        <li>Number of dirty invoices that period</li>
+        <li>Fill rate percentage with period-over-period comparison</li>
+        <li>Color-coded alerts: yellow/red for significant declines from prior period</li>
+        <li>Drill-down to top 5–10 affected accounts or SKUs per exception</li>
+      </ul>
+
+      <img src="img/diver-page-12.png" alt="Diver delivery exception dashboard wireframe sketch" class="case-img" />
+      <p class="case-img-caption">Hand-drawn wireframe: heatmap tile layout organized by operation-driven vs. customer-driven exception categories</p>
+
+      <p><strong>Key data finding:</strong> In June 2025 alone — 3,230 shorts, 2,222 "did not request item" cases, 878 broken/damaged, 749 mispicks, and 694 customer refusals. None of this was visible to management in real time. The dashboard was designed to surface these patterns at a glance, with drill-down to the accounts and SKUs driving each category.</p>
+      <p>After full stakeholder review and sign-off, the complete build specification was handed off to the IT Manager for development.</p>
+    </section>
+
+    <section class="case-section">
+      <h2>Outcomes</h2>
+      <div class="outcome-box">
+        <p>✦ Salesforce CX Dashboard and Account Scorecard implemented <strong>July 22nd</strong></p>
+        <p>✦ Diver Delivery Exception Dashboard handed off to IT with full specification</p>
+        <p>✦ Presented to department heads across CS, Operations, and IT — received positive approval</p>
+        <p>✦ Projected <strong>$20,000+ monthly savings</strong> by surfacing delivery failures earlier in the resolution cycle</p>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>Reflection</h2>
+      <p>This was a first experience designing for enterprise BI tools rather than a visual prototyping environment — and the constraint was clarifying. It wasn't enough to sketch something clean in Figma; the work required understanding what data actually existed, what the tools could render, and what each stakeholder needed to act on. The most valuable skill practiced here wasn't layout — it was stakeholder communication. Getting sign-off from CS managers, IT, and department heads required translating between what users wanted to see and what systems could actually deliver.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Allie He · <a href="mailto:alliehe2015@gmail.com">alliehe2015@gmail.com</a></p>
+  </footer>
+</body>
+</html>
