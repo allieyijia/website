@@ -17,13 +17,13 @@
 
     /* PASSPORT */
     .passport {
-      background: #1e2d40;
+      background: #4a3728;
       border-radius: 6px; overflow: hidden;
-      box-shadow: 0 12px 48px rgba(30,45,64,0.3), 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 48px rgba(74,55,40,0.35), 0 2px 8px rgba(0,0,0,0.2);
       position: sticky; top: 100px;
     }
     .passport-cover {
-      background: linear-gradient(145deg, #1e2d40, #162236);
+      background: linear-gradient(145deg, #4a3728, #3a2a1e);
       padding: 36px 28px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       text-align: center;
@@ -46,24 +46,24 @@
     }
 
     .passport-photo-section {
-      padding: 24px 28px;
-      display: flex; gap: 16px; align-items: flex-start;
+      padding: 24px 28px 20px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .passport-photo {
-      width: 96px; height: 120px; object-fit: cover;
+      width: 160px; height: 200px; object-fit: cover;
       border: 2px solid rgba(196,168,130,0.3);
-      border-radius: 2px; flex-shrink: 0;
+      border-radius: 2px;
     }
     .passport-photo-placeholder {
-      width: 96px; height: 120px;
+      width: 160px; height: 200px;
       border: 2px solid rgba(196,168,130,0.3);
-      border-radius: 2px; flex-shrink: 0;
+      border-radius: 2px;
       background: rgba(255,255,255,0.04);
       display: flex; align-items: center; justify-content: center;
       font-size: 32px;
     }
-    .passport-info { flex: 1; }
+    .passport-info { width: 100%; }
     .passport-field { margin-bottom: 14px; }
     .passport-field label {
       display: block; font-size: 8px; font-weight: 700;
@@ -189,9 +189,10 @@
       <img src="img/allie-photo.jpg" alt="Allie He" class="passport-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
       <div class="passport-photo-placeholder" style="display:none;">✨</div>
       <div class="passport-info">
-        <div class="passport-field"><label>Full Name</label><span>Allie He (Yijia He)</span></div>
-        <div class="passport-field"><label>Origin</label><span>Newark, NJ</span></div>
-        <div class="passport-field"><label>Degree</label><span>HCI, NJIT '26</span></div>
+        <div class="passport-field"><label>Full Name</label><span>Allie He</span></div>
+        <div class="passport-field"><label>LinkedIn</label><span>linkedin.com/in/allie-he-yijia</span></div>
+        <div class="passport-field"><label>Origin</label><span>New Jersey</span></div>
+        <div class="passport-field"><label>Degree</label><span>Human-Computer Interaction, NJIT '26</span></div>
         <div class="passport-field"><label>Status</label><span>Open to Work ✦</span></div>
       </div>
     </div>
@@ -217,11 +218,13 @@
   <div class="about-content">
     <h1>Hi, I'm Allie.</h1>
 
-    <p>I'm a UX Engineer and designer graduating from NJIT in May 2026 with a degree in Human-Computer Interaction and a minor in Digital Business and Innovation. I specialize in data-heavy products: dashboards, analytics platforms, and AI-enabled tools that make complex information feel navigable.</p>
+    <p>The best products welcome you in. Every product tells a story, and I believe that story should make whoever's using it feel like they belong there, made with them in mind, not just made for a user.</p>
 
-    <p>What makes me a little different: I can take a design from Figma all the way into production code. My time at UPS taught me that the best UX decisions happen at the intersection of design intent and technical reality — and that you make better decisions when you understand both sides.</p>
+    <p>I graduated from NJIT in 2026 with a degree in Human-Computer Interaction and a minor in Digital Business and Innovation. My roots are in graphic design and editorial work. Years of thinking about how a layout communicates before a single word is read, how color sets a mood, how hierarchy guides someone without them noticing. From there, I picked up programming, marketing, and business strategy, and developed a deep interest in psychology. It means I can sit in a room with engineers, stakeholders, and researchers and speak each of their languages.</p>
 
-    <p>I care most about the moment when a confusing system becomes clear. When a dashboard goes from overwhelming to obvious. When a user stops fighting an interface and starts trusting it. That's what I design for.</p>
+    <p>I've designed across enterprise analytics, consumer apps, brand launches, and editorial media: from capacity-planning dashboards to a retro exploration device that won second place at a national design jam. I think in systems, and I love making complex information feel human. Which is probably why data-heavy products keep finding their way into my portfolio.</p>
+
+    <p>What I care about most is making things feel welcoming, turning something complicated into something intuitive. Outside of work, I make indie games with my sister, music, and art. It keeps me thinking about interaction, story, and the tiny decisions that make a world feel alive. Those instincts translate really well to products too.</p>
 
     <div class="about-section">
       <h3>Where I've Been</h3>
@@ -229,7 +232,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <p class="timeline-date">Feb 2026 – Present</p>
+            <p class="timeline-date">Feb 2026 – May 2026</p>
             <p class="timeline-title">UX Engineer · UPS</p>
             <p class="timeline-sub">Frontend UI/UX on an enterprise capacity analytics platform. Blazor/.NET, 5-sprint Agile cycle, 1,100+ sites.</p>
           </div>
@@ -253,7 +256,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <p class="timeline-date">Aug 2023 – Present</p>
+            <p class="timeline-date">Aug 2023 – Jun 2025</p>
             <p class="timeline-title">UX/UI Mentee · Avanade NextGen Scholars</p>
             <p class="timeline-sub">Mentored by Maggie Smith at Avanade. Placed finalist at international conference against 750+ participants.</p>
           </div>
@@ -261,9 +264,33 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <p class="timeline-date">2022 – Present</p>
+            <p class="timeline-date">Sept 2023 – Feb 2024</p>
+            <p class="timeline-title">User Research Assistant · NJIT Social X Lab</p>
+            <p class="timeline-sub">Mixed-methods UX research on Roblox avatar customization — interviews, thematic coding, and a usability study with SUS/NPS scales analyzed in SPSS.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Nov 2022 – Mar 2023</p>
+            <p class="timeline-title">Web, UX/UI & Graphic Developer · Barat Foundation</p>
+            <p class="timeline-sub">Rebuilt the nonprofit's website and designed a cohesive brand identity system — improving navigation, accessibility, and brand consistency across web, print, and digital platforms.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Sept 2023 – May 2025</p>
             <p class="timeline-title">Executive Design Editor · NJIT Vector Newspaper</p>
             <p class="timeline-sub">Managed design team, produced bi-weekly print issues, increased readership 21%. Adobe InDesign/Illustrator.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-date">Sept 2022 – May 2026</p>
+            <p class="timeline-title">BS Human-Computer Interaction · New Jersey Institute of Technology</p>
+            <p class="timeline-sub">SIGCHI member. Coursework includes Designing the User Experience, Qualitative and Quantitative Research Methods, and more.</p>
           </div>
         </div>
       </div>
@@ -274,7 +301,7 @@
       <div class="fun-facts">
         <div class="fun-fact">
           <span class="icon">🎮</span>
-          I run a game studio called <strong>Pufffish</strong> — we make weird little games that take about 10 minutes to beat and leave you thinking.
+          My little sister and I want to open an indie game studio together — small, strange games that stick with you after you put them down.
         </div>
         <div class="fun-fact">
           <span class="icon">🗾</span>
@@ -286,7 +313,15 @@
         </div>
         <div class="fun-fact">
           <span class="icon">🐾</span>
-          I designed a pet adoption app and won first place. I do not have a pet. This feels like irony.
+          I co-designed a pet adoption app and won first place at a Design Jam. I also had a cat named Molly — she was everything.
+        </div>
+        <div class="fun-fact">
+          <span class="icon">🎵</span>
+          I play flute, guitar, and keyboard, and I'm slowly working on writing my own songs. Still figuring out what they want to be.
+        </div>
+        <div class="fun-fact">
+          <span class="icon">🥋</span>
+          Third-degree black belt in Taekwondo — I also teach and referee. Outside of that I play and watch soccer, and I recently picked up rock climbing and golf.
         </div>
       </div>
     </div>

@@ -359,7 +359,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
   font-size: 22px;
 }
 .postcard-type {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -368,14 +368,14 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
 }
 .postcard-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--espresso);
   margin-bottom: 8px;
   line-height: 1.2;
 }
 .postcard-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--ink);
   line-height: 1.6;
   margin-bottom: 16px;

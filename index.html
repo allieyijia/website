@@ -42,7 +42,8 @@
       width: 100%;
       text-align: center;
       box-shadow: 0 32px 80px rgba(0,0,0,0.5), 8px 8px 0 rgba(74,55,40,0.25);
-      animation: postcard-arrive 1s cubic-bezier(0.22,1,0.36,1) both;
+      animation: postcard-arrive 1s cubic-bezier(0.22,1,0.36,1) both,
+                 postcard-float 5s ease-in-out 1.2s infinite;
     }
     /* Inner decorative frame line */
     .hero-postcard-frame::before {
@@ -55,6 +56,24 @@
     @keyframes postcard-arrive {
       from { opacity: 0; transform: translateY(56px) rotate(-4deg); }
       to   { opacity: 1; transform: translateY(0)    rotate(-1.5deg); }
+    }
+    @keyframes postcard-float {
+      0%, 100% { transform: translateY(0)    rotate(-1.5deg); }
+      50%      { transform: translateY(-14px) rotate(-1.5deg); }
+    }
+
+    /* ── HOVER BUBBLES ── */
+    .hero-bubble {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      border: 1px solid rgba(255,255,255,0.4);
+      animation: bubble-rise var(--dur, 1s) ease-out forwards;
+    }
+    @keyframes bubble-rise {
+      0%   { transform: translate(0, 0) scale(1);   opacity: 0.75; }
+      100% { transform: translate(var(--dx, 0px), -70px) scale(0.15); opacity: 0; }
     }
 
     .hero-from {
@@ -403,7 +422,7 @@
         <div class="postcard-body">
           <div class="postcard-stamp">📊</div>
           <p class="postcard-type">UX Research · Data Viz</p>
-          <h3 class="postcard-title">ABG — CX Dashboards</h3>
+          <h3 class="postcard-title">Allied Beverage Group — CX Dashboards</h3>
           <p class="postcard-desc">Diver delivery exception dashboard (projected $20K+/mo savings) and Salesforce CX scorecard tracking health scores across 1,000+ wholesale accounts.</p>
           <div class="postcard-tags">
             <span class="postcard-tag">Dashboards</span>
@@ -422,7 +441,7 @@
         <div class="postcard-body">
           <div class="postcard-stamp">🔍</div>
           <p class="postcard-type">UX Research · Strategy</p>
-          <h3 class="postcard-title">ABG — CX Research & Strategy</h3>
+          <h3 class="postcard-title">Allied Beverage Group — CX Research & Strategy</h3>
           <p class="postcard-desc">Multi-method customer experience research: complaint pattern analysis, stakeholder interviews, and strategic recommendations shaping ABG's CX roadmap.</p>
           <div class="postcard-tags">
             <span class="postcard-tag">UX Research</span>
@@ -441,7 +460,7 @@
         <div class="postcard-body">
           <div class="postcard-stamp">🍷</div>
           <p class="postcard-type">Brand Launch · Research</p>
-          <h3 class="postcard-title">ABG — Artet Brand Launch</h3>
+          <h3 class="postcard-title">Allied Beverage Group — Artet Brand Launch</h3>
           <p class="postcard-desc">Complaint research and market analysis supporting the launch of Artet, a $1M+ premium wine brand — from consumer sentiment to launch strategy.</p>
           <div class="postcard-tags">
             <span class="postcard-tag">Brand Launch</span>
@@ -552,5 +571,55 @@
   </div>
 </footer>
 
+<script>
+  const card = document.querySelector('.hero-postcard-frame');
+  const colors = [
+    'rgba(201,107,138,0.35)',
+    'rgba(196,168,130,0.45)',
+    'rgba(181,205,176,0.45)',
+    'rgba(224,200,204,0.55)',
+    'rgba(255,210,220,0.4)',
+  ];
+  function spawnBubble() {
+    const rect = card.getBoundingClientRect();
+    const bubble = document.createElement('div');
+    bubble.className = 'hero-bubble';
+
+    const side = Math.floor(Math.random() * 4);
+    let x, y;
+    const pad = 20;
+    if (side === 0)      { x = rect.left + Math.random() * rect.width;  y = rect.top    + pad; }
+    else if (side === 1) { x = rect.right - pad;                          y = rect.top    + Math.random() * rect.height; }
+    else if (side === 2) { x = rect.left + Math.random() * rect.width;  y = rect.bottom - pad; }
+    else                 { x = rect.left + pad;                           y = rect.top    + Math.random() * rect.height; }
+
+    const size = 7 + Math.random() * 16;
+    const dx   = (Math.random() - 0.5) * 50;
+    const dur  = 0.7 + Math.random() * 0.7;
+
+    Object.assign(bubble.style, {
+      left:       x - size / 2 + 'px',
+      top:        y - size / 2 + 'px',
+      width:      size + 'px',
+      height:     size + 'px',
+      background: colors[Math.floor(Math.random() * colors.length)],
+      '--dx':     dx + 'px',
+      '--dur':    dur + 's',
+    });
+
+    document.body.appendChild(bubble);
+    bubble.addEventListener('animationend', () => bubble.remove());
+  }
+
+  function spawnBurst() {
+    const count = 5 + Math.floor(Math.random() * 6);
+    for (let i = 0; i < count; i++) {
+      setTimeout(spawnBubble, i * 80);
+    }
+  }
+
+  spawnBurst();
+  setInterval(spawnBurst, 3000);
+</script>
 </body>
 </html>
