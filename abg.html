@@ -117,6 +117,17 @@
       display: block;
       border: 1px solid var(--brown-light);
     }
+    .case-section h2.dashboards-title {
+      font-weight: 700;
+    }
+    .case-section h2.dashboard-num {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .case-section h2.dashboard-num + h3 {
+      margin-top: 4px;
+    }
     .case-img-caption {
       font-family: 'Nunito', sans-serif;
       font-size: 0.78rem;
@@ -265,15 +276,17 @@
       <p><strong>Goal:</strong> Build a proactive, unified data layer — so every department could get ahead of issues instead of chasing them.</p>
     </section>
 
+    <img src="img/abg-silo.png" alt="Current existing silos within the departments" class="case-img" />
+
     <section class="case-section">
       <h2>Process</h2>
       <p>Started with stakeholder interviews across CS, Operations, and IT to map what each department actually needed to see and what data existed to support it. Confirmed data requirements with stakeholders, sketched layouts, and iterated through multiple rounds of review and sign-off before handoff. Both dashboard projects went from rough sketch to approved specification within 8 weeks.</p>
     </section>
 
     <section class="case-section">
-      <h2>The Dashboards</h2>
+      <h2 class="dashboards-title">The Dashboards</h2>
 
-      <div class="dashboard-label">Dashboard 01</div>
+      <h2 class="dashboard-num">Dashboard 01</h2>
       <h3>Salesforce Account Profile & CX Scorecard</h3>
       <p>When a customer called with an issue, reps had to navigate multiple disconnected systems — revenue history lived somewhere, delivery data somewhere else, invoice discrepancies in another tool entirely. The solution: a unified Salesforce customer scorecard, accessible by account number, chain, claim code, or date range. Any CS rep or manager can pull up a complete account view in one click.</p>
 
@@ -292,7 +305,7 @@
 
       <p>Data requirements were mapped across departments, availability confirmed with IT, layout and interaction logic designed, then presented to Salesforce admins and stakeholders before coordinating handoff to the Salesforce IT specialist for build. The Salesforce account scorecard went live <strong>July 22nd</strong>.</p>
 
-      <div class="dashboard-label">Dashboard 02</div>
+      <h2 class="dashboard-num">Dashboard 02</h2>
       <h3>Customer Service Salesforce Dashboard</h3>
       <p>CS management had no quick way to see complaint trends, case volumes, resolution patterns, or account-level issues across the full customer base at a glance. This dashboard gives CS managers the ability to spot recurring issues, prioritize high-volume accounts, and track resolution performance — all without pulling a single manual report.</p>
 
@@ -309,7 +322,7 @@
       <img src="img/salesforce-dashboard-monitor.jpg" alt="Salesforce Customer Experience Dashboard on monitor" class="case-img" />
       <p class="case-img-caption">The Customer Experience Dashboard live in Salesforce — filterable by account, chain, claim code, and date; showing complaint trends, case volume by month, and accounts with most open cases</p>
 
-      <div class="dashboard-label">Dashboard 03</div>
+      <h2 class="dashboard-num">Dashboard 03</h2>
       <h3>Diver Delivery Exception Heatmap</h3>
       <p>There was no centralized way to view, investigate, or share delivery exception data. With over 9,400 exception instances in a single month across 15+ reason codes, patterns were completely invisible at the management level.</p>
       <p>The solution: a DivePort heatmap dashboard showing delivery exception trends across three time windows — this week, last 2 weeks, and rolling 30 days.</p>
