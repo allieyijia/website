@@ -37,13 +37,30 @@
       z-index: 2;
       background: rgba(250,246,240,0.97);
       border: 4px solid var(--espresso);
-      padding: 52px 68px 40px;
-      max-width: 900px;
+      padding: 72px 68px;
+      max-width: 760px;
       width: 100%;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: center;
+      text-align: left;
       box-shadow: 0 32px 80px rgba(0,0,0,0.5), 8px 8px 0 rgba(74,55,40,0.25);
       animation: postcard-arrive 1s cubic-bezier(0.22,1,0.36,1) both,
                  postcard-float 5s ease-in-out 1.2s infinite;
+    }
+    .postcard-left {
+      padding-right: 40px;
+    }
+    .postcard-right {
+      padding-left: 40px;
+      border-left: 1px dashed var(--camel);
+    }
+    .postcard-corner-stamp {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      z-index: 3;
     }
     /* Inner decorative frame line */
     .hero-postcard-frame::before {
@@ -77,34 +94,38 @@
     }
 
     .hero-from {
+      grid-column: 1 / -1;
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 28px;
     }
     .hero-eyebrow {
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 20px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: flex-start;
       gap: 12px;
     }
     .hero h1 {
-      font-size: clamp(4rem, 9vw, 7.5rem);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
       color: #c96b8a;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       line-height: 1.0;
     }
     .hero-desc {
       font-size: 1.05rem;
       color: var(--ink);
-      margin: 0 auto 36px;
+      margin: 0;
       line-height: 1.8;
     }
     .hero-cta {
+      grid-column: 1 / -1;
       display: flex; gap: 20px;
-      flex-wrap: wrap; justify-content: center;
+      flex-wrap: nowrap; justify-content: center;
+      margin-top: 40px;
     }
     .btn-primary {
       background: var(--espresso);
@@ -143,7 +164,7 @@
     .hero-mini-stamp {
       width: 44px; height: 54px;
       border: 2px solid var(--espresso);
-      background: var(--sage);
+      background: linear-gradient(135deg, #c96b8a, #9b6bb0);
       display: flex; align-items: center;
       justify-content: center; font-size: 18px;
       flex-shrink: 0;
@@ -308,7 +329,11 @@
 
     @media (max-width: 900px) {
       .hero { padding: 40px 20px; }
-      .hero-postcard-frame { padding: 36px 28px 28px; }
+      .hero-postcard-frame { padding: 36px 28px 28px; grid-template-columns: 1fr; }
+      .postcard-left { padding-right: 0; margin-bottom: 32px; }
+      .postcard-right { padding-left: 0; padding-top: 32px; border-left: none; border-top: 1px dashed var(--camel); }
+      .postcard-corner-stamp { top: 14px; right: 14px; }
+      .hero-cta { flex-wrap: wrap; margin-top: 32px; }
 
       .projects-section { padding: 0 20px 60px; }
       .route-line { padding: 24px 20px; }
@@ -344,12 +369,17 @@
 
   <!-- Postcard frame -->
   <div class="hero-postcard-frame">
+    <div class="hero-mini-stamp postcard-corner-stamp">✦</div>
     <p class="hero-from">— Postcard from Allie He —</p>
-    <p class="hero-eyebrow">UX Designer · Engineer · Researcher · Human-Computer Interaction</p>
-    <h1>Allie He</h1>
-    <p class="hero-desc">
-      A designer who crafts meaningful and intentional interactions with the users in mind. I have a background in Human-Computer Interaction, and I specialize in reaserach, innovative problem solving, prototypes, designs, and dashboard and data visualization.
-    </p>
+    <div class="postcard-left">
+      <h1>Allie He</h1>
+      <p class="hero-eyebrow">UX Designer · Engineer · Researcher · Human-Computer Interaction</p>
+    </div>
+    <div class="postcard-right">
+      <p class="hero-desc">
+        A designer with a background in Human-Computer Interaction who crafts meaningful, intentional experiences. Specializing in research, prototyping, and data visualization.
+      </p>
+    </div>
     <div class="hero-cta">
       <a href="ux.html" class="btn-primary">View My Work</a>
       <a href="contact.html" class="btn-outline">Get In Touch</a>
