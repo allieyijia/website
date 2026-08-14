@@ -538,7 +538,21 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
   .nav-links { gap: 16px; }
   .cs-body { padding: 40px 20px; }
   .cs-hero { padding: 48px 20px 40px; }
+  .cs-meta { gap: 24px; }
   .footer { flex-direction: column; gap: 20px; padding: 32px 20px; text-align: center; }
-  .footer-links { gap: 16px; }
+  .footer-links { gap: 16px; flex-wrap: wrap; justify-content: center; }
   .container { padding: 0 20px; }
+  .insight-row { grid-template-columns: 1fr; }
+  .cs-stats-4 { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid-2, .photo-grid-3 { grid-template-columns: 1fr; }
+  .device-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .nav { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+  .nav-logo { font-size: 19px; }
+  .nav-links { gap: 8px 14px; flex-wrap: wrap; }
+  .nav-links a { font-size: 11px; }
+  .cs-stats, .cs-stats-4 { grid-template-columns: 1fr 1fr; padding: 20px; gap: 16px; }
+  .device-grid { grid-template-columns: 1fr; max-width: 260px; }
 }

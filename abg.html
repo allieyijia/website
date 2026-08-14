@@ -132,7 +132,7 @@
       color: var(--brown);
       opacity: 0.65;
       text-align: center;
-      margin-top: -18px;
+      margin-top: 10px;
       margin-bottom: 28px;
       font-style: italic;
     }
@@ -217,9 +217,16 @@
       margin-bottom: 10px;
     }
     @media (max-width: 600px) {
+      .case-hero { padding: 56px 0 40px; }
+      .case-hero-inner { padding: 0 20px; }
+      .case-body { padding: 48px 20px; }
       .stat-row { grid-template-columns: 1fr 1fr; }
       .img-half-row { grid-template-columns: 1fr; }
       .case-meta-row { gap: 24px; }
+    }
+
+    @media (max-width: 420px) {
+      .stat-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>

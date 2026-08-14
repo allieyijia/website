@@ -121,7 +121,7 @@
       color: var(--brown);
       opacity: 0.65;
       text-align: center;
-      margin-top: -18px;
+      margin-top: 10px;
       margin-bottom: 28px;
       font-style: italic;
     }
@@ -259,8 +259,14 @@
     }
     .audit-table tr:nth-child(even) td { background: var(--beige); }
     @media (max-width: 600px) {
+      .case-hero { padding: 56px 0 40px; }
+      .case-hero-inner { padding: 0 20px; }
+      .case-body { padding: 48px 20px; }
       .methods-row { grid-template-columns: 1fr; }
       .case-meta-row { gap: 24px; }
+      .survey-sample { padding: 20px; }
+      .audit-table { font-size: 0.8rem; }
+      .audit-table th, .audit-table td { padding: 8px 10px; }
     }
   </style>
 </head>

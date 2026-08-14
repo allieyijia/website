@@ -6,7 +6,12 @@
       "PowerShell($t = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds\\(\\); Start-Process \"http://localhost:8080/index.html?v=$t\")",
       "Bash(curl -sI http://localhost:8080/abg-research.html)",
       "Bash(curl -sI http://localhost:8080/savor.html)",
-      "PowerShell($t = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds\\(\\); Start-Process \"http://localhost:8080/savor.html?v=$t\")"
+      "PowerShell($t = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds\\(\\); Start-Process \"http://localhost:8080/savor.html?v=$t\")",
+      "Bash(curl -sI http://localhost:8080/index.html)",
+      "Bash(curl -sI http://localhost:8080/graphics.html)",
+      "Bash(curl -sI http://localhost:8080/contact.html)",
+      "Bash(curl -sI http://localhost:8080/abg.html)",
+      "Bash(curl -sI http://localhost:8080/abg-artet.html)"
     ]
   }
 }
