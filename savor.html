@@ -54,6 +54,15 @@
       width: 100%; border-radius: 6px;
       border: 1px solid var(--linen);
     }
+    .summary-list {
+      margin: 16px 0 20px;
+      padding-left: 22px;
+    }
+    .summary-list li {
+      color: var(--ink);
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
 
     .stat-pill {
       display: inline-flex; align-items: center; gap: 8px;
@@ -66,15 +75,7 @@
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo">Allie He ✦</a>
-  <div class="nav-links">
-    <a href="ux.html" class="active">Work</a>
-    <a href="graphics.html">Graphics</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+<script src="nav.js"></script>
 
 <!-- HERO -->
 <div class="cs-hero savor-hero">
@@ -106,18 +107,18 @@
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--espresso);margin-bottom:16px;">Savor — Ingredient-First Recipe Discovery</h2>
 
     <div class="process-steps" style="margin-bottom:40px;">
-      <div class="process-step active">Empathize</div>
+      <div class="process-step active">Research</div>
       <div class="process-step active">Define</div>
       <div class="process-step active">Ideate</div>
       <div class="process-step active">Prototype</div>
       <div class="process-step active">Test</div>
     </div>
 
-    <!-- EMPATHIZE -->
+    <!-- RESEARCH -->
     <div class="phase-block">
       <div class="phase-label">
         <div class="phase-num">01</div>
-        <div class="phase-name">Empathize</div>
+        <div class="phase-name">Research</div>
       </div>
       <h2>The real reason people don't use what's in their fridge</h2>
       <p>Food waste is enormous. The average American household throws away nearly $1,500 worth of food per year. Most sustainability-focused apps approach this as an environmental problem — framing it around carbon footprints, landfill data, and the moral weight of waste. We had a hunch that framing wasn't working.</p>
@@ -210,11 +211,11 @@
       </div>
       <p class="cs-image-caption">Login screen (left) and the core home screen (right) — ingredient input, dietary restrictions, cuisines, and price range all surfaced on arrival.</p>
 
-      <img src="img/savor-results.jpg" alt="Savor recipe results screen" class="cs-image"/>
-      <p class="cs-image-caption">Recipe results page — cost per serving and cooking time shown upfront, with tag-based filtering visible on the results themselves.</p>
-
-      <img src="img/savor-discover.jpg" alt="Savor discover screen" class="cs-image"/>
-      <p class="cs-image-caption">The Discover screen — organized by meal type and category, with trending recipes below. Makes the app useful for spontaneous browsing, not just ingredient-driven search.</p>
+      <div class="screen-pair">
+        <img src="img/savor-results.jpg" alt="Savor recipe results screen"/>
+        <img src="img/savor-discover.jpg" alt="Savor discover screen"/>
+      </div>
+      <p class="cs-image-caption">Recipe results page (left) — cost per serving and cooking time shown upfront, with tag-based filtering visible on the results themselves. The Discover screen (right) — organized by meal type and category, with trending recipes below, for spontaneous browsing beyond ingredient-driven search.</p>
 
       <div class="cs-stats">
         <div class="cs-stat">
@@ -280,11 +281,12 @@
       <h2>Survey data that drove feature priorities</h2>
       <p>The same 37-person survey that informed Savor was originally conducted for Cookin' Cubby. From the survey data, the team identified the features users most wanted in a recipe app:</p>
 
-      <img src="img/savor-survey-3.jpg" alt="Survey analysis — feature priorities" class="cs-image"/>
-      <p class="cs-image-caption">Survey analysis: ingredient-based recipe suggestions, price filters, bookmarking, and community features ranked highest among desired capabilities.</p>
-
-      <img src="img/savor-survey-4.jpg" alt="Survey analysis — design requirements" class="cs-image"/>
-      <p class="cs-image-caption">Feature requirement synthesis: inclusion/exclusion filters, recipe discovery, community interaction, and simple/accessible UI all surfaced as priorities.</p>
+      <ul class="summary-list">
+        <li>Ingredient-based recipe suggestions, price filters, bookmarking, and community features ranked highest among desired capabilities</li>
+        <li>Inclusion/exclusion filters for dietary needs surfaced as a key requirement</li>
+        <li>Recipe discovery and community interaction rated as high-value features</li>
+        <li>Simple, accessible UI — including dark mode — came through as a top-five priority</li>
+      </ul>
 
       <p>The top requested features from this research:</p>
       <div class="insight-row">
