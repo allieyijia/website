@@ -37,8 +37,8 @@
       z-index: 2;
       background: rgba(250,246,240,0.97);
       border: 4px solid var(--espresso);
-      padding: 72px 68px;
-      max-width: 760px;
+      padding: 76px 72px;
+      max-width: 840px;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -91,6 +91,38 @@
     @keyframes bubble-rise {
       0%   { transform: translate(0, 0) scale(1);   opacity: 0.75; }
       100% { transform: translate(var(--dx, 0px), -70px) scale(0.15); opacity: 0; }
+    }
+
+    /* ── PAPER PLANE CURSOR ── */
+    body { cursor: none; }
+    .plane-cursor {
+      position: fixed;
+      top: -100px; left: -100px;
+      width: 38px; height: 38px;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%) rotate(0deg);
+      filter: drop-shadow(1px 2px 3px rgba(155,107,176,0.4));
+    }
+    .plane-cursor svg { display: block; width: 100%; height: 100%; }
+    .cursor-trail-dash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 11px; height: 3px;
+      border-radius: 1px;
+      background: #c96b8a;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%) rotate(var(--ang, 0deg));
+      animation: trail-fade 0.7s ease-out forwards;
+    }
+    @keyframes trail-fade {
+      0%   { opacity: 0.75; transform: translate(-50%, -50%) rotate(var(--ang, 0deg)) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--ang, 0deg)) scale(0.3); }
+    }
+    @media (pointer: coarse) {
+      body { cursor: auto; }
+      .plane-cursor { display: none; }
     }
 
     .hero-from {
@@ -183,16 +215,12 @@
       box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
     }
     .float-stamp img { width: 100%; display: block; }
+    .float-stamp { will-change: left, top, transform; }
 
-    .stamp-s1 { width: 100px; top: 10%; left: 5%;   animation: flt1 4.2s ease-in-out infinite; }
-    .stamp-s2 { width: 90px;  top: 10%; right: 6%;  animation: flt2 5.1s ease-in-out infinite; }
-    .stamp-s3 { width: 95px;  bottom: 12%; left: 7%; animation: flt3 4.7s ease-in-out infinite; }
-    .stamp-s4 { width: 88px;  bottom: 14%; right: 5%; animation: flt4 3.9s ease-in-out infinite; }
-
-    @keyframes flt1 { 0%,100%{ transform: rotate(-8deg)  translateY(0); }  50%{ transform: rotate(-6deg)  translateY(-14px); } }
-    @keyframes flt2 { 0%,100%{ transform: rotate(10deg)  translateY(0); }  50%{ transform: rotate(12deg)  translateY(-12px); } }
-    @keyframes flt3 { 0%,100%{ transform: rotate(6deg)   translateY(0); }  50%{ transform: rotate(4deg)   translateY(-16px); } }
-    @keyframes flt4 { 0%,100%{ transform: rotate(-10deg) translateY(0); }  50%{ transform: rotate(-12deg) translateY(-10px); } }
+    .stamp-s1 { width: 130px; top: 12%; left: 8%; }
+    .stamp-s2 { width: 118px; top: 12%; left: 82%; }
+    .stamp-s3 { width: 124px; top: 78%; left: 10%; }
+    .stamp-s4 { width: 114px; top: 80%; left: 83%; }
 
     /* Dotted route line */
     .route-line {
@@ -704,14 +732,141 @@
   }
 
   function spawnBurst() {
-    const count = 5 + Math.floor(Math.random() * 6);
+    const count = 12 + Math.floor(Math.random() * 10);
     for (let i = 0; i < count; i++) {
-      setTimeout(spawnBubble, i * 80);
+      setTimeout(spawnBubble, i * 60);
     }
   }
 
   spawnBurst();
-  setInterval(spawnBurst, 3000);
+  setInterval(spawnBurst, 1800);
+
+  /* ── PAPER PLANE CURSOR + DASHED TRAIL ── */
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+  let mouseX = -9999, mouseY = -9999;
+
+  if (isFinePointer) {
+    const plane = document.createElement('div');
+    plane.className = 'plane-cursor';
+    plane.innerHTML = `
+      <svg viewBox="0 0 24 24">
+        <path d="M2 12 L22 4 L14 12 L22 20 Z" fill="#9b6bb0" stroke="#c96b8a" stroke-width="0.6" stroke-linejoin="round"/>
+        <path d="M2 12 L14 12 L22 20 Z" fill="#c96b8a" opacity="0.85"/>
+      </svg>`;
+    document.body.appendChild(plane);
+
+    let lastX = null, lastY = null, lastTrailTime = 0, lastAngle = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      plane.style.left = e.clientX + 'px';
+      plane.style.top = e.clientY + 'px';
+
+      if (lastX !== null) {
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        if (Math.hypot(dx, dy) > 2) {
+          lastAngle = Math.atan2(dy, dx) * 180 / Math.PI;
+        }
+      }
+      plane.style.transform = `translate(-50%, -50%) rotate(${lastAngle}deg)`;
+      lastX = e.clientX; lastY = e.clientY;
+
+      const now = performance.now();
+      if (now - lastTrailTime > 45) {
+        lastTrailTime = now;
+        const dash = document.createElement('div');
+        dash.className = 'cursor-trail-dash';
+        dash.style.left = e.clientX + 'px';
+        dash.style.top = e.clientY + 'px';
+        dash.style.setProperty('--ang', lastAngle + 'deg');
+        document.body.appendChild(dash);
+        dash.addEventListener('animationend', () => dash.remove());
+      }
+    });
+  }
+
+  /* ── FLOATING STAMPS: wander around the banner, avoid the cursor and the postcard ── */
+  if (isFinePointer) {
+    const heroEl = document.querySelector('.hero');
+    const stampEls = Array.from(document.querySelectorAll('.float-stamp'));
+
+    const stamps = stampEls.map((el, i) => ({
+      el,
+      size: el.offsetWidth || 100,
+      fracX: [0.14, 0.86, 0.16, 0.85][i],
+      fracY: [0.20, 0.20, 0.80, 0.82][i],
+      ampX: 90 + i * 12,
+      ampY: 70 + i * 10,
+      freqX: 0.00016 + i * 0.00004,
+      freqY: 0.00021 + i * 0.00003,
+      phaseX: i * 1.7,
+      phaseY: i * 2.3,
+      rotAmp: 8 + i * 2,
+      rotFreq: 0.0003 + i * 0.00005,
+      rotPhase: i * 1.1,
+    }));
+
+    const REPEL_RADIUS = 150;
+    const REPEL_STRENGTH = 110;
+
+    function keepOutsideRect(x, y, rect, margin) {
+      const left = rect.left - margin, right = rect.right + margin;
+      const top = rect.top - margin, bottom = rect.bottom + margin;
+      if (x > left && x < right && y > top && y < bottom) {
+        const dLeft = x - left, dRight = right - x, dTop = y - top, dBottom = bottom - y;
+        const minD = Math.min(dLeft, dRight, dTop, dBottom);
+        if (minD === dLeft) x = left;
+        else if (minD === dRight) x = right;
+        else if (minD === dTop) y = top;
+        else y = bottom;
+      }
+      return { x, y };
+    }
+
+    function animateStamps(t) {
+      const heroRect = heroEl.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+
+      stamps.forEach((s) => {
+        const baseX = heroRect.width * s.fracX;
+        const baseY = heroRect.height * s.fracY;
+
+        let x = baseX + Math.sin(t * s.freqX + s.phaseX) * s.ampX;
+        let y = baseY + Math.sin(t * s.freqY + s.phaseY) * s.ampY;
+
+        // convert to viewport coords to compare against the mouse
+        let vx = heroRect.left + x, vy = heroRect.top + y;
+        const dx = vx - mouseX, dy = vy - mouseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < REPEL_RADIUS) {
+          const force = (REPEL_RADIUS - dist) / REPEL_RADIUS;
+          const ux = dist > 0.01 ? dx / dist : 1;
+          const uy = dist > 0.01 ? dy / dist : 0;
+          vx += ux * force * REPEL_STRENGTH;
+          vy += uy * force * REPEL_STRENGTH;
+        }
+
+        const half = s.size / 2;
+        const clamped = keepOutsideRect(vx, vy, cardRect, half + 14);
+        vx = clamped.x; vy = clamped.y;
+
+        vx = Math.max(heroRect.left + half, Math.min(heroRect.right - half, vx));
+        vy = Math.max(heroRect.top + half, Math.min(heroRect.bottom - half, vy));
+
+        const rot = Math.sin(t * s.rotFreq + s.rotPhase) * s.rotAmp;
+
+        s.el.style.left = (vx - heroRect.left) + 'px';
+        s.el.style.top = (vy - heroRect.top) + 'px';
+        s.el.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+      });
+
+      requestAnimationFrame(animateStamps);
+    }
+
+    requestAnimationFrame(animateStamps);
+  }
 </script>
 </body>
 </html>
