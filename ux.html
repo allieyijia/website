@@ -6,7 +6,7 @@
   <title>Work — Allie He</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Nunito:wght@300;400;600;700&family=Playwrite+CA:wght@100..400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
     .listing-hero {
@@ -19,7 +19,14 @@
       display: flex; align-items: center; gap: 12px;
     }
     .listing-hero .eyebrow::before { content:''; width:32px; height:1px; background:var(--camel); display:inline-block; }
-    .listing-hero h1 { margin-bottom: 16px; }
+    .listing-hero h1 {
+      font-family: "Playwrite CA", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 16px;
+    }
     .listing-hero p { color: var(--ink); max-width: 560px; }
 
     /* Filter bar */

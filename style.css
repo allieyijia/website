@@ -67,9 +67,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
   backdrop-filter: blur(4px);
 }
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
+  font-family: "Playwrite CA", cursive;
+  font-optical-sizing: auto;
+  font-size: 19px;
+  font-weight: 400;
+  font-style: normal;
   color: var(--espresso);
   text-decoration: none;
   letter-spacing: 0.02em;

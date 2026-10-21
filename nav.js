@@ -8,7 +8,7 @@
 
   document.write(
     '<nav class="nav">' +
-      '<a href="index.html" class="nav-logo">Allie He ✦</a>' +
+      '<a href="index.html" class="nav-logo">✦ Allie He ✦</a>' +
       '<div class="nav-links">' +
         link('ux.html', 'Work', workPages.indexOf(page) !== -1) +
         link('graphics.html', 'Graphics', page === 'graphics.html') +
