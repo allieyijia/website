@@ -412,6 +412,12 @@
       border-top: 1px solid var(--parchment2);
       font-style: italic;
     }
+    .modal-img-caption a {
+      color: var(--espresso);
+      font-style: normal;
+      text-decoration: underline;
+    }
+    .modal-img-caption a:hover { color: var(--camel); }
 
     /* ── LIGHTBOX ── */
     .lightbox {
@@ -746,6 +752,7 @@
       linkLabel: 'Visit njitvector.com ↗',
       desc: 'As Design & Executive Editor at NJIT\'s Vector Newspaper, I led all visual output — bi-weekly print layouts in InDesign, logo & brand identity, event flyers, social media graphics, merch, and web UI at njitvector.com. Grew readership by 21% after digital transformation.',
       images: [
+        { src: 'img/hci_article.png',                      alt: 'Featured article & newsletter written for the Human-Computer Interaction department.', caption: 'Featured article & newsletter written for the Human-Computer Interaction department. Read full article: <a href="https://njitvector.com/19437/features/the-rise-of-human-computer-interaction-at-njit/" target="_blank" rel="noopener">The Rise of Human-Computer Interaction at NJIT</a>' },
         { src: 'img/Vector%201.png',                      caption: 'Fall 2024 Issue 8' },
         { src: 'img/Vector%202.png',                      caption: 'Fall 2024 Issue 8' },
         { src: 'img/Vector%204.png',                      caption: 'Entertainment Page' },
@@ -833,7 +840,7 @@
     const grid = document.getElementById('modal-grid');
     grid.innerHTML = d.images.map(img => `
       <div class="modal-img-item">
-        <img src="${img.src}" alt="${img.caption}" onclick="openLightbox('${img.src}')" />
+        <img src="${img.src}" alt="${img.alt || img.caption}" onclick="openLightbox('${img.src}')" />
         <div class="modal-img-caption">${img.caption}</div>
       </div>
     `).join('');
